@@ -1,12 +1,13 @@
+@use '../variables/Variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
 
 .contact-container {
   font-family: 'Poppins', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  color: #333;
 
   .contact-header {
     text-align: center;
@@ -15,7 +16,7 @@
     h2 {
       margin-top: 40px;
       font-size: 2.5rem;
-      color: #7f8c8d;
+      color: var(--primary-text-color);
       margin-bottom: 1rem;
       font-weight: 700;
     }
@@ -53,12 +54,12 @@
           padding: 1.8rem;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
           transition: all 0.3s ease;
-          border-left: 4px solid #3498db;
+          border-left: 4px solid var(--primary-text-color);
 
           .icon-wrapper {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #3498db, #9b59b6);
+            background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -72,7 +73,7 @@
           h3 {
             font-size: 1.4rem;
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: var(--primary-text-color);
           }
 
           p {
@@ -94,7 +95,7 @@
         overflow: hidden;
 
         .form-header {
-          background: linear-gradient(45deg, #3498db, #9b59b6);
+          background: var( --blue-btn-color);
           color: white;
           padding: 1.5rem;
           text-align: center;
@@ -177,14 +178,14 @@
               font-weight: 600;
               cursor: pointer;
               transition: all 0.3s ease;
-              background: linear-gradient(45deg, #3498db, #9b59b6);
+              background: var(--blue-btn-color);
               color: white;
               text-transform: uppercase;
               letter-spacing: 0.5px;
             }
 
             .clear-btn {
-              background: linear-gradient(45deg, #e74c3c, #f39c12);
+              background: var(--primary-color);
               width: 100%; // Full width clear button
             }
           }

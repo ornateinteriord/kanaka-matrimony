@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./Navbar.scss";
 import {
   Button,
@@ -19,6 +19,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import '../variables/variables.scss'
 import MenuIcon from "@mui/icons-material/Menu";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -27,6 +28,7 @@ import toast from "react-hot-toast";
 import { useLoginMutation, useResetpassword } from "../api/Auth";
 import useAuth from "../hook/UseAuth";
 import TokenService from "../token/tokenService";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -161,16 +163,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar">
           {/* Mobile Menu Button */}
-          <IconButton
-            className="menu-button"
-            onClick={toggleMobileMenu}
-            sx={{ 
-              display: { xs: "flex", md: "none" }, 
-              color: "#fff",
-            }}
-          >
-            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-          </IconButton>
+          
 
           {/* Logo/Brand Name */}
           <Typography
@@ -178,24 +171,26 @@ const Navbar = () => {
             component={Link}
             to="/"
             sx={{
+              width:{xs:"100%",sm:"20%",md:"0%"},
               fontWeight: "bold",
               fontSize: { xs: "1.5rem", sm: "1.5rem", md: "1.75rem" },
               whiteSpace: "nowrap",
               textDecoration: "none",
               color: "#fff",
-             textAlign:'center',
+             textAlign:'left',
               [theme.breakpoints.up('md')]: {
                 margin: "0",
                 marginRight: "auto"
               }
             }}
           >
-            Girija❤️Kalyana
+            Kanaka Matrimony
           </Typography>
 
           {/* Desktop Menu */}
           <Box 
             sx={{ 
+               
               display: { xs: "none", md: "flex" },
               flexGrow: 1,
               justifyContent: "center",
@@ -224,23 +219,22 @@ const Navbar = () => {
           </Box>
 
           {/* Auth Buttons */}
+          <Box sx={{display:'flex'}}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             {isLoggedIn ? (
               <Button
                 variant="contained"
                 size={isMobile ? "medium" : "large"}
                 onClick={handleLogout}
+                className="login-btn"
                 sx={{
-                  backgroundColor: "black",
                   minWidth: "120px",
                   color: "#fff",
                   fontWeight: 700,
                   height: { xs: "36px", md: "42px" },
                   textTransform: "capitalize",
-                  display: { xs: "none", sm: "inline-flex" },
-                  "&:hover": {
-                    backgroundColor: "#333333",
-                  },
+                  display: { xs: "none",md: "inline-flex"  },
+                
                 }}
               >
                 Logout
@@ -248,20 +242,19 @@ const Navbar = () => {
             ) : (
               <>
              <Button
+             className="login-btn"
                   variant="contained"
                   size={isMobile ? "medium" : "large"}
                   onClick={handleOpen}
                   sx={{
-                    backgroundColor: "black",
+                  
                     minWidth: "120px",
                     color: "#fff",
                     fontWeight: 700,
                     height: { xs: "36px", md: "42px" },
                     textTransform: "capitalize",
-                    display: { xs: "none", sm: "inline-flex" },
-                    "&:hover": {
-                      backgroundColor: "#333333",
-                    },
+                    display: { xs: "none", md: "inline-flex" },
+                    
                   }}
                 >
                   Login
@@ -269,18 +262,29 @@ const Navbar = () => {
               </>
             )}
           </Box>
+          <IconButton
+            className="menu-button"
+            onClick={toggleMobileMenu}
+            sx={{ 
+              display: { xs: "flex", md: "none" }, 
+              color: "#fff",
+            }}
+          >
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </IconButton>
+          </Box>
         </div>
       </div>
 
       {/* Mobile Menu Drawer */}
       <Drawer
-        anchor="left"
+        anchor="right"
         open={mobileMenuOpen}
         onClose={toggleMobileMenu}
         sx={{
           "& .MuiDrawer-paper": {
             width: "280px",
-            background: 'linear-gradient(to right, #182848, #4d75d4)',
+            background: 'var(--primary-color)',
             color: "#fff",
           },
         }}
@@ -299,9 +303,9 @@ const Navbar = () => {
             <Typography
               variant="h6"
               component="div"
-              sx={{ fontWeight: "bold", fontSize: "1.3rem" }}
+              sx={{ fontWeight: "bold", fontSize: "1.3rem",}}
             >
-              Girija❤️Kalyana
+              Kanaka Matrimony
             </Typography>
             <IconButton onClick={toggleMobileMenu} sx={{ color: "#fff" }}>
               <CloseIcon />
@@ -337,9 +341,9 @@ const Navbar = () => {
               </ListItem>
             ))}
           </List>
-
+         
           <Box sx={{ padding: "16px", marginTop: "auto" }}>
-            {isLoggedIn ? (
+            { isLoggedIn ? (
               <Button
                 variant="contained"
                 fullWidth
@@ -347,15 +351,14 @@ const Navbar = () => {
                   handleLogout();
                   toggleMobileMenu();
                 }}
+                 className="login-btn"
                 sx={{
-                  backgroundColor: "black",
+                  
                   color: "#fff",
                   fontWeight: 700,
                   height: "42px",
                   textTransform: "capitalize",
-                  "&:hover": {
-                    backgroundColor: "#333333",
-                  },
+                  
                 }}
               >
                 Logout
@@ -369,15 +372,13 @@ const Navbar = () => {
                     handleOpen();
                     toggleMobileMenu();
                   }}
+                   className="login-btn"
                   sx={{
-                    backgroundColor: "black",
                     color: "#fff",
                     fontWeight: 700,
                     height: "42px",
                     textTransform: "capitalize",
-                    "&:hover": {
-                      backgroundColor: "#333333",
-                    },
+                
                   }}
                 >
                   Login
@@ -403,6 +404,7 @@ const Navbar = () => {
       >
         <DialogTitle
           sx={{
+            color:'var( --primary-text-color)',
             textAlign: "center",
             fontWeight: "bold",
             fontSize: "1.5rem",
@@ -455,7 +457,7 @@ const Navbar = () => {
             <Typography
               variant="body2"
               sx={{
-                color: theme.palette.primary.main,
+                color: 'var( --primary-text-color)',
                 cursor: "pointer",
                 textAlign: "center",
                 "&:hover": {
@@ -487,6 +489,7 @@ const Navbar = () => {
               fontWeight: "bold",
               textTransform: "capitalize",
               fontSize: "1rem",
+              background:'var(--primary-color)',
             }}
           >
             {isLoginPending ? (
@@ -505,7 +508,7 @@ const Navbar = () => {
             Don't have an account?{" "}
             <span
               style={{
-                color: theme.palette.primary.main,
+                color: 'var( --primary-text-color)',
                 cursor: "pointer",
                 fontWeight: "bold",
               }}
@@ -539,6 +542,7 @@ const Navbar = () => {
             fontWeight: "bold",
             fontSize: "1.5rem",
             paddingBottom: "8px",
+            color:'var( --primary-text-color)'
           }}
         >
           {otpSent ? "Reset Password" : "Forgot Password"}
@@ -669,6 +673,7 @@ const Navbar = () => {
               fontWeight: "bold",
               textTransform: "capitalize",
               fontSize: "1rem",
+              background:"var(--primary-color)"
             }}
           >
             {isResettingPassword ? (
@@ -680,7 +685,7 @@ const Navbar = () => {
             )}
           </Button>
           <Button
-            variant="outlined"
+            
             fullWidth
             onClick={handleCloseForgotPassword}
             sx={{
@@ -689,6 +694,11 @@ const Navbar = () => {
               fontWeight: "bold",
               textTransform: "capitalize",
               fontSize: "1rem",
+               background:"var( --blue-btn-color)",
+               color:"var( --primary-font-color)",
+               '&:hover': {
+      background: 'var(--blue-btn-hover-color)', 
+    },
             }}
           >
             Cancel

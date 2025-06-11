@@ -1,4 +1,4 @@
-import React from "react";
+
 import card4 from '../../assets/card4.jpg';
 import './Aboutus.scss';
 import Navbar from "../navbar/Navbar";
@@ -12,7 +12,7 @@ const AboutUs = () => {
         <section className="about-us-intro">
           <div className="about-us-text">
             <h4 className="highlight-text">About Us</h4>
-            <h2 className="main-heading">GIRIJA KALYANA</h2>
+            <h2 className="main-heading">Kanaka Matrimony</h2>
             <h3 className="headingh3">Established in March 26th 2012</h3>
             <p>
               At Ornate Pvt Ltd, we specialize in delivering state-of-the-art IT

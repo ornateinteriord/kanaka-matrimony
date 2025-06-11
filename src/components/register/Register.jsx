@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Paper,
@@ -14,6 +14,7 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material';
+import '../variables/variables.scss'
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import rawJsonData from "../Userprofile/profile/eduction/jsondata/data.json";
 import Navbar from '../navbar/Navbar';
@@ -86,10 +87,10 @@ const Register = () => {
              gap: 2,
             flexDirection: 'row'
           }}>
-            <Avatar sx={{ bgcolor: 'primary.main' }}>
+            <Avatar sx={{ bgcolor: 'var(--primary-text-color)' }}>
               <HowToRegIcon />
             </Avatar>
-            <Typography variant={isMobile ? "h5" : "h4"} component="h1" sx={{ fontWeight: 600, textAlign: 'center' }}>
+            <Typography variant={isMobile ? "h5" : "h4"} component="h1" sx={{ fontWeight: 600, textAlign: 'center',color:'var(--primary-text-color)' }}>
               REGISTER HERE!
             </Typography>
           </Box>
@@ -103,7 +104,7 @@ const Register = () => {
           }}>
             {/* LEFT: Personal + Social */}
             <Box sx={{ flex: 1 }}>
-              <Typography variant="h6" sx={{ mb: 3, color: 'primary.main', fontWeight: 600 }}>
+              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
                 PERSONAL DETAILS
               </Typography>
 
@@ -173,7 +174,7 @@ const Register = () => {
                 onChange={handleChange}
               />
 
-              <Typography variant="h6" sx={{ mb: 3, color: 'primary.main', fontWeight: 600 }}>
+              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
                 SOCIAL & CAREER DETAILS
               </Typography>
 
@@ -260,7 +261,7 @@ const Register = () => {
 
             {/* RIGHT: Family + Login */}
             <Box sx={{ flex: 1 }}>
-              <Typography variant="h6" sx={{ mb: 3, color: 'primary.main', fontWeight: 600 }}>
+              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
                 FAMILY DETAILS
               </Typography>
 
@@ -366,7 +367,7 @@ const Register = () => {
           </Box>
 
           {/* LOGIN DETAILS */}
-          <Typography variant="h6" sx={{ mt: 1, mb: 3, color: 'primary.main', fontWeight: 600 }}>
+          <Typography variant="h6" sx={{ mt: 1, mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
             LOGIN DETAILS
           </Typography>
 
@@ -450,8 +451,8 @@ const Register = () => {
               variant="contained"
               size="large"
               sx={{
-                backgroundColor: 'orange',
-                '&:hover': { backgroundColor: 'darkorange' },
+                 background:'var(--primary-color)',
+                
                 fontWeight: 600,
                 width: { xs: '100%', sm: '50%', md: '30%' },
                 textTransform: 'capitalize'

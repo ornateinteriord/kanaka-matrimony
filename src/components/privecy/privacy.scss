@@ -1,3 +1,5 @@
+@use '../variables/Variables.scss';
+
 .privacy-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -9,7 +11,7 @@
 
   .privacy-header {
     text-align: center;
-    background: #518bad;
+    background: var(--blue-btn-color);
     color: #fff;
     padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 3vw, 1.25rem);
     border-radius: 8px;

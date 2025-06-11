@@ -1,4 +1,4 @@
-import React from "react";
+
 import { LuNewspaper, LuCoffee } from "react-icons/lu";
 import { IoSearchOutline, IoCallOutline } from "react-icons/io5";
 import { TbUsers } from "react-icons/tb";

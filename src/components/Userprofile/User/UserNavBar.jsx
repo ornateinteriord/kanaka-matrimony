@@ -226,7 +226,7 @@ const handleSubmitPasswordChange = () => {
             <Box sx={{ textAlign: "left", width: "100%" }}>
               <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
                 <Typography variant="h5" noWrap component="div">
-                  Girija❤️Kalyana
+                  Kanaka Matrimony
                 </Typography>
               </Link>
             </Box>

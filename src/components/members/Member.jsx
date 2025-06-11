@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Container,
   Typography,
@@ -11,9 +11,9 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
-import "./Members.scss";
 import Footer from "../footer/Footer";
 import { useGetRecentRegisters } from "../api/Auth";
+import '../variables/variables.scss'
 
 const Members = () => {
   const isLargeScreen = useMediaQuery("(min-width:1200px)");
@@ -43,7 +43,7 @@ const Members = () => {
         <Typography
           variant="h4"
           sx={{
-            color: "#182848",
+            color: "var(--primary-text-color)",
             fontWeight: "bold",
             fontFamily: "Outfit, sans-serif",
             fontSize: { xs: "1.5rem", sm: "2rem" },
@@ -87,7 +87,7 @@ const Members = () => {
                       display: "flex",
                       flexDirection: "column",
                       p: 3,
-                      background: "linear-gradient(to right, #182848, #4d75d4)",
+                      background: "var(--primary-color)",
                       color: "white",
                       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
                     }}
@@ -103,7 +103,7 @@ const Members = () => {
                         textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
                       }}
                     >
-                      Girija❤️Kalyana
+                      Kanaka Matrimony
                     </Typography>
 
                     <Box

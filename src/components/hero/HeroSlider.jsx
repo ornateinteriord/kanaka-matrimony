@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Button, useTheme, useMediaQuery } from "@mui/material";
 import { styled } from "@mui/system";
 import Slider from "react-slick";
@@ -10,6 +9,7 @@ import wall2 from '../../assets/wallpaper/wall2.jpg';
 import Navbar from "../navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./HeroSlider.scss";
+import '../variables/variables.scss'
 
 const HeroSlider = () => {
   const theme = useTheme();
@@ -133,9 +133,9 @@ const HeroSlider = () => {
               variant="contained"
               size={isMobile ? "small" : "large"}
               sx={{
-                backgroundColor: '#00796B',
+                background: 'var(--blue-btn-color)',
                 '&:hover': {
-                  backgroundColor: '#004D40',
+                  background: 'var(--blue-btn-hover-color)',
                 },
                 borderRadius: '8px',
                 textTransform: 'capitalize',

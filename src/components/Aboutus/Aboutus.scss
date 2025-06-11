@@ -1,3 +1,5 @@
+@use '../variables/Variables.scss';
+
 .about-us-container {
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@
         font-size: clamp(1.75rem, 4vw, 2.25rem);
         font-weight: 700;
         margin: 10px 0;
-        color: #264653;
+        color: var(--primary-text-color);
         line-height: 1.2;
       }
 
@@ -64,7 +66,7 @@
         font-size: 0.875rem;
         font-weight: bold;
         color: #fff;
-        background-color: #e76f51;
+        background-color: var(--blue-btn-color);
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -72,7 +74,7 @@
         display: inline-block;
 
         &:hover {
-          background-color: #d1493f;
+          background-color: var(--blue-btn-hover-color);
         }
       }
     }
@@ -104,7 +106,7 @@
       font-size: clamp(1.5rem, 3vw, 1.75rem);
       font-weight: 600;
       margin-bottom: 30px;
-      color: #264653;
+      color: var(--primary-text-color);
       @media (max-width: 900px){
         text-align: center;
       }
@@ -117,7 +119,7 @@
       gap: 20px;
 
       .service-card {
-        background: #f4f4f4;
+        background: var(--blue-btn-color);
         padding: 20px;
         border-radius: 8px;
         text-align: center;
@@ -127,18 +129,18 @@
 
         h4 {
           font-size: clamp(1rem, 2vw, 1.125rem);
-          color: #264653;
+          color: var(--primary-text-color);
           margin-bottom: 10px;
         }
 
         p {
           font-size: clamp(0.8125rem, 1.5vw, 0.875rem);
-          color: #6c757d;
+          color: var(--primary-font-color);
           line-height: 1.5;
         }
 
         &:hover {
-          background: #e9ecef;
+          background: var(--blue-btn-hover-color);
           transform: translateY(-5px);
         }
       }

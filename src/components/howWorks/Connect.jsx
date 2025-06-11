@@ -1,7 +1,8 @@
-import React from 'react';
+
 import { Container, Typography, Grid, Box, Paper, Badge, Card, CardContent } from '@mui/material';
 import { FaUserEdit, FaUsers, FaComments, FaUserFriends, FaCalendarWeek, FaCalendarAlt, FaUserPlus } from 'react-icons/fa';
 import { useGetDashboardStats } from '../api/Auth';
+import '../variables/variables.scss'
 
 const Connect = () => {
   const { data: dashboardstats } = useGetDashboardStats();
@@ -11,27 +12,27 @@ const stats = [
       id: 1,
       title: 'Profiles',
       value: `${dashboardstats?.stats?.totalProfiles || 0} +`,
-      icon: <FaUserFriends style={{ fontSize: 40, color: 'rgb(192, 9, 88)' }} />,
+      icon: <FaUserFriends style={{ fontSize: 40, color: 'var(--primary-text-color)' }} />,
       color: '#f8f9fa',
-      textColor: 'rgb(192, 9, 88)',
+      textColor: 'var(--primary-text-color)',
      
     },
     {
       id: 2,
       title: 'This Week Registrations',
       value: `${dashboardstats?.stats?.thisWeekRegistrations || 0} +`,
-      icon: <FaCalendarWeek style={{ fontSize: 40, color: '#00bcd4' }} />,
+      icon: <FaCalendarWeek style={{ fontSize: 40, color: 'var(--primary-text-color)' }} />,
       color: '#f8f9fa',
-      textColor: '#00bcd4',
+      textColor: 'var(--primary-text-color)',
       
     },
     {
       id: 3,
       title: 'This Month Registrations',
       value: `${dashboardstats?.stats?.thisMonthRegistrations || 0} +`,
-      icon: <FaCalendarAlt style={{ fontSize: 40, color: '#ff5a5f' }} />,
+      icon: <FaCalendarAlt style={{ fontSize: 40, color: 'var(--primary-text-color)' }} />,
       color: '#f8f9fa',
-      textColor: '#ff5a5f',
+      textColor: 'var(--primary-text-color)',
      
     },
   ];
@@ -70,7 +71,7 @@ const stats = [
   }}>
     <Typography variant="h4" sx={{ 
      
-      color: 'rgb(192, 9, 88)', 
+      color: 'var( --primary-text-color)', 
       fontWeight: 600,
       textAlign: 'center',
       fontSize: { xs: '1.75rem', md: '2.125rem' }
@@ -137,7 +138,7 @@ const stats = [
 </Container>
 
       <Container sx={{ textAlign: 'center', marginTop: 5, fontFamily: "Outfit" }}>
-        <Typography variant="h4" sx={{ marginBottom: 4, color: '#ff5a5f', fontFamily: "Outfit sans-serif" }}>
+        <Typography variant="h4" sx={{ marginBottom: 4, color: 'var(--primary-text-color)', fontFamily: "Outfit sans-serif" }}>
           Find your Special Someone
         </Typography>
         <Grid container spacing={4} justifyContent="center">
@@ -145,7 +146,7 @@ const stats = [
             <Grid item xs={12} sm={4} key={feature.id}>
               <Badge
                 badgeContent={feature.id}
-                color="error"
+                color="var(--primary-text-color)"
                 overlap="circular"
                 sx={{
                   '& .MuiBadge-badge': {
@@ -156,7 +157,7 @@ const stats = [
                     top: 10,
                     right: 10,
                     backgroundColor: '#fff',
-                    color: '#ff5a5f',
+                    color: 'var(--primary-text-color)',
                     border: '2px solid #00bcd4',
                   },
                 }}
@@ -166,7 +167,7 @@ const stats = [
                   sx={{
                     padding: 3,
                     borderRadius: '50%',
-                    backgroundColor: 'rgb(192, 9, 88)',
+                    background: 'var(--primary-color)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -179,7 +180,7 @@ const stats = [
                 </Paper>
               </Badge>
               <Box sx={{ marginTop: 2 }}>
-                <Typography variant="h6" sx={{ color: '#00bcd4', fontFamily: "Outfit sans-serif" }}>
+                <Typography variant="h6" sx={{ color: 'var(--primary-text-color)', fontFamily: "Outfit sans-serif" }}>
                   {feature.title}
                 </Typography>
                 <Typography variant="body2" sx={{ color: '#777', fontFamily: "Outfit sans-serif" }}>

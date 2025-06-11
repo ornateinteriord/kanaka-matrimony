@@ -60,8 +60,8 @@ const ContactUs = () => {
                   <i className="fas fa-envelope"></i>
                 </div>
                 <h3>Email Us</h3>
-                <p>contactusgirijakalyana@gmail.com</p>
-                <p>enquirygirijakalyana@gmail.com</p>
+                <p>contactuskanakamatrimony@gmail.com</p>
+                <p>enquirykanakamatrimony@gmail.com</p>
               </motion.div>
 
               <motion.div 

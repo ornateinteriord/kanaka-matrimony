@@ -1,4 +1,4 @@
-import React from "react";
+
 import "./Footer.scss";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-section">
-            <h2 className="footer-heading">Girija Kalyana</h2>
+            <h2 className="footer-heading">Kanaka Matrimony</h2>
             <p className="footer-text">
               A Superior Matrimony Service. Register and find your special
               someone matches within your community.
@@ -29,8 +29,8 @@ function Footer() {
 
           <div className="footer-section">
             <h3 className="footer-heading">Contact Us</h3>
-            <p className="footer-text">Email: contactusgirijakalyana@gmail.com</p>
-            <p className="footer-text">Email: enquirygirijakalyana@gmail.com</p>
+            <p className="footer-text">Email: contactuskanakamatrimony@gmail.com</p>
+            <p className="footer-text">Email: enquirykanakamatrimony@gmail.com</p>
             <p className="footer-text">Call Us: 9148824442</p>
           </div>
 
