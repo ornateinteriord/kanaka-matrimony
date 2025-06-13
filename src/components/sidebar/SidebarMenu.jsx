@@ -1,7 +1,7 @@
-// SidebarMenu.js
-import React from "react";
+
 import { List, ListItem, Box, Button, Typography } from "@mui/material";
 import { getMenuItems } from "../../utils/menudata/MenuData"; 
+import '../variables/variables.scss'
 
 const SidebarMenu = ({
   selectedItem,
@@ -36,6 +36,9 @@ const SidebarMenu = ({
               textTransform={"capitalize"}
             >
               {userProfile?.first_name}
+              <Typography sx={{color:"#fff"}}>
+                Id: {userProfile?.registration_no} 
+              </Typography>
             </Typography>
           </Box>
         </ListItem>
@@ -50,10 +53,10 @@ const SidebarMenu = ({
             }}
             sx={{
               backgroundColor:
-                selectedItem === item.text ? "#1976d2" : "transparent",
+                selectedItem === item.text ? "var(--blue-btn-color)" : "transparent",
               "&:hover": {
                 backgroundColor:
-                  selectedItem === item.text ? "#1976d2" : "transparent",
+                  selectedItem === item.text ? "var(--blue-btn-hover-color)" : "transparent",
               },
               borderRadius: "2px",
               mx: 0,

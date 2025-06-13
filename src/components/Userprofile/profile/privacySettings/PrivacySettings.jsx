@@ -5,7 +5,6 @@ import {
   useMediaQuery,
   useTheme,
   Switch,
-  FormControlLabel,
 } from "@mui/material";
 import { FaRegImage } from "react-icons/fa";
 import {
@@ -13,6 +12,7 @@ import {
   useUpdateProfile,
 } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
+import '../../../variables/variables.scss'
 
 const privacyOptions = [
   {
@@ -97,7 +97,7 @@ const PrivacySettings = () => {
           textAlign: "start",
           marginBottom: "24px",
           fontWeight: "bold",
-          color: "#34495e",
+          color: "var(--primary-text-color)" ,
           fontSize: "1.75rem",
         }}
       >

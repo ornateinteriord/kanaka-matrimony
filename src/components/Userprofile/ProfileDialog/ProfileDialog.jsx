@@ -355,10 +355,13 @@ const ProfileDialog = ({
               }
               fullWidth={window.innerWidth < 600}
               sx={
-                buttonState.customStyle || {
+                 {
                   textTransform: "none",
                   fontSize: { xs: "0.8rem", sm: "0.9rem" },
                   padding: { xs: "6px 12px", sm: "8px 16px" },
+                  "&:hover": {
+              background: buttonState.color,
+            },
                 }
               }
             >
@@ -368,6 +371,9 @@ const ProfileDialog = ({
               variant="outlined"
               onClick={() => setOpenDialog(false)}
               fullWidth={window.innerWidth < 600}
+              sx={{"&:hover": {
+              background: "#fff",
+            },}}
             >
               Close
             </Button>

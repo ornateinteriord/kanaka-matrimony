@@ -19,6 +19,7 @@ import TokenService from "../../../token/tokenService";
 import toast from "react-hot-toast";
 import rawJsonData from "../eduction/jsondata/data.json";
 import { LoadingComponent } from "../../../../App";
+import '../../../variables/variables.scss'
 
 // Merge array of JSON objects into one object
 const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
@@ -155,7 +156,7 @@ const Education = () => {
       }}
     >
       <Stack spacing={3}>
-        <Typography variant="h5" gutterBottom sx={{ color: "#34495e",fontWeight:'bold' }}>
+        <Typography variant="h5" gutterBottom sx={{ color: "var(--primary-text-color)",fontWeight:'bold' }}>
           Education & Occupation
         </Typography>
         <form>
@@ -305,9 +306,9 @@ const Education = () => {
                 variant="contained"
                 disabled={isUpdating}
                 sx={{
-                  backgroundColor: "#34495e",
+                  background: "var( --blue-btn-color)",
                   textTransform: "capitalize",
-                  "&:hover": { backgroundColor: "#2c3e50" },
+                  "&:hover": { background: "var(--blue-btn-hover-color)" },
                   width: { xs: "100%", sm: "auto" }
                 }}
               >

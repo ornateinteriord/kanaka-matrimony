@@ -1,14 +1,14 @@
-import React, { useRef, useState } from "react";
+import  { useRef, useState } from "react";
 import { Box, Button, Typography, Card, CardMedia, DialogTitle, Dialog, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import { FaTrash, FaUpload } from "react-icons/fa";
 import toast from "react-hot-toast";
-import useStore from "../../../../store";
 import {
   getCloudinaryUrl,
   useGetMemberDetails,
   useUpdateProfile,
 } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
+import '../../../variables/variables.scss'
 
 const Photos = () => {
   const [formData, setFormData] = useState({});
@@ -223,9 +223,9 @@ const Photos = () => {
               disabled={isUpdating || !formData.image}
               sx={{
                 height: "35px",
-                backgroundColor: "#34495e",
+                background: "var( --blue-btn-color)",
                 "&:hover": {
-                  backgroundColor: "#1976d2",
+                   background: "var(--blue-btn-hover-color)",
                 },
                 visibility: formData.image ? "visible" : "visible", // Always visible
                 opacity: !formData.image || isUpdating ? 0.7 : 1, // Faded when disabled

@@ -18,6 +18,7 @@ import {
   useGetMemberDetails,
 } from "../../api/User/useGetProfileDetails";
 import { LoadingComponent } from "../../../App";
+import '../../variables/variables.scss'
 import toast from "react-hot-toast";
 import AboutPop from "../viewAll/popupContent/abouPop/AboutPop";
 import FamilyPop from "../viewAll/popupContent/familyPop/FamilyPop";
@@ -250,7 +251,7 @@ const MyMatches = () => {
                   width: 100,
                   height: 100,
                   borderRadius: "50%",
-                  border: "3px solid #87CEEB",
+                  border: "3px solid var( --blue-btn-color)",
                   mx: "auto",
                   mb: 2,
                   padding: "2px",
@@ -335,7 +336,6 @@ const MyMatches = () => {
                   <Button
                     fullWidth
                     variant="contained"
-                    color="primary"
                     onClick={() => handleOpenDialog(user)}
                     sx={{
                       borderRadius: 2,
@@ -343,6 +343,10 @@ const MyMatches = () => {
                       textTransform: "none",
                       fontWeight: "bold",
                       fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
                     }}
                   >
                     View More

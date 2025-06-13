@@ -136,7 +136,7 @@ const Accepted = () => {
                            border: "3px solid #87CEEB",
                            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
                            padding: "2px",
-                           background: "linear-gradient(45deg, #87CEEB, #E0F7FA)",
+                           background: "var( --blue-btn-color)",
                          }}
                        >
                       <Avatar
@@ -185,7 +185,7 @@ const Accepted = () => {
                       <Button
                         fullWidth
                         variant="contained"
-                        color="primary"
+                        
                         onClick={() => handleOpenDialog(profile)}
                         sx={{
                           borderRadius: 2,
@@ -193,6 +193,10 @@ const Accepted = () => {
                           textTransform: "none",
                           fontWeight: "bold",
                           fontSize: "0.9rem",
+                          background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
                         }}
                       >
                         View Profile

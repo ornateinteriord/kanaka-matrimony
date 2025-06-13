@@ -163,7 +163,7 @@ const Search = () => {
               width: { xs: 100, sm: 120 },
               height: { xs: 100, sm: 120 },
               borderRadius: "50%",
-              border: "3px solid #87CEEB",
+              border: "3px solid var( --blue-btn-color)",
               boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
               mb: 2,
               background: "linear-gradient(45deg, #87CEEB, #E0F7FA)",
@@ -221,9 +221,12 @@ const Search = () => {
             <Button
               fullWidth
               variant="contained"
-              color="primary"
+             
               onClick={() => handleOpenDialog(user)}
-              sx={{ borderRadius: 2, py: 1, fontWeight: "bold" ,textTransform:'capitalize'}}
+              sx={{ borderRadius: 2, py: 1, fontWeight: "bold" ,textTransform:'capitalize',background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },}}
             >
               View More
             </Button>
@@ -261,9 +264,12 @@ const Search = () => {
           />
           <Button
             variant="contained"
-            color="primary"
+            
             onClick={handleSearch}
-            sx={{ whiteSpace: "nowrap", textTransform: "capitalize", width: "150px", fontSize: "18px" }}
+            sx={{ whiteSpace: "nowrap", textTransform: "capitalize", width: "150px", fontSize: "18px",background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            }, }}
           >
             <FaSearch style={{ marginRight: 6 }} />
             Search

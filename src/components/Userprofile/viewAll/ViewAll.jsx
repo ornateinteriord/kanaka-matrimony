@@ -165,7 +165,7 @@ const ViewAll = () => {
               width: { xs: 100, sm: 120, md: 110, lg: 120 },
               height: { xs: 100, sm: 120, md: 110, lg: 120 },
               borderRadius: "50%",
-              border: "3px solid #87CEEB",
+              border: "3px solid var( --blue-btn-color)",
               boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
               mb: 2,
               position: "relative",
@@ -260,7 +260,7 @@ const ViewAll = () => {
             <Button
               fullWidth
               variant="contained"
-              color="primary"
+              
               onClick={() => handleOpenDialog(user)}
               sx={{
                 borderRadius: 2,
@@ -268,6 +268,10 @@ const ViewAll = () => {
                 textTransform: "none",
                 fontWeight: "bold",
                 fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
               }}
             >
               View More

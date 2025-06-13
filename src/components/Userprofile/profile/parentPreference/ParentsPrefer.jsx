@@ -17,14 +17,13 @@ import toast from "react-hot-toast";
 import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
 import { LoadingComponent } from "../../../../App";
+import '../../../variables/variables.scss'
 
 const datas = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
 const ParentsPrefer = () => {
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
-  const isMd = useMediaQuery(theme.breakpoints.between('sm', 'lg'));
-  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
 
   const registerNo = TokenService.getRegistrationNo();
 
@@ -151,7 +150,7 @@ const ParentsPrefer = () => {
           textAlign: "start",
           fontWeight: 700,
           fontSize: { xs: "23px", sm: "22px" },
-          color: "#34495e",
+          color: "var(--primary-text-color)",
           marginBottom: { xs: "16px", sm: "24px" },
         }}
       >
@@ -218,9 +217,9 @@ const ParentsPrefer = () => {
                       variant="contained"
                       disabled={isUpdating}
                       sx={{
-                        backgroundColor: "#34495e",
+                         background: "var(--blue-btn-color)",
                         textTransform: "capitalize",
-                        "&:hover": { backgroundColor: "#2c3e50" },
+                        "&:hover": {  background: "var(--blue-btn-hover-color)" },
                         width: { xs: "100%", sm: "130px" }
                       }}
                     >

@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import {
-  FaTachometerAlt,
-  FaUser,
-  FaUsers,
-  FaHeart,
-  FaSearch,
-  FaSignOutAlt,
   FaBars,
-  FaCog,
 } from "react-icons/fa";
 import {
   Avatar,
@@ -15,8 +8,6 @@ import {
   Toolbar,
   Typography,
   Drawer,
-  List,
-  ListItem,
   Box,
   CssBaseline,
   Menu,
@@ -31,9 +22,7 @@ import {
   TextField,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { FaDashcube, FaUsersViewfinder } from "react-icons/fa6";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import UserDashboard from "../userdDashboard/UserDashboard";
 import convertFromBase64 from "../profile/photo/Photos";
 import useStore from "../../../store";
 import TokenService from "../../token/tokenService";
@@ -41,6 +30,7 @@ import { useChangePassword, useGetMemberDetails } from "../../api/User/useGetPro
 import { toast } from "react-toastify";
 import { LoadingComponent } from "../../../App";
 import SidebarMenu from "../../sidebar/SidebarMenu";
+import '../../variables/variables.scss'
 
 
 
@@ -214,7 +204,7 @@ const handleSubmitPasswordChange = () => {
           position="fixed"
           sx={{
             zIndex: (theme) => theme.zIndex.drawer + 1,
-            background: "#1a4f72",
+            background: "var(--primary-color)",
             height: "60px",
           }}
         >
@@ -287,7 +277,7 @@ const handleSubmitPasswordChange = () => {
     [`& .MuiDrawer-paper`]: {
       width: isSidebarOpen ? drawerWidth : 0,
       boxSizing: "border-box",
-      background: "#1a4f72",
+      background: "var( --primary-color)",
       color: "#fff",
       transition: "width 0.6s ease, opacity 0.6s ease",
       opacity: isSidebarOpen ? 1 : 0,

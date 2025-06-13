@@ -111,7 +111,7 @@ const FamilyReligious = () => {
     >
       {/* Header */}
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h5" sx={{fontSize:{xs : '21px',sm:'25px',color:'#34495e'}}} fontWeight="bold">
+        <Typography variant="h5" sx={{fontSize:{xs : '21px',sm:'25px',color:'var(--primary-text-color)'}}} fontWeight="bold">
           Family & Religious Information
         </Typography>
          <Button
@@ -124,7 +124,11 @@ const FamilyReligious = () => {
                     maxWidth: { xs: '100px', sm: 180 },
                     padding:{xs:0.6},
                     textTransform: 'capitalize',
-                    fontSize: '16px'
+                    fontSize: '16px',
+                     background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
                   }}
                 >
                   {isEditing ? 'Cancel' : 'Edit Profile'}

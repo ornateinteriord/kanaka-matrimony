@@ -71,7 +71,7 @@ const userData = sessionStorage.getItem("userData");
         sx={{
           fontWeight: "bold",
           marginBottom: "16px",
-          color: "#34495e",
+           color: "var(--primary-text-color)",
           textAlign: "center",
         }}
       >
@@ -110,9 +110,12 @@ const userData = sessionStorage.getItem("userData");
         
           onClick={handleSubmit}
           sx={{
-            backgroundColor: "#1976d2",
+            
               textTransform:'capitalize',
-             background:'#34495e'
+             background: "var( --blue-btn-color)",
+             "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
           }}
         >
           Submit
@@ -125,6 +128,9 @@ const userData = sessionStorage.getItem("userData");
             borderColor: "#34495e",
             color: "black",
               textTransform:'capitalize',
+              "&:hover": {
+              background: "#fff",
+            },
            
           }}
         >

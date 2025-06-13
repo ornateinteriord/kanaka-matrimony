@@ -11,6 +11,7 @@ import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetP
 import TokenService from "../../../token/tokenService";
 import { LoadingComponent } from "../../../../App";
 import { toast } from "react-toastify";
+import '../../../variables/variables.scss'
 
 const LifeStyle = () => {
   const registerNo = TokenService.getRegistrationNo();
@@ -86,7 +87,7 @@ const LifeStyle = () => {
   return (
     <Box sx={{ fontFamily: "Outfit, sans-serif", padding: 1, width: "92%" }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h5" sx={{fontSize:{ xs:'23px',}}} color="#34495e" fontWeight={700}>
+        <Typography variant="h5" sx={{fontSize:{ xs:'23px',},color: "var(--primary-text-color)"}}  fontWeight={700}>
           Life Style & Appearance
         </Typography>
       </Box>
@@ -236,9 +237,9 @@ const LifeStyle = () => {
                       variant="contained"
                       disabled={isUpdating}
                       sx={{
-                        backgroundColor: "#34495e",
+                       background: "var( --blue-btn-color)",
                         textTransform: "capitalize",
-                        "&:hover": { backgroundColor: "#2c3e50" },
+                        "&:hover": { background: "var(--blue-btn-hover-color)" },
                         width: { xs: "100%", sm: "130px" }
                       }}
                     >

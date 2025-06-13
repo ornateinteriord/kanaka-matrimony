@@ -247,7 +247,7 @@ return (
         boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
         mb: 1,
         padding: "2px",
-        background: "linear-gradient(45deg, #87CEEB, #E0F7FA)",
+        background: "var( --blue-btn-color)",
       }}
     >
       <Avatar
@@ -301,7 +301,7 @@ return (
       <Button
         fullWidth
         variant="contained"
-        color="primary"
+        
         onClick={() => handleOpenDialog(profile)}
         sx={{
           mt: "auto",
@@ -310,6 +310,10 @@ return (
           textTransform: "none",
           fontWeight: "bold",
           fontSize: { xs: "0.8rem", sm: "0.9rem" },
+          background: "var( --blue-btn-color)",
+            "&:hover": {
+              background: "var(--blue-btn-hover-color)",
+            },
         }}
       >
         View More
@@ -318,7 +322,7 @@ return (
       <Button
         fullWidth
         variant="outlined"
-        color="primary"
+        color="error"
         onClick={() => handleRequestCancelClick(interestId)}
         sx={{
           mt: 1,
@@ -327,6 +331,9 @@ return (
           textTransform: "none",
           fontWeight: "bold",
           fontSize: { xs: "0.8rem", sm: "0.7rem" },
+          "&:hover": {
+              background: "#fff",
+            },
         }}
       >
         Cancel Request

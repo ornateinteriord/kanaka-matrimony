@@ -10,6 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MembershipDialog from "../Userprofile/MembershipDailog/MembershipDailog";
+import '../variables/variables.scss'
 
 const HomeUserTable = ({ userId }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -117,7 +118,7 @@ const HomeUserTable = ({ userId }) => {
                 borderRadius: 3,
                 position: "relative",
                 overflow: "hidden",
-                background: "linear-gradient(135deg,rgb(235, 247, 101) 0%,rgb(136, 126, 8) 100%)",
+                background: "var(--primary-color)",
                 color: "#fff",
                 width:isSmallScreen? "300px": "500px",
                 marginBottom: "15px",
@@ -127,13 +128,13 @@ const HomeUserTable = ({ userId }) => {
                 <Typography
                   variant={isSmallScreen ? "h6" : "h5"}
                   fontWeight={700}
-                  sx={{ fontSize: isSmallScreen ? "1.25rem" : "1.5rem",color:'#000' }}
+                  sx={{ fontSize: isSmallScreen ? "1.25rem" : "1.5rem",color:'#fff' }}
                 >
                   Upgrade Your Membership
                 </Typography>
                 <Typography
                   variant={isSmallScreen ? "subtitle1" : "h6"}
-                  sx={{ mt: 1, opacity: 0.9 ,color:'#000'}}
+                  sx={{ mt: 1, opacity: 0.9 ,color:'#fff'}}
                 >
                   Unlock premium features
                 </Typography>
