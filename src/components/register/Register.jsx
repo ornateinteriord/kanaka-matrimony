@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import {
   Box,
   Paper,
@@ -14,23 +14,45 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material';
-import '../variables/variables.scss'
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import rawJsonData from "../Userprofile/profile/eduction/jsondata/data.json";
 import Navbar from '../navbar/Navbar';
 import Footer from "../footer/Footer";
 import { toast } from 'react-toastify'; 
 import { useSignupMutation } from '../api/Auth';
+import { useLocation } from 'react-router-dom';
+
 
 const datas = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
 const Register = () => {
+    const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const signupmutation = useSignupMutation();
   const { mutate } = signupmutation;
+   
+  const searchParams = new URLSearchParams(location.search);
+const planType = searchParams.get('type');
 
-  const [formData, setFormData] = useState({});
+const getUserRole = () => {
+  switch(planType) {
+    case 'PremiumUser': return 'PremiumUser';
+    case 'SilverUser': return 'SilverUser';
+    default: return 'FreeUser';
+  }
+};
+
+useEffect(() => {
+  setFormData(prev => ({
+    ...prev,
+    user_role: getUserRole() 
+  }));
+}, [planType]);
+
+const [formData, setFormData] = useState({
+  user_role: getUserRole(),
+});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +61,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     if (formData.password !== formData.confirmPassword) {
       toast.error('Passwords do not match');
       return;
@@ -446,13 +468,19 @@ const Register = () => {
             alignItems: 'center', 
             justifyContent: 'center' 
           }}>
+
+            <input 
+    type="hidden" 
+    name="user_role" 
+    value={formData.user_role} 
+  />
             <Button
               type="submit"
               variant="contained"
               size="large"
               sx={{
-                 background:'var(--primary-color)',
-                
+                background: 'var(--primary-color)',
+                '&:hover': { backgroundColor: 'darkorange' },
                 fontWeight: 600,
                 width: { xs: '100%', sm: '50%', md: '30%' },
                 textTransform: 'capitalize'
