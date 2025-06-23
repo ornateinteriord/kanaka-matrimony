@@ -145,7 +145,7 @@ const Sent = () => {
             ))}
           </Box>
 
-          {totalPages >= 1 && (
+          {totalPages > 1 && (
             <Box sx={{ display: "flex", justifyContent: "end", mt: 4 }}>
               <Pagination
                 count={totalPages}

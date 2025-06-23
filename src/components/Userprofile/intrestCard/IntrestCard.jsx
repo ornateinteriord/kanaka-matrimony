@@ -138,7 +138,7 @@ const InterestCard = ({ senderData, handleResponse }) => {
           </Typography>
         </Box>
 
-        <Divider sx={{ my: 1 }} />
+        <Divider sx={{ my: 1, width: "100%", borderColor: "#ccc",height:'1px'  }} />
 
         <Box display="flex" justifyContent="space-around" width="100%" my={2}>
           <ProfileInfo label="Height" value={senderData?.height || "N/A"} />
