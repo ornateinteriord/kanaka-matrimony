@@ -9,7 +9,6 @@ import wall2 from '../../assets/wallpaper/wall2.jpg';
 import Navbar from "../navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./HeroSlider.scss";
-import '../variables/variables.scss'
 import useAuth from "../hook/UseAuth";
 
 const HeroSlider = () => {
