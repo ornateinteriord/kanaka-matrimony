@@ -2,7 +2,7 @@
 import { Container, Typography, Grid, Box, Paper, Badge, Card, CardContent } from '@mui/material';
 import { FaUserEdit, FaUsers, FaComments, FaUserFriends, FaCalendarWeek, FaCalendarAlt, FaUserPlus } from 'react-icons/fa';
 import { useGetDashboardStats } from '../api/Auth';
-import '../variables/Variables.scss'
+
 
 const Connect = () => {
   const { data: dashboardstats } = useGetDashboardStats();
