@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { FaBriefcase, FaMapMarkerAlt } from "react-icons/fa";
 import { LoadingComponent } from "../../../App";
-import '../../variables/variables.scss'
+import '../../variables/Variables.scss'
 
 const ProfileInfo = ({ label, value }) => (
   <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>

@@ -1,7 +1,7 @@
 
 import { List, ListItem, Box, Button, Typography } from "@mui/material";
 import { getMenuItems } from "../../utils/menudata/MenuData"; 
-import '../variables/variables.scss'
+import '../variables/Variables.scss'
 
 const SidebarMenu = ({
   selectedItem,

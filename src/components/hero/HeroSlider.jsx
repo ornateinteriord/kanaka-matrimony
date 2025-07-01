@@ -10,7 +10,7 @@ import Navbar from "../navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./HeroSlider.scss";
 import useAuth from "../hook/UseAuth";
-
+import '../variables/Variables.scss'
 const HeroSlider = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));

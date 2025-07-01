@@ -8,7 +8,7 @@ import {
   useUpdateProfile,
 } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
-import '../../../variables/variables.scss'
+import '../../../variables/Variables.scss'
 
 const Photos = () => {
   const [formData, setFormData] = useState({});

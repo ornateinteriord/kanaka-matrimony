@@ -30,7 +30,7 @@ import { useChangePassword, useGetMemberDetails } from "../../api/User/useGetPro
 import { toast } from "react-toastify";
 import { LoadingComponent } from "../../../App";
 import SidebarMenu from "../../sidebar/SidebarMenu";
-import '../../variables/variables.scss'
+import '../../variables/Variables.scss'
 
 
 

@@ -17,7 +17,7 @@ import toast from "react-hot-toast";
 import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
 import { LoadingComponent } from "../../../../App";
-import '../../../variables/variables.scss'
+import '../../../variables/Variables.scss'
 
 const datas = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 

@@ -19,7 +19,7 @@ import TokenService from "../../../token/tokenService";
 import toast from "react-hot-toast";
 import rawJsonData from "../eduction/jsondata/data.json";
 import { LoadingComponent } from "../../../../App";
-import '../../../variables/variables.scss'
+import '../../../variables/Variables.scss'
 
 // Merge array of JSON objects into one object
 const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});

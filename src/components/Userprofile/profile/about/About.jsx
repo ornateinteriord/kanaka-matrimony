@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../../variables/variables.scss";
+import "../../../variables/Variables.scss";
 import {
   Box,
   Typography,

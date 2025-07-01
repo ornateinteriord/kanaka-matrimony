@@ -10,7 +10,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import MembershipDialog from "../Userprofile/MembershipDailog/MembershipDailog";
-import '../variables/variables.scss'
+import '../variables/Variables.scss'
 
 const HomeUserTable = ({ userId }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);

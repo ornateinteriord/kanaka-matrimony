@@ -11,7 +11,7 @@ import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetP
 import TokenService from "../../../token/tokenService";
 import { LoadingComponent } from "../../../../App";
 import { toast } from "react-toastify";
-import '../../../variables/variables.scss'
+import '../../../variables/Variables.scss'
 
 const LifeStyle = () => {
   const registerNo = TokenService.getRegistrationNo();

@@ -17,7 +17,7 @@ import {
   useGetMemberDetails,
 } from "../../api/User/useGetProfileDetails";
 import { LoadingComponent } from "../../../App";
-import '../../variables/variables.scss'
+import '../../variables/Variables.scss'
 import toast from "react-hot-toast";
 import AboutPop from "../viewAll/popupContent/abouPop/AboutPop";
 import FamilyPop from "../viewAll/popupContent/familyPop/FamilyPop";

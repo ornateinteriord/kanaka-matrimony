@@ -19,7 +19,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import '../variables/variables.scss'
+import '../variables/Variables.scss'
 import MenuIcon from "@mui/icons-material/Menu";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";

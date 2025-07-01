@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import Footer from "../footer/Footer";
 import { useGetRecentRegisters } from "../api/Auth";
-import '../variables/variables.scss'
+import '../variables/Variables.scss'
 
 const Members = () => {
   const isLargeScreen = useMediaQuery("(min-width:1200px)");
