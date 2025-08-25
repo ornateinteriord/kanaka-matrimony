@@ -14,7 +14,11 @@ import {
   customStyles,
   getReceiptsReportColumns,
 } from "../../../utils/DataTableColumnsProvider";
+<<<<<<< HEAD
 import { TableLoadingComponent } from "../../../App";
+=======
+import { LoadingTextSpinner } from "../../../utils/common";
+>>>>>>> 86e228c (New design)
 
 const ReceiptsReportsData = () => {
   const [records, setRecords] = useState([]);
@@ -154,7 +158,11 @@ const ReceiptsReportsData = () => {
         }
         customStyles={customStyles}
         progressPending={false}
+<<<<<<< HEAD
         progressComponent={ <TableLoadingComponent />}
+=======
+        progressComponent={ <LoadingTextSpinner />}
+>>>>>>> 86e228c (New design)
         persistTableHead
         highlightOnHover
       />

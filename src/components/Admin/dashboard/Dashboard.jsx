@@ -3,9 +3,15 @@ import { FaUsers } from "react-icons/fa";
 import { MdCurrencyRupee } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./dashboard.scss";
+<<<<<<< HEAD
 import { getAllUserProfiles } from "../../api/Admin";
 import {  TableLoadingComponent } from "../../../App";
 import { toast } from "react-toastify";
+=======
+import { getAllUserCounts } from "../../api/Admin";
+import { toast } from "react-toastify";
+import { LoadingTextSpinner } from "../../../utils/common";
+>>>>>>> 86e228c (New design)
 
 // Reusable Card Component
 const DashboardCard = ({ count, label, icon, link, style }) => {
@@ -24,6 +30,7 @@ const DashboardCard = ({ count, label, icon, link, style }) => {
     </div>
   );
 };
+<<<<<<< HEAD
 
 const Dashboard=() =>{
 const {data:users =[],isLoading,isError,error} = getAllUserProfiles()
@@ -56,11 +63,37 @@ const AssistanceSuccessUsers = users.filter(user => user?.status?.toLowerCase() 
     { count: 10873.88, label: "Assistance Receipts", icon: <MdCurrencyRupee style={iconStyle} />, link: "/admin/assistanceonlinetransaction" },
     { count: 6646.0, label: "Renewal Receipts", icon: <MdCurrencyRupee style={iconStyle} />,link: "/admin/renewalreports"  },
     { count: 12951.8, label: "Total Online Receipts", icon: <MdCurrencyRupee style={iconStyle} />,link: "/admin/receiptsvocher"  },
+=======
+const Dashboard = () => {
+  const { data: usersObj = {}, isFetching: isLoading, isError, error } = getAllUserCounts();
+
+
+   useEffect(() => {
+    if (isError) {
+      toast.error(error.message);
+    }
+  }, [isError, error]);
+
+  const iconStyle = { fontSize: "50px", color: "#92d0f3" };
+
+  const stats = [
+     { count: usersObj?.freeUser, label: "Free Users", icon: <FaUsers style={iconStyle} />, link: "/admin/user-table" },
+    { count: usersObj?.silverUser, label: "Silver Users", icon: <FaUsers style={iconStyle} />, link: "/admin/user-table" },
+    { count: usersObj?.premiumUser, label: "Premium Users", icon: <FaUsers style={iconStyle} />, link: "/admin/user-table" },
+    { count: usersObj?.totalPaidUsers, label: "Total Paid Users", icon: <FaUsers style={iconStyle} />, link: "/admin/onlinetransaction" },
+    { count: usersObj?.assistancePending, label: "Assistance Pending", icon: <FaUsers style={iconStyle} />, link: "/admin/assistencepending" },
+    { count: usersObj?.assistanceSuccess, label: "Assistance Success", icon: <FaUsers style={iconStyle} />, link: "/admin/assistencesuccess" },
+    { count: 11332.86, label: "Paid User Receipts", icon: <MdCurrencyRupee style={iconStyle} />, link: "/admin/onlinetransaction" },
+    { count: 10873.88, label: "Assistance Receipts", icon: <MdCurrencyRupee style={iconStyle} />, link: "/admin/assistanceonlinetransaction" },
+    { count: 6646.0, label: "Renewal Receipts", icon: <MdCurrencyRupee style={iconStyle} />, link: "/admin/renewalreports" },
+    { count: 12951.8, label: "Total Online Receipts", icon: <MdCurrencyRupee style={iconStyle} />, link: "/admin/receiptsvocher" },
+>>>>>>> 86e228c (New design)
   ];
 
   return (
     <div className="dashboard-content-main">
       {/* Cards Section */}
+<<<<<<< HEAD
       {isLoading ? <TableLoadingComponent/> : (
          <div className="card-div">
         {stats.map((stat, index) => (
@@ -73,6 +106,24 @@ const AssistanceSuccessUsers = users.filter(user => user?.status?.toLowerCase() 
           />
         ))}
       </div>
+=======
+      {isLoading ? (
+        <div className="dashboard-loading-wrapper">
+          <LoadingTextSpinner />
+        </div>
+      ) : (
+        <div className="card-div">
+          {stats.map((stat, index) => (
+            <DashboardCard
+              key={index}
+              count={stat.count}
+              label={stat.label}
+              icon={stat.icon}
+              link={stat.link}
+            />
+          ))}
+        </div>
+>>>>>>> 86e228c (New design)
       )}
     </div>
   );

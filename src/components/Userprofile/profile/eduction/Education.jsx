@@ -3,6 +3,7 @@ import {
   Box,
   Stack,
   Typography,
+<<<<<<< HEAD
   TextField,
   Button,
   MenuItem,
@@ -15,16 +16,37 @@ import {
   useGetMemberDetails,
   useUpdateProfile
 } from "../../../api/User/useGetProfileDetails";
+=======
+  Button,
+  CircularProgress,
+  useMediaQuery,
+  useTheme
+} from "@mui/material";
+import {
+  useGetMemberDetails,
+  useUpdateProfile
+} from "../../../api/User";
+>>>>>>> 86e228c (New design)
 import TokenService from "../../../token/tokenService";
 import toast from "react-hot-toast";
 import rawJsonData from "../eduction/jsondata/data.json";
 import { LoadingComponent } from "../../../../App";
+<<<<<<< HEAD
 import '../../../variables/Variables.scss'
 
 // Merge array of JSON objects into one object
 const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
 const Education = () => {
+=======
+import CustomAutocomplete from "../../../Autocomplete/CustomAutocomplete";
+
+const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+
+const Education = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+>>>>>>> 86e228c (New design)
   const registerNo = TokenService.getRegistrationNo();
 
   const [formData, setFormData] = useState({
@@ -34,10 +56,18 @@ const Education = () => {
     occupation_country: ""
   });
 
+<<<<<<< HEAD
   const [showCustomDegree, setShowCustomDegree] = useState(false);
   const [showCustomOccupation, setShowCustomOccupation] = useState(false);
   const [showCustomIncome, setShowCustomIncome] = useState(false);
   const [showCustomCountry, setShowCustomCountry] = useState(false);
+=======
+  // Initialize suggestions state
+  const [educationSuggestions, setEducationSuggestions] = useState(jsonData.qualificationValues || []);
+  const [occupationSuggestions, setOccupationSuggestions] = useState(jsonData.occupationValues || []);
+  const [incomeSuggestions, setIncomeSuggestions] = useState(jsonData.incomeValues || []);
+  const [countrySuggestions, setCountrySuggestions] = useState(jsonData.countries || []);
+>>>>>>> 86e228c (New design)
 
   const {
     data: userProfile,
@@ -67,6 +97,7 @@ const Education = () => {
     }));
   };
 
+<<<<<<< HEAD
   const handleSelectChange = (field, value) => {
     if (value === "Other") {
       switch (field) {
@@ -94,6 +125,8 @@ const Education = () => {
     }
   };
 
+=======
+>>>>>>> 86e228c (New design)
   const handleSave = () => {
     updateProfile(formData, {
       onSuccess: () => toast.success("Profile updated successfully!"),
@@ -102,6 +135,7 @@ const Education = () => {
   };
 
   const handleClear = () => {
+<<<<<<< HEAD
     setFormData({
       educational_qualification: "",
       occupation: "",
@@ -276,6 +310,81 @@ const Education = () => {
                       <MenuItem value="Other">Other</MenuItem>
                     </TextField>
                   )}
+=======
+    if (userProfile) {
+      setFormData({
+        ...userProfile,
+      });
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        borderRadius: "8px",
+        width: { xs: "100%", sm: "90%", md: "85%", lg: "100%" },
+        p: { xs: 0, sm: 3, md: 2 },
+        boxSizing: 'border-box',
+         mt:{xs:2},
+    
+      }}
+    >
+      <Stack spacing={3} mt={1}>
+        <form>
+          <Stack spacing={3}>
+            <Stack
+              direction= {isMobile ? "column" : "row"}
+              spacing={3}
+              alignItems={isMobile ? "center" : "flex-start"}
+            >
+              {/* Column 1 */}
+              <Box sx={{ width: '100%' }}>
+                <CustomAutocomplete
+                  options={educationSuggestions}
+                  FullWidth
+                  label="Qualification"
+                  name="educational_qualification"
+                  value={formData.educational_qualification}
+                  onChange={(e) => handleChange("educational_qualification", e.target.value)}
+                  sx={{ 
+                    mb:isMobile ? 2 : 4 }}
+                />
+
+                <CustomAutocomplete
+                  options={occupationSuggestions}
+                  label="Occupation"
+                  name="occupation"
+                  value={formData.occupation}
+                  onChange={(e) => handleChange("occupation", e.target.value)}
+                 FullWidth
+                    sx={{ 
+                    mb:isMobile ? 0 : 3}}
+                />
+              </Box>
+
+              {/* Column 2 */}
+              <Box sx={{ width: '100%' }}>
+                <CustomAutocomplete
+                  options={incomeSuggestions}
+                  label="Income Per Month"
+                  name="income_per_month"
+                  FullWidth
+                  value={formData.income_per_month}
+                  onChange={(e) => handleChange("income_per_month", e.target.value)}
+                 sx={{ 
+                    mb:isMobile ? 2 : 4 }}
+                />
+
+                <CustomAutocomplete
+                  options={countrySuggestions}
+                  label="Occupation Country"
+                  name="occupation_country"
+                  value={formData.occupation_country}
+                  onChange={(e) => handleChange("occupation_country", e.target.value)}
+                  FullWidth
+                  mb={3}
+                />
+>>>>>>> 86e228c (New design)
               </Box>
             </Stack>
 
@@ -284,8 +393,15 @@ const Education = () => {
               sx={{
                 display: "flex",
                 gap: "10px",
+<<<<<<< HEAD
                 flexDirection: { xs: "row", sm: "row" },
                 alignItems: { xs: "stretch", sm: "center" }
+=======
+                flexDirection:"row" ,
+                alignItems: "center",
+                justifyContent: "end",
+                width: '100%'
+>>>>>>> 86e228c (New design)
               }}
             >
               <Button
@@ -293,6 +409,7 @@ const Education = () => {
                 variant="outlined"
                 sx={{
                   color: "black",
+<<<<<<< HEAD
                   backgroundColor: "#fff",
                   textTransform: "capitalize",
                   "&:hover": { backgroundColor: "#fff" },
@@ -300,16 +417,33 @@ const Education = () => {
                 }}
               >
                 Clear
+=======
+                  border:'1px solid #5e0476',
+                  backgroundColor: "#fff",
+                  textTransform: "capitalize",
+                  "&:hover": { backgroundColor: "#fff" },
+                  width: isMobile ? '100%' : '130px'
+                }}
+              >
+                Reset
+>>>>>>> 86e228c (New design)
               </Button>
               <Button
                 onClick={handleSave}
                 variant="contained"
                 disabled={isUpdating}
                 sx={{
+<<<<<<< HEAD
                   background: "var( --blue-btn-color)",
                   textTransform: "capitalize",
                   "&:hover": { background: "var(--blue-btn-hover-color)" },
                   width: { xs: "100%", sm: "auto" }
+=======
+                  backgroundColor: "#5e0476",
+                  textTransform: "capitalize",
+                  "&:hover": { backgroundColor: "#5e0476" },
+                  width: isMobile ? '100%' : '130px'
+>>>>>>> 86e228c (New design)
                 }}
               >
                 {isUpdating ? <CircularProgress size={24} /> : "Save"}
@@ -323,4 +457,8 @@ const Education = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Education;
+=======
+export default Education;
+>>>>>>> 86e228c (New design)

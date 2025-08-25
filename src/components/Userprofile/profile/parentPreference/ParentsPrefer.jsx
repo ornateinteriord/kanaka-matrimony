@@ -2,10 +2,13 @@ import React, { memo, useEffect, useState } from "react";
 import {
   Box,
   Grid,
+<<<<<<< HEAD
   FormControl,
   InputLabel,
   Select,
   MenuItem,
+=======
+>>>>>>> 86e228c (New design)
   Button,
   Typography,
   CircularProgress,
@@ -14,16 +17,27 @@ import {
 } from "@mui/material";
 import rawJsonData from "../eduction/jsondata/data.json";
 import toast from "react-hot-toast";
+<<<<<<< HEAD
 import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
 import { LoadingComponent } from "../../../../App";
 import '../../../variables/Variables.scss'
+=======
+import { useGetMemberDetails, useUpdateProfile } from "../../../api/User";
+import TokenService from "../../../token/tokenService";
+import { LoadingComponent } from "../../../../App";
+import CustomAutocomplete from "../../../Autocomplete/CustomAutocomplete";
+>>>>>>> 86e228c (New design)
 
 const datas = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
 const ParentsPrefer = () => {
   const theme = useTheme();
+<<<<<<< HEAD
   const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+=======
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+>>>>>>> 86e228c (New design)
 
   const registerNo = TokenService.getRegistrationNo();
 
@@ -40,7 +54,10 @@ const ParentsPrefer = () => {
 
   const { data: userProfile, isLoading, isError, error } = useGetMemberDetails(registerNo);
   const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
+<<<<<<< HEAD
   console.log("prefffere,",userProfile)
+=======
+>>>>>>> 86e228c (New design)
 
   useEffect(() => {
     if (isError) {
@@ -68,6 +85,7 @@ const ParentsPrefer = () => {
   };
 
   const handleClear = () => {
+<<<<<<< HEAD
     setFormData({
       caste_preference: "",
       from_age_preference: "",
@@ -78,12 +96,20 @@ const ParentsPrefer = () => {
       maritalstatus_preference: "",
       education_preference: ""
     });
+=======
+     if (userProfile) {
+      setFormData({
+        ...userProfile,
+      });
+    }
+>>>>>>> 86e228c (New design)
   };
 
   const formFields = [
     {
       name: "caste_preference",
       label: "Caste Preference",
+<<<<<<< HEAD
       options: datas?.casteValues || [],
       currentValue: formData.caste_preference
     },
@@ -112,21 +138,61 @@ const ParentsPrefer = () => {
       currentValue: formData.to_height_preference
     },
     {
+=======
+      options: [...datas?.casteValues, 'Any Brahmin'],
+      currentValue: formData.caste_preference
+    },
+    {
+>>>>>>> 86e228c (New design)
       name: "occupation_country_preference",
       label: "Occupation Country",
       options: ["India", "USA", "China"],
       currentValue: formData.occupation_country_preference
     },
     {
+<<<<<<< HEAD
       name: "maritalstatus_preference",
       label: "Marital Status",
       options: datas?.marritalStatus || [],
+=======
+      name: "from_age_preference",
+      label: "Age Preference (From)",
+      options: datas?.minAge,
+      currentValue: formData.from_age_preference
+    },
+    {
+      name: "to_age_preference",
+      label: "Age Preference (To)",
+      options: datas?.minAge,
+      currentValue: formData.to_age_preference
+    },
+    {
+      name: "from_height_preference",
+      label: "Height Preference (From)",
+      options: [...datas?.heightValues,'Any Height'],
+      currentValue: formData.from_height_preference
+    },
+    {
+      name: "to_height_preference",
+      label: "Height Preference (To)",
+      options: [...datas?.heightValues,'Any Height'],
+      currentValue: formData.to_height_preference
+    },
+    {
+      name: "maritalstatus_preference",
+      label: "Marital Status",
+      options: datas?.marritalStatus,
+>>>>>>> 86e228c (New design)
       currentValue: formData.maritalstatus_preference
     },
     {
       name: "education_preference",
       label: "Education Preference",
+<<<<<<< HEAD
       options: datas?.qualificationValues || [],
+=======
+      options: [...datas?.qualificationValues, 'Any Education'],
+>>>>>>> 86e228c (New design)
       currentValue: formData.education_preference
     }
   ];
@@ -134,6 +200,7 @@ const ParentsPrefer = () => {
   return (
     <Box
       sx={{
+<<<<<<< HEAD
         padding:1,
         backgroundColor: "#f9f9f9",
         borderRadius: "12px",
@@ -156,6 +223,13 @@ const ParentsPrefer = () => {
       >
         Parents' Preference
       </Typography>
+=======
+        padding: isMobile ? 0 : 3,
+        width: { xs: "100%", md: "100%" },
+        maxWidth: "100%"
+      }}
+    >
+>>>>>>> 86e228c (New design)
 
       <Box
         sx={{
@@ -165,6 +239,7 @@ const ParentsPrefer = () => {
             md: 'repeat(2, 1fr)',
             lg: 'repeat(2, 1fr)'
           },
+<<<<<<< HEAD
           gap: 2
         }}
       >
@@ -186,10 +261,27 @@ const ParentsPrefer = () => {
               ))}
             </Select>
           </FormControl>
+=======
+          gap: 3.5,
+          mt:2
+        }}
+      >
+        {formFields.map((field, index) => (
+          <CustomAutocomplete
+            key={index}
+            options={field.options || []}
+            label={field.label}
+            name={field.name}
+            value={field.currentValue}
+            onChange={(e) => handleChange(field.name, e.target.value)}
+            sx={{ width: '100%' }}
+          />
+>>>>>>> 86e228c (New design)
         ))}
       </Box>
 
       <Box
+<<<<<<< HEAD
       mt={1.5}
                     sx={{
                       display: "flex",
@@ -227,6 +319,45 @@ const ParentsPrefer = () => {
                     </Button>
                   </Box>
       {isLoading && <LoadingComponent/>}
+=======
+        mt={1.5}
+        sx={{
+          display: "flex",
+          gap: "10px",
+          flexDirection: { xs: "row", sm: "row" },
+          alignItems: { xs: "center", sm: "center" },
+          justifySelf: { sm: 'end', md: 'end' }
+        }}
+      >
+        <Button
+          onClick={handleClear}
+          variant="outlined"
+          sx={{
+            color: "black",
+            backgroundColor: "#fff",
+            textTransform: "capitalize",
+            "&:hover": { backgroundColor: "#fff" },
+            width: { xs: "100%", sm: "130px" }
+          }}
+        >
+          Reset
+        </Button>
+        <Button
+          onClick={handleSave}
+          variant="contained"
+          disabled={isUpdating}
+          sx={{
+            backgroundColor: "#34495e",
+            textTransform: "capitalize",
+            "&:hover": { backgroundColor: "#2c3e50" },
+            width: { xs: "100%", sm: "130px" }
+          }}
+        >
+          {isUpdating ? <CircularProgress size={24} /> : "Save"}
+        </Button>
+      </Box>
+      {isLoading && <LoadingComponent />}
+>>>>>>> 86e228c (New design)
     </Box>
   );
 };

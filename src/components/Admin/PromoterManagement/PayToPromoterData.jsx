@@ -6,12 +6,19 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { FaSearch } from "react-icons/fa";
+<<<<<<< HEAD
 
 import {  TableLoadingComponent } from "../../../App";
+=======
+>>>>>>> 86e228c (New design)
 import DataTable from "react-data-table-component";
 import { toast } from "react-toastify";
 import { usePromotersTransactions } from "../../api/Admin";
 import { customStyles, getPromotersTransactionsColumns } from "../../../utils/DataTableColumnsProvider";
+<<<<<<< HEAD
+=======
+import { LoadingTextSpinner } from "../../../utils/common";
+>>>>>>> 86e228c (New design)
 
 
 const PayToPromoterData = () => {
@@ -83,7 +90,11 @@ const PayToPromoterData = () => {
         }}
         customStyles={customStyles}
         progressPending={isLoading}
+<<<<<<< HEAD
         progressComponent={<TableLoadingComponent />}
+=======
+        progressComponent={<LoadingTextSpinner />}
+>>>>>>> 86e228c (New design)
          persistTableHead
           highlightOnHover
         noDataComponent={

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @use '../variables/Variables.scss';
 
+=======
+>>>>>>> 86e228c (New design)
 .navbar-main-container {
   width: 100%;
 }
@@ -10,8 +13,13 @@
   left: 0;
   width: 100%;
   height: 70px;
+<<<<<<< HEAD
   background: var(--primary-color);
   color: var(--primary-font-color);
+=======
+  background: #5e0476;
+  color: #fff;
+>>>>>>> 86e228c (New design)
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: 'Outfit', sans-serif;
@@ -29,6 +37,7 @@
 h3 {
   font-size: 24px;
   margin: 0;
+<<<<<<< HEAD
   color: var(--primary-font-color);
   font-weight: 700;
 }
@@ -40,6 +49,12 @@ h3 {
   background-color: var(--blue-btn-hover-color) !important;
 }
 
+=======
+  color: #fff;
+  font-weight: 700;
+}
+
+>>>>>>> 86e228c (New design)
 .menu.desktop-menu {
   ul {
     display: flex;
@@ -59,7 +74,11 @@ h3 {
 
   .link {
     text-decoration: none;
+<<<<<<< HEAD
     color: var(--primary-font-color);
+=======
+    color: #fff;
+>>>>>>> 86e228c (New design)
     transition: color 0.3s ease;
   }
 
@@ -75,7 +94,11 @@ h3 {
 
 .mobile-link {
   text-decoration: none;
+<<<<<<< HEAD
   color: var(--primary-font-color);
+=======
+  color: #fff;
+>>>>>>> 86e228c (New design)
   font-size: 16px;
   font-weight: 500;
   width: 100%;
@@ -99,7 +122,11 @@ h3 {
   }
 
   .navbar {
+<<<<<<< HEAD
     // justify-content: space-between;
+=======
+    justify-content: space-between;
+>>>>>>> 86e228c (New design)
     padding: 0 10px;
   }
 
@@ -108,7 +135,16 @@ h3 {
     text-align: left;
   }
 
+<<<<<<< HEAD
 
+=======
+  .login-button {
+    margin-right: 10px;
+    width: 120px;
+    height: 36px;
+    font-size: 14px;
+  }
+>>>>>>> 86e228c (New design)
 }
 
 @media (max-width: 480px) {
@@ -122,7 +158,16 @@ h3 {
   }
 
 
+<<<<<<< HEAD
  
+=======
+  .login-button {
+    width: 100px;
+    height: 32px;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+>>>>>>> 86e228c (New design)
 }
 
 /* Dialog Styles for Responsiveness */
@@ -156,7 +201,10 @@ input {
   max-width: 400px;
   border: 1px solid #ccc;
   border-radius: 5px;
+<<<<<<< HEAD
   color: #228070;
+=======
+>>>>>>> 86e228c (New design)
 }
 
 button {

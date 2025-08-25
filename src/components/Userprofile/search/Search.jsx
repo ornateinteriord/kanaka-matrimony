@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import  { useState, useMemo, useCallback } from "react";
 import {
   Box,
@@ -14,12 +15,25 @@ import {
 import { FaMapMarkerAlt, FaBriefcase, FaSearch } from "react-icons/fa";
 import {  useGetAllUsersProfiles } from "../../api/User/useGetProfileDetails";
 import TokenService from "../../token/tokenService";
+=======
+import { useState, useMemo, useCallback } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  Pagination,
+  TextField,
+} from "@mui/material";
+import { FaSearch } from "react-icons/fa";
+import { useGetSearchProfiles } from "../../api/User";
+>>>>>>> 86e228c (New design)
 import ProfileDialog from "../ProfileDialog/ProfileDialog";
 import AboutPop from "../viewAll/popupContent/abouPop/AboutPop";
 import FamilyPop from "../viewAll/popupContent/familyPop/FamilyPop";
 import EducationPop from "../viewAll/popupContent/educationPop/EducationPop";
 import LifeStylePop from "../viewAll/popupContent/lifeStylePop/LifeStylePop";
 import PreferencePop from "../viewAll/popupContent/preferencePop/PreferencePop";
+<<<<<<< HEAD
 
 
 const itemsPerPage = 8;
@@ -34,6 +48,14 @@ const ProfileInfo = ({ label, value }) => (
     </Typography>
   </Box>
 );
+=======
+import { LoadingTextSpinner } from "../../../utils/common";
+import OthersPop from "../viewAll/popupContent/others/OthersPop";
+import UserCard from "../../common/UserCard";
+
+const itemsPerPage = 8;
+
+>>>>>>> 86e228c (New design)
 
 const Search = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -41,6 +63,7 @@ const Search = () => {
   const [currentTab, setCurrentTab] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+<<<<<<< HEAD
   const [searchQuery, setSearchQuery] = useState("");
   const { data: users = [] } = useGetAllUsersProfiles();
   const loggedInUserId = TokenService.getRegistrationNo();
@@ -54,12 +77,21 @@ const Search = () => {
   };
 
   // Optionally, enable "Enter" key to trigger search
+=======
+  const { data = [], isFetching,refetch,isFetched } = useGetSearchProfiles(searchTerm);
+
+  const handleSearch = () => {
+   refetch()
+  };
+  
+>>>>>>> 86e228c (New design)
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
     }
   };
 
+<<<<<<< HEAD
   // Filter users by searchQuery (name, email, or mobile number)
   const filteredUsers = useMemo(() => {
     if (!searchQuery) return [];
@@ -84,6 +116,12 @@ const Search = () => {
   const paginatedUsers = useMemo(() => {
     return filteredUsers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
   }, [filteredUsers, currentPage]);
+=======
+
+  const paginatedUsers = useMemo(() => {
+    return data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  }, [data, currentPage]);
+>>>>>>> 86e228c (New design)
 
   const handleOpenDialog = useCallback((user) => {
     setSelectedUser(user);
@@ -98,10 +136,15 @@ const Search = () => {
       2: <EducationPop userDetails={selectedUser} />,
       3: <LifeStylePop userDetails={selectedUser} />,
       4: <PreferencePop userDetails={selectedUser} />,
+<<<<<<< HEAD
+=======
+      5: <OthersPop userDetails={selectedUser} />
+>>>>>>> 86e228c (New design)
     };
     return contentMap[currentTab] || null;
   };
 
+<<<<<<< HEAD
   const calculateAge = (dob) => {
     if (!dob) return null;
     const birthDate = new Date(dob);
@@ -233,6 +276,14 @@ const Search = () => {
 
   return (
     <Box sx={{ p: { xs: 1, sm: 2 }, backgroundColor: "#f9f9f9" }}>
+=======
+  return (
+    <Box sx={{ p: { xs: 1, sm: 2 },  }}>
+         <Typography variant="h5" sx={{ fontSize: { xs: '21px', sm: '25px' }, color: '#34495e',
+                         mt:{xs:0},mb:{xs:1,md:2} }} fontWeight="500px">
+                             Search Profiles
+                           </Typography>
+>>>>>>> 86e228c (New design)
       <Box
         sx={{
           display: "flex",
@@ -243,22 +294,31 @@ const Search = () => {
           mb: 3,
         }}
       >
+<<<<<<< HEAD
         <Typography variant="h4" fontWeight="bold" sx={{ color: "#1a4f72" }}>
           Search Results
         </Typography>
+=======
+        
+>>>>>>> 86e228c (New design)
 
         <Box display="flex" gap={1} width={{ xs: "100%", sm: "70%" }}>
           <TextField
             size="medium"
             fullWidth
             variant="outlined"
+<<<<<<< HEAD
             placeholder="Search by name, email, or number"
+=======
+            placeholder="Search by name, email, or registeration number"
+>>>>>>> 86e228c (New design)
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <Button
             variant="contained"
+<<<<<<< HEAD
             
             onClick={handleSearch}
             sx={{ whiteSpace: "nowrap", textTransform: "capitalize", width: "150px", fontSize: "18px",background: "var( --blue-btn-color)",
@@ -268,10 +328,27 @@ const Search = () => {
           >
             <FaSearch style={{ marginRight: 6 }} />
             Search
+=======
+            color="primary"
+            onClick={handleSearch}
+            disabled={isFetching || !searchTerm.trim()}
+            sx={{ 
+              whiteSpace: "nowrap", 
+              textTransform: "capitalize", 
+              width: "150px", 
+              fontSize: "18px",
+              position: 'relative'
+            }}
+          >
+           
+                <FaSearch style={{ marginRight: 6 }} />
+                Search
+>>>>>>> 86e228c (New design)
           </Button>
         </Box>
       </Box>
 
+<<<<<<< HEAD
       <Box
         sx={{
           display: "grid",
@@ -323,3 +400,73 @@ const Search = () => {
 };
 
 export default Search;
+=======
+      {isFetching ? (
+        <LoadingTextSpinner />
+      ) : (
+        <>
+          <Box
+            sx={{
+              display: "grid",
+              placeItems: "center",
+              mr:2,
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)",
+              },
+              gap: { xs: 2, sm: 3 },
+            }}
+          >
+            {paginatedUsers?.length > 0 && paginatedUsers.map((user)=>{
+              return (
+                <UserCard
+                  key={user._id}
+                  profile={user}
+                  onViewMore={handleOpenDialog}
+                  showCancelButton={false}
+                />
+              )
+            })}
+          </Box>
+
+          {selectedUser && (
+            <ProfileDialog
+              openDialog={openDialog}
+              setOpenDialog={setOpenDialog}
+              selectedUser={selectedUser}
+              currentTab={currentTab}
+              setCurrentTab={setCurrentTab}
+              isLoading={false}
+              renderDialogContent={renderDialogContent}
+            />
+          )}
+
+          {data.length > 0 && (
+            <Box display="flex" justifyContent="end" my={3}>
+              <Pagination
+                count={Math.ceil(data.length / itemsPerPage)}
+                page={currentPage}
+                shape="rounded"
+                onChange={(_e, page) => setCurrentPage(page)}
+                color="primary"
+                  size={window.innerWidth < 600 ? "small" : "medium"}
+              />
+            </Box>
+          )}
+
+          {/* Show message if no results found */}
+          {isFetched && paginatedUsers?.length === 0 && (
+            <Box mt={4} textAlign="center">
+              <Typography color="red">No users found matching the input</Typography>
+            </Box>
+          )}
+        </>
+      )}
+    </Box>
+  );
+};
+
+export default Search;
+>>>>>>> 86e228c (New design)

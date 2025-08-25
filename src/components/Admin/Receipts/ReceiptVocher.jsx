@@ -17,7 +17,11 @@ import {
   customStyles,
   getReceiptVoucherColumns,
 } from "../../../utils/DataTableColumnsProvider";
+<<<<<<< HEAD
 import { TableLoadingComponent } from "../../../App";
+=======
+import { LoadingTextSpinner } from "../../../utils/common";
+>>>>>>> 86e228c (New design)
 
 const ReceiptVoucher = () => {
   const [records, setRecords] = useState([]);
@@ -153,7 +157,11 @@ const ReceiptVoucher = () => {
         }
         customStyles={customStyles}
         progressPending={false}
+<<<<<<< HEAD
         progressComponent={ <TableLoadingComponent />}
+=======
+        progressComponent={ <LoadingTextSpinner />}
+>>>>>>> 86e228c (New design)
         persistTableHead
         highlightOnHover
       />

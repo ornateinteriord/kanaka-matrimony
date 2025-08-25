@@ -16,6 +16,7 @@ const LifeStylePop = ({ userDetails }) => {
     return <Typography>No user details available.</Typography>;
   }
 
+<<<<<<< HEAD
   // 👉 Map root-level fields into a pseudo 'lifestyle' object
   const lifestyle = {
     skinType: userDetails.skin_type || "N/A",
@@ -27,6 +28,9 @@ const LifeStylePop = ({ userDetails }) => {
     bloodgroup: userDetails.bloodgroup || "N/A",
   };
 
+=======
+ 
+>>>>>>> 86e228c (New design)
   const data = [
     { label: "Skin Type", value: userDetails.skin_type },
     { label: "Body Type", value: userDetails.body_type },
@@ -40,7 +44,11 @@ const LifeStylePop = ({ userDetails }) => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
       <Stack spacing={2}>
+<<<<<<< HEAD
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+=======
+        <Typography variant="h6" sx={{ fontWeight: "500px" }}>
+>>>>>>> 86e228c (New design)
           Lifestyle Details
         </Typography>
         <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
@@ -52,7 +60,11 @@ const LifeStylePop = ({ userDetails }) => {
                     component="th"
                     scope="row"
                     sx={{
+<<<<<<< HEAD
                       fontWeight: "bold",
+=======
+                      fontWeight: "500px",
+>>>>>>> 86e228c (New design)
                       width: "40%",
                       backgroundColor: "#f9f9f9",
                     }}

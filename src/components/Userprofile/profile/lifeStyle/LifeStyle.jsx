@@ -6,6 +6,7 @@ import {
   TextField,
   Button,
   CircularProgress,
+<<<<<<< HEAD
 } from "@mui/material";
 import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
@@ -15,6 +16,21 @@ import '../../../variables/Variables.scss'
 
 const LifeStyle = () => {
   const registerNo = TokenService.getRegistrationNo();
+=======
+  useMediaQuery,
+  useTheme
+} from "@mui/material";
+import { useGetMemberDetails, useUpdateProfile } from "../../../api/User";
+import TokenService from "../../../token/tokenService";
+import { LoadingComponent } from "../../../../App";
+import { toast } from "react-toastify";
+
+const LifeStyle = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const registerNo = TokenService.getRegistrationNo();
+  
+>>>>>>> 86e228c (New design)
   const [formData, setFormData] = useState({
     drink: "",
     smoke: "",
@@ -32,6 +48,7 @@ const LifeStyle = () => {
     error 
   } = useGetMemberDetails(registerNo);
 
+<<<<<<< HEAD
   // Update profile mutation
   const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
 
@@ -43,6 +60,17 @@ const LifeStyle = () => {
       }
     }, [userProfile]);
   
+=======
+  const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
+
+  useEffect(() => {
+    if (userProfile) {
+      setFormData({
+        ...userProfile,
+      });
+    }
+  }, [userProfile]);
+>>>>>>> 86e228c (New design)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,10 +82,16 @@ const LifeStyle = () => {
 
   const handleSave = () => {
     updateProfile(formData, {
+<<<<<<< HEAD
+=======
+      onSuccess: () => toast.success("Profile updated successfully!"),
+      onError: () => toast.error("Failed to update profile.")
+>>>>>>> 86e228c (New design)
     });
   };
 
   const handleClear = () => {
+<<<<<<< HEAD
     setFormData({
       drink: "",
       smoke: "",
@@ -101,6 +135,39 @@ const LifeStyle = () => {
           },
           gap: 2
         }}>
+=======
+     if (userProfile) {
+      setFormData({
+        ...userProfile,
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error.message);
+    }
+  }, [isError, error]);
+
+  return (
+    <Box sx={{ 
+      padding: isMobile ? 0 : 3,
+      width: "100%",
+      maxWidth: "100%",
+      margin: "0 auto"
+    }}>
+
+
+      <Box sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: 'repeat(2, 1fr)'
+        },
+        gap: isMobile ? 3 : 4,
+        mt:2
+      }}>
+>>>>>>> 86e228c (New design)
         {/* Drink */}
         <TextField
           select
@@ -109,7 +176,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.drink}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Yes">Yes</MenuItem>
           <MenuItem value="No">No</MenuItem>
@@ -124,7 +194,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.smoke}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Yes">Yes</MenuItem>
           <MenuItem value="No">No</MenuItem>
@@ -139,7 +212,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.diet}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Veg">Veg</MenuItem>
           <MenuItem value="Non-Veg">Non-Veg</MenuItem>
@@ -154,7 +230,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.sunsign}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Aries">Aries</MenuItem>
           <MenuItem value="Taurus">Taurus</MenuItem>
@@ -170,7 +249,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.bloodgroup}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="A+">A+</MenuItem>
           <MenuItem value="B+">B+</MenuItem>
@@ -186,7 +268,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.body_type}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Slim">Slim</MenuItem>
           <MenuItem value="Athletic">Athletic</MenuItem>
@@ -201,7 +286,10 @@ const LifeStyle = () => {
           fullWidth
           value={formData.skin_type}
           onChange={handleChange}
+<<<<<<< HEAD
           sx={{...textFieldStyle}}
+=======
+>>>>>>> 86e228c (New design)
         >
           <MenuItem value="Fair">Fair</MenuItem>
           <MenuItem value="Wheatish">Wheatish</MenuItem>
@@ -210,6 +298,7 @@ const LifeStyle = () => {
       </Box>
      
       <Box
+<<<<<<< HEAD
       mt={1}
                     sx={{
                       display: "flex",
@@ -246,6 +335,47 @@ const LifeStyle = () => {
                       {isUpdating ? <CircularProgress size={24} /> : "Save"}
                     </Button>
                   </Box>
+=======
+        mt={4}
+        sx={{
+          display: "flex",
+          gap: 2,
+          flexDirection:"row",
+          justifyContent: "end"
+        }}
+      >
+        <Button
+          onClick={handleClear}
+          variant="outlined"
+          fullWidth={isMobile}
+          sx={{
+            color: "black",
+             border:'1px solid #5e0476',
+            backgroundColor: "#fff",
+            textTransform: "capitalize",
+            "&:hover": { backgroundColor: "#fff" },
+            width: isMobile ? "100%" : "130px"
+          }}
+        >
+          Reset
+        </Button>
+        <Button
+          onClick={handleSave}
+          variant="contained"
+          disabled={isUpdating}
+          fullWidth={isMobile}
+          sx={{
+            backgroundColor: "#5e0476",
+            textTransform: "capitalize",
+            "&:hover": { backgroundColor: "#2c3e50" },
+            width: isMobile ? "100%" : "130px"
+          }}
+        >
+          {isUpdating ? <CircularProgress size={24} /> : "Save"}
+        </Button>
+      </Box>
+      
+>>>>>>> 86e228c (New design)
       {isLoading && <LoadingComponent/>}
     </Box>
   );

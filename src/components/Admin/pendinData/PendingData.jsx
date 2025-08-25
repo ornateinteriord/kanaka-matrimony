@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
+<<<<<<< HEAD
   Select,
   MenuItem,
   TextField,
@@ -14,21 +15,60 @@ import { getAllUserProfiles } from "../../api/Admin";
 import {  TableLoadingComponent } from "../../../App";
 import { toast } from "react-toastify";
 import DataTable from "react-data-table-component";
+=======
+  InputAdornment,
+  Paper,
+  TextField,
+} from "@mui/material";
+import { FaSearch } from "react-icons/fa";
+import { getAllAssistancePending } from "../../api/Admin";
+import { toast } from "react-toastify";
+import PaginationDataTable from "../../common/PaginationDataTable";
+>>>>>>> 86e228c (New design)
 import {
   customStyles,
   getAssistancePendingColumns,
 } from "../../../utils/DataTableColumnsProvider";
+<<<<<<< HEAD
 
 const PendingData = () => {
   const { data: users = [], isLoading, isError, error } = getAllUserProfiles();
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+=======
+import { LoadingTextSpinner } from "../../../utils/common";
+
+const PendingData = () => {
+  const [paginationModel, setPaginationModel] = useState({ 
+    page: 0, 
+    pageSize: 50 
+  });
+  const { 
+    data, 
+    isPending: isLoading, 
+    isError, 
+    error, 
+    mutate: fetchUsers 
+  } = getAllAssistancePending();
+  const users = data?.content || [];
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetchUsers({ 
+      page: paginationModel.page, 
+      pageSize: paginationModel.pageSize 
+    });
+  }, [paginationModel.page, paginationModel.pageSize, fetchUsers]);
+
+  useEffect(() => {
+>>>>>>> 86e228c (New design)
     if (isError) {
       toast.error(error.message);
     }
   }, [isError, error]);
 
+<<<<<<< HEAD
   const filteredRecords = users.filter((record) => {
     const isAdmin = record?.user_role?.toLowerCase() === "admin";
     const isPending = record?.status?.toLowerCase() === "pending"; // Check if status is "pending"
@@ -51,6 +91,39 @@ const PendingData = () => {
     setSearch(e.target.value);
   };
 
+=======
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const filteredRows = users.filter((data) => {
+    const isAdmin = data?.user_role?.toLowerCase() === "admin";
+   
+    return (
+      !isAdmin &&
+      (search === "" ||
+        data.registration_no
+          ?.toString()
+          .toLowerCase()
+          .includes(search.toLowerCase()) ||
+        data.first_name?.toLowerCase().includes(search.toLowerCase()) ||
+        data.username
+          ?.toString()
+          .toLowerCase()
+          .includes(search.toLowerCase()) ||
+        data.mobile_no
+          ?.toString()
+          .toLowerCase()
+          .includes(search.toLowerCase()) ||
+        data.caste?.toString().toLowerCase().includes(search.toLowerCase()) ||
+        data.type_of_user
+          ?.toString()
+          .toLowerCase()
+          .includes(search.toLowerCase()))
+    );
+  });
+
+>>>>>>> 86e228c (New design)
   return (
     <Box p={5} marginTop={6}>
       <Typography
@@ -80,6 +153,7 @@ const PendingData = () => {
         />
       </Box>
 
+<<<<<<< HEAD
       <Paper>
         <DataTable
           columns={getAssistancePendingColumns()}
@@ -102,8 +176,28 @@ const PendingData = () => {
           highlightOnHover
         />
       </Paper>
+=======
+      <PaginationDataTable
+        columns={getAssistancePendingColumns()}
+        data={filteredRows}
+        customStyles={customStyles}
+        isLoading={isLoading}
+        totalRows={data?.totalRecords || 0}
+        paginationModel={paginationModel}
+        setPaginationModel={setPaginationModel}
+        rowsPerPageOptions={[6, 10, 15, 20, 50, 1000]}
+        noDataComponent={<Typography padding={3}>No data available</Typography>}
+        progressComponent={<LoadingTextSpinner />}
+        persistTableHead
+        highlightOnHover
+      />
+>>>>>>> 86e228c (New design)
     </Box>
   );
 };
 
+<<<<<<< HEAD
 export default PendingData;
+=======
+export default PendingData;
+>>>>>>> 86e228c (New design)

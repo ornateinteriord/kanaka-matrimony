@@ -46,7 +46,11 @@ const EducationPop = ({ userDetails }) => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
       <Stack spacing={2}>
+<<<<<<< HEAD
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+=======
+        <Typography variant="h6" sx={{ fontWeight: "500px" }}>
+>>>>>>> 86e228c (New design)
           Education & Occupation Information
         </Typography>
         <TableContainer sx={{ boxShadow: 3 }} component={Paper}>
@@ -56,7 +60,11 @@ const EducationPop = ({ userDetails }) => {
                 <TableRow key={index}>
                   <TableCell
                     sx={{
+<<<<<<< HEAD
                       fontWeight: "bold",
+=======
+                      fontWeight: "500px",
+>>>>>>> 86e228c (New design)
                       backgroundColor: "#f9f9f9",
                       width: "40%",
                     }}

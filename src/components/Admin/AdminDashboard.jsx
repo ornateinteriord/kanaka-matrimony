@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './AdminDashboard.css';
+<<<<<<< HEAD
 import { FaHome, FaUser, FaUsers, FaServer, FaReceipt, FaBars, FaChevronDown, FaChevronUp, FaDashcube, FaIdBadge } from 'react-icons/fa';
+=======
+import {  FaUser, FaUsers, FaServer, FaReceipt, FaBars, FaChevronDown, FaChevronUp, FaDashcube, FaIdBadge } from 'react-icons/fa';
+>>>>>>> 86e228c (New design)
 import { TbMessageReportFilled } from 'react-icons/tb';
 import { IoIosNotifications } from 'react-icons/io';
 import { Link, Outlet, useLocation } from 'react-router-dom';
@@ -8,6 +12,10 @@ import { useNavigate } from 'react-router-dom';
 import { Collapse, List, ListItem, ListItemText, IconButton, Typography, Menu, MenuItem, Avatar, Badge, Dialog, DialogTitle, DialogContent, TextField, Button, DialogActions } from '@mui/material';
 import { IoMdNotifications } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+<<<<<<< HEAD
+=======
+import { getAllUserCounts } from '../api/Admin';
+>>>>>>> 86e228c (New design)
 
 const AdminDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -27,7 +35,11 @@ const AdminDashboard = () => {
   });
   const [activePath, setActivePath] = useState('');
   const location = useLocation();
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 86e228c (New design)
   const navigate = useNavigate();
   const adminName = "Admin";
   
@@ -36,7 +48,10 @@ const AdminDashboard = () => {
     if (!token) {
       navigate('/admin'); 
     }
+<<<<<<< HEAD
     // Set active path based on current location
+=======
+>>>>>>> 86e228c (New design)
     setActivePath(location.pathname);
   }, [location.pathname]);
 
@@ -48,12 +63,18 @@ const closeAllDropdowns = () => {
   setOpenPromoterReports(false);
 };
 
+<<<<<<< HEAD
   // Toggle Sidebar
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   // Handle dropdown toggles
+=======
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+>>>>>>> 86e228c (New design)
   const toggleUserManagement = () => {
       closeAllDropdowns();
     setOpenUserManagement(!openUserManagement);
@@ -165,7 +186,11 @@ const closeAllDropdowns = () => {
   };
 const handleLogoutDialogOpen = () => {
   setLogoutDialogOpen(true);
+<<<<<<< HEAD
   handleMenuClose(); // Close the profile menu
+=======
+  handleMenuClose(); 
+>>>>>>> 86e228c (New design)
 };
 
 const handleLogoutDialogClose = () => {

@@ -5,14 +5,23 @@ import {
   useMediaQuery,
   useTheme,
   Switch,
+<<<<<<< HEAD
+=======
+  FormControlLabel,
+>>>>>>> 86e228c (New design)
 } from "@mui/material";
 import { FaRegImage } from "react-icons/fa";
 import {
   useGetMemberDetails,
   useUpdateProfile,
+<<<<<<< HEAD
 } from "../../../api/User/useGetProfileDetails";
 import TokenService from "../../../token/tokenService";
 import '../../../variables/Variables.scss'
+=======
+} from "../../../api/User";
+import TokenService from "../../../token/tokenService";
+>>>>>>> 86e228c (New design)
 
 const privacyOptions = [
   {
@@ -81,14 +90,19 @@ const PrivacySettings = () => {
   return (
     <Box
       sx={{
+<<<<<<< HEAD
         padding: "24px",
         backgroundColor: "#f9f9f9",
         borderRadius: "12px",
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+=======
+        padding:isMobile ? "0px" : "24px",
+>>>>>>> 86e228c (New design)
         maxWidth: "100%",
         margin: "auto",
         fontFamily: "Roboto, sans-serif",
         width: "100%",
+<<<<<<< HEAD
       }}
     >
       <Typography
@@ -115,12 +129,31 @@ const PrivacySettings = () => {
           </Box>
         ) : (
           <Box component="span" sx={{ color: "red" }}>
+=======
+       mt:2
+      }}
+    >
+   
+
+      <Typography variant="body1" sx={{ mb: 3, }}>
+        {userProfile?.image_verification === "active" ? (
+          <Box component="span" sx={{ color: "green",fontSize:isMobile ? "1rem" : "1.2rem" }}>
+            Your photo is verified. Choose who can see it:
+          </Box>
+        ) : userProfile?.image ? (
+          <Box component="span" sx={{ color: "orange",fontSize:isMobile ? "1rem" : "1.2rem" }}>
+            Please verify your photo to access privacy settings.
+          </Box>
+        ) : (
+          <Box component="span" sx={{ color: "red",fontSize:isMobile ? "1rem" : "1.2rem" }}>
+>>>>>>> 86e228c (New design)
             Please upload a profile photo to access privacy settings.
           </Box>
         )}
       </Typography>
 
       <Box
+<<<<<<< HEAD
         sx={{
           display: "grid",
           gap: "20px",
@@ -191,6 +224,87 @@ const PrivacySettings = () => {
           </Box>
         ))}
       </Box>
+=======
+  sx={{
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+  }}
+>
+  <Box
+    sx={{
+      display: "grid",
+      gap: "20px",
+      gridTemplateColumns: {
+        xs: "1fr",
+        sm: "1fr",
+        md: "1fr",
+        lg: "1fr",
+      },
+    }}
+  >
+    {privacyOptions.map((option, index) => (
+      <Box
+        key={index}
+        sx={{
+          width:isMobile ? "100%" : "550px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "16px",
+          padding: isMobile ? "6px" : "16px",
+          borderRadius: "8px",
+          backgroundColor: "#fff",
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+          transition: "0.3s",
+          opacity: userProfile?.image_verification === "active" ? 1 : 0.6,
+          pointerEvents:
+            userProfile?.image_verification === "active" ? "auto" : "none",
+          "&:hover": {
+            backgroundColor: "#f0f0f0",
+          },
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <FaRegImage size={isMobile ? 23 : 32} color="#1976d2" />
+          <Box>
+            <Typography
+              variant="h6"
+              sx={{
+                fontSize: { xs: "15px", md: "18px" },
+                color: "#555",
+                fontWeight: 500,
+              }}
+            >
+              {option.label}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#777",
+                fontSize: "0.875rem",
+              }}
+            >
+              {option.description}
+            </Typography>
+          </Box>
+        </Box>
+
+        <Switch
+          checked={settings[option.value]}
+          onChange={() => handleToggle(option)}
+          color="primary"
+          inputProps={{ "aria-label": option.label }}
+          disabled={
+            userProfile?.image_verification !== "active" || isUpdating
+          }
+        />
+      </Box>
+    ))}
+  </Box>
+</Box>
+
+>>>>>>> 86e228c (New design)
     </Box>
   );
 };

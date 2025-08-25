@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import  { useCallback, useMemo, useState, useEffect } from "react";
 import {
   Box,
@@ -8,12 +9,20 @@ import {
   Pagination,
   Chip,
   Divider,
+=======
+import { useCallback, useMemo, useState, useEffect } from "react";
+import {
+  Box,
+  Typography,
+  Pagination,
+>>>>>>> 86e228c (New design)
   Button,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
 } from "@mui/material";
+<<<<<<< HEAD
 import { FaBriefcase, FaMapMarkerAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import TokenService from "../../../token/tokenService";
@@ -28,12 +37,23 @@ import ProfileDialog from "../../ProfileDialog/ProfileDialog";
 
 
 const Sent = () => {
+=======
+import { toast } from "react-toastify";
+import TokenService from "../../../token/tokenService";
+import { useCancelSentInterest, useGetSentInterests } from "../../../api/User";
+import ProfileDialog from "../../ProfileDialog/ProfileDialog";
+import { isSilverOrPremiumUser, LoadingTextSpinner } from "../../../../utils/common";
+import UserCard from "../../../common/UserCard";
+
+const Sent = ({refetchCounts}) => {
+>>>>>>> 86e228c (New design)
   const [currentPage, setCurrentPage] = useState(1);
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedCancelId, setSelectedCancelId] = useState(null);
   const [cancelConfirmOpen, setCancelConfirmOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(0);
+<<<<<<< HEAD
   const [sentData, setSentData] = useState([]);
   const itemsPerPage = 4;
 
@@ -63,6 +83,27 @@ const Sent = () => {
   }, [sentData, currentPage]);
 
   const totalPages = Math.ceil(sentData.length / itemsPerPage);
+=======
+
+  const itemsPerPage = 4;
+  const currentUserRegistrationNo = TokenService.getRegistrationNo();
+
+  const { mutate: cancelInterest, isFetching: isCancelling } = useCancelSentInterest();
+  const {
+    data: sentInterests,
+    isPending: isLoading,
+    mutate: fetchSentInterests,
+  } = useGetSentInterests(currentUserRegistrationNo);
+
+  // Fetch page-wise data whenever currentPage changes
+  useEffect(() => {
+    fetchSentInterests({ page: currentPage - 1, pageSize: itemsPerPage });
+  }, [currentPage]);
+
+  const totalPages = useMemo(() => {
+    return sentInterests ? Math.ceil(sentInterests.totalRecords / itemsPerPage) : 1;
+  }, [sentInterests]);
+>>>>>>> 86e228c (New design)
 
   const handleOpenDialog = useCallback((user) => {
     setSelectedUser(user);
@@ -74,10 +115,15 @@ const Sent = () => {
     setCancelConfirmOpen(true);
   }, []);
 
+<<<<<<< HEAD
   const { mutate: cancelInterest, isLoading: isCancelling } = useCancelSentInterest();
 
   const handleConfirmCancel = useCallback(() => {
     const interestToCancel = sentData.find((item) => item._id === selectedCancelId);
+=======
+  const handleConfirmCancel = useCallback(() => {
+    const interestToCancel = sentInterests?.content?.find((item) => item._id === selectedCancelId);
+>>>>>>> 86e228c (New design)
     if (!interestToCancel) return;
 
     cancelInterest(
@@ -87,24 +133,38 @@ const Sent = () => {
       },
       {
         onSuccess: () => {
+<<<<<<< HEAD
           setSentData((prev) => prev.filter((item) => item._id !== selectedCancelId));
           setSelectedCancelId(null);
           setCancelConfirmOpen(false);
         },
         onError: (error) => {
           console.error("Cancel failed:", error);
+=======
+          setSelectedCancelId(null);
+          setCancelConfirmOpen(false);
+          fetchSentInterests({ page: currentPage - 1, pageSize: itemsPerPage }); // refresh after cancel
+          refetchCounts()
+        },
+        onError: () => {
+>>>>>>> 86e228c (New design)
           toast.error("Failed to cancel request.");
           setCancelConfirmOpen(false);
         },
       }
     );
+<<<<<<< HEAD
   }, [selectedCancelId, sentData, cancelInterest, currentUserRegistrationNo]);
+=======
+  }, [selectedCancelId, sentInterests, cancelInterest, currentUserRegistrationNo, fetchSentInterests, currentPage]);
+>>>>>>> 86e228c (New design)
 
   const handleCancelDialogClose = useCallback(() => {
     setSelectedCancelId(null);
     setCancelConfirmOpen(false);
   }, []);
 
+<<<<<<< HEAD
   const renderDialogContent = () => {
     if (!selectedUser) return null;
     const contentMap = {
@@ -122,6 +182,11 @@ const Sent = () => {
       {isLoading ? (
         <Typography>Loading...</Typography>
       ) : sentData.length === 0 ? (
+=======
+  return (
+    <Box sx={{ p: 3 }}>
+      {!isLoading && sentInterests?.content?.length === 0 ? (
+>>>>>>> 86e228c (New design)
         <Typography>You haven't sent any interest requests.</Typography>
       ) : (
         <>
@@ -130,6 +195,7 @@ const Sent = () => {
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
               gap: 3,
+<<<<<<< HEAD
             }}
           >
             {paginatedInterests.map((interest) => (
@@ -141,6 +207,20 @@ const Sent = () => {
                 status={interest.status}
                 handleOpenDialog={handleOpenDialog}
                 handleRequestCancelClick={handleRequestCancelClick}
+=======
+              placeItems: { xs: "center", sm: "flex-start" },
+              mr: 2,
+            }}
+          >
+            {sentInterests?.content?.map((interest) => (
+              <UserCard
+                key={interest._id}
+                interestId={interest._id}
+                profile={interest.recipientdata}
+                onViewMore={handleOpenDialog}
+                onCancelRequest={handleRequestCancelClick}
+                showCancelButton={true}
+>>>>>>> 86e228c (New design)
               />
             ))}
           </Box>
@@ -153,6 +233,10 @@ const Sent = () => {
                 onChange={(_, page) => setCurrentPage(page)}
                 color="primary"
                 shape="rounded"
+<<<<<<< HEAD
+=======
+                 size={window.innerWidth < 600 ? "small" : "medium"}
+>>>>>>> 86e228c (New design)
               />
             </Box>
           )}
@@ -166,6 +250,7 @@ const Sent = () => {
           selectedUser={selectedUser}
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
+<<<<<<< HEAD
           loggedInUserId={currentUserRegistrationNo}
           isLoading={false}
           renderDialogContent={renderDialogContent}
@@ -191,10 +276,65 @@ const Sent = () => {
           </Button>
         </DialogActions>
       </Dialog>
+=======
+          isLoading={false}
+        />
+      )}
+
+   <Dialog open={cancelConfirmOpen} onClose={handleCancelDialogClose}>
+  <DialogTitle sx={{ fontWeight: 600, color: "black" }}>
+    Cancel Request
+  </DialogTitle>
+
+  <DialogContent>
+    <Typography sx={{ color: "black" }}>
+      Are you sure you want to cancel this interest request?
+    </Typography>
+  </DialogContent>
+
+  <DialogActions>
+    <Button
+      onClick={handleCancelDialogClose}
+      variant="outlined"
+      sx={{
+        textTransform: "capitalize",
+        color: "black",
+        borderColor: "black",
+        "&:hover": {
+          backgroundColor: "#f0f0f0",
+          borderColor: "black",
+        },
+      }}
+    >
+      No
+    </Button>
+
+    <Button
+      onClick={handleConfirmCancel}
+      color="error"
+      variant="contained"
+      disabled={isCancelling}
+      sx={{
+        textTransform: "capitalize",
+        "&:hover": {
+          backgroundColor: "#d32f2f",
+        },
+      }}
+    >
+      {isCancelling ? "Cancelling..." : "Cancel"}
+    </Button>
+  </DialogActions>
+</Dialog>
+
+      {isLoading && (
+        <LoadingTextSpinner />
+      )}
+>>>>>>> 86e228c (New design)
     </Box>
   );
 };
 
+<<<<<<< HEAD
 const InterestCard = ({
   interestId,
   profile,
@@ -353,4 +493,6 @@ const ProfileInfo = ({ label, value }) => (
   </Box>
 );
 
+=======
+>>>>>>> 86e228c (New design)
 export default Sent;

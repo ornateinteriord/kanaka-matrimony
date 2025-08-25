@@ -8,6 +8,7 @@ import {
   Box,
   Container,
   useMediaQuery,
+<<<<<<< HEAD
 } from "@mui/material";
 import MembershipDialog from "../Userprofile/MembershipDailog/MembershipDailog";
 import '../variables/Variables.scss'
@@ -17,6 +18,18 @@ const HomeUserTable = ({ userId }) => {
   const [open, setOpen] = useState(false);
   const [currentMembership, setCurrentMembership] = useState(null);
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+=======
+  useTheme,
+} from "@mui/material";
+import MembershipDialog from "../Userprofile/MembershipDailog/MembershipDailog";
+
+const HomeUserTable = () => {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [currentMembership, ] = useState(null);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+>>>>>>> 86e228c (New design)
 
   const handleUpgrade = () => {
     const dummyPlan = {
@@ -91,7 +104,10 @@ const HomeUserTable = ({ userId }) => {
                 width: isSmallScreen ? "100%" : "auto",
                 mt: isSmallScreen ? 1 : 0,
               }}
+<<<<<<< HEAD
               // onClick={handleRemoveMembership}
+=======
+>>>>>>> 86e228c (New design)
             >
               Remove Membership
             </Button>
@@ -118,7 +134,11 @@ const HomeUserTable = ({ userId }) => {
                 borderRadius: 3,
                 position: "relative",
                 overflow: "hidden",
+<<<<<<< HEAD
                 background: "var(--primary-color)",
+=======
+                background: "linear-gradient(135deg,rgb(235, 247, 101) 0%,rgb(136, 126, 8) 100%)",
+>>>>>>> 86e228c (New design)
                 color: "#fff",
                 width:isSmallScreen? "300px": "500px",
                 marginBottom: "15px",
@@ -128,13 +148,21 @@ const HomeUserTable = ({ userId }) => {
                 <Typography
                   variant={isSmallScreen ? "h6" : "h5"}
                   fontWeight={700}
+<<<<<<< HEAD
                   sx={{ fontSize: isSmallScreen ? "1.25rem" : "1.5rem",color:'#fff' }}
+=======
+                  sx={{ fontSize: isSmallScreen ? "1.25rem" : "1.5rem",color:'#000' }}
+>>>>>>> 86e228c (New design)
                 >
                   Upgrade Your Membership
                 </Typography>
                 <Typography
                   variant={isSmallScreen ? "subtitle1" : "h6"}
+<<<<<<< HEAD
                   sx={{ mt: 1, opacity: 0.9 ,color:'#fff'}}
+=======
+                  sx={{ mt: 1, opacity: 0.9 ,color:'#000'}}
+>>>>>>> 86e228c (New design)
                 >
                   Unlock premium features
                 </Typography>
@@ -165,7 +193,10 @@ const HomeUserTable = ({ userId }) => {
         open={open}
         onClose={handleClose}
         selectedPlan={selectedPlan}
+<<<<<<< HEAD
         // onConfirm={handleConfirmUpgrade}
+=======
+>>>>>>> 86e228c (New design)
       />
     </Box>
   );

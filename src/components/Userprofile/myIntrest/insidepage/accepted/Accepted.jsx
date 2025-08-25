@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import  { useCallback, useState } from "react";
 import {
   Box,
@@ -35,29 +36,65 @@ const Accepted = () => {
   const { data: responseData, isLoading } = useGetAcceptedInterests(registrationNo);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+=======
+import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  Box,
+  Typography,
+  Grid,
+  Pagination,
+} from "@mui/material";
+import TokenService from "../../../../token/tokenService";
+import { useGetAcceptedInterests } from "../../../../api/User";
+import ProfileDialog from "../../../ProfileDialog/ProfileDialog";
+import { LoadingTextSpinner } from "../../../../../utils/common";
+import UserCard from "../../../../common/UserCard";
+
+const Accepted = () => {
+  const registrationNo = TokenService.getRegistrationNo();
+  const { data: responseData, isPending: isLoading, mutate: fetchAcceptedProfiles } = useGetAcceptedInterests(registrationNo);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
+
+>>>>>>> 86e228c (New design)
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [currentTab, setCurrentTab] = useState(0);
 
+<<<<<<< HEAD
   const allAccepted = Array.isArray(responseData)
     ? responseData.filter(item => item?.status === "accepted")
     : [];
 
   const totalItems = allAccepted.length;
+=======
+  useEffect(() => {
+    fetchAcceptedProfiles({ page: currentPage - 1, pageSize: itemsPerPage });
+  }, [currentPage]);
+
+  const totalPages = useMemo(() => {
+    return responseData ? Math.ceil(responseData.totalRecords / itemsPerPage) : 1;
+  }, [responseData]);
+>>>>>>> 86e228c (New design)
 
   const handlePageChange = (_, value) => {
     setCurrentPage(value);
   };
 
+<<<<<<< HEAD
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = allAccepted.slice(indexOfFirstItem, indexOfLastItem);
 
+=======
+>>>>>>> 86e228c (New design)
   const handleOpenDialog = useCallback((user) => {
     setSelectedUser(user);
     setOpenDialog(true);
   }, []);
 
+<<<<<<< HEAD
   const renderDialogContent = () => {
     if (!selectedUser) return null;
     const contentMap = {
@@ -71,17 +108,26 @@ const Accepted = () => {
   };
 
    
+=======
+  const interests = responseData?.content || [];
+>>>>>>> 86e228c (New design)
 
   return (
     <Box sx={{ padding: 3 }}>
       {isLoading ? (
+<<<<<<< HEAD
         <LoadingComponent />
       ) : totalItems === 0 ? (
+=======
+        <LoadingTextSpinner />
+      ) : interests.length === 0 ? (
+>>>>>>> 86e228c (New design)
         <Typography variant="h6" textAlign="center" mt={4}>
           No accepted interests found
         </Typography>
       ) : (
         <>
+<<<<<<< HEAD
           <Grid container spacing={3}>
             {currentItems.map((item, index) => {
               const profile = item.sender || {};
@@ -199,10 +245,23 @@ const Accepted = () => {
                     </CardContent>
                   </Card>
                 </Grid>
+=======
+          <Grid container spacing={2} sx={{justifyContent: {xs:"center",sm:'flex-start'},mr: 2}}>
+            {interests.map((item, index) => {
+              const profile = item.sender || {};
+              return (
+                <UserCard 
+                  key={index}
+                  profile={profile}
+                  onViewMore={handleOpenDialog}
+                  showCancelButton={false}
+                />
+>>>>>>> 86e228c (New design)
               );
             })}
           </Grid>
 
+<<<<<<< HEAD
           <Box
             sx={{
               display: "flex",
@@ -218,6 +277,20 @@ const Accepted = () => {
               color="primary"
             />
           </Box>
+=======
+          {totalPages > 1 && (
+            <Box sx={{ display: "flex", justifyContent: "end", marginTop: 4 }}>
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                onChange={handlePageChange}
+                shape="rounded"
+                color="primary"
+                size={window.innerWidth < 600 ? "small" : "medium"}
+              />
+            </Box>
+          )}
+>>>>>>> 86e228c (New design)
         </>
       )}
 
@@ -228,9 +301,13 @@ const Accepted = () => {
           selectedUser={selectedUser}
           currentTab={currentTab}
           setCurrentTab={setCurrentTab}
+<<<<<<< HEAD
           loggedInUserId={registrationNo}
           isLoading={false}
           renderDialogContent={renderDialogContent}
+=======
+          isLoading={false}
+>>>>>>> 86e228c (New design)
         />
       )}
     </Box>

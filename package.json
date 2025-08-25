@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "kanakamatrimony",
+=======
+  "name": "SangamSathi.c",
+>>>>>>> 86e228c (New design)
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +15,12 @@
     "start": "node server.js"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@capacitor/android": "^7.4.2",
+    "@capacitor/cli": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
+>>>>>>> 86e228c (New design)
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/outfit": "^5.1.1",
@@ -18,14 +28,26 @@
     "@mui/lab": "^7.0.0-beta.12",
     "@mui/material": "^7.1.0",
     "@mui/styles": "^6.3.1",
+<<<<<<< HEAD
+=======
+    "@mui/x-date-pickers": "^8.8.0",
+>>>>>>> 86e228c (New design)
     "@tanstack/react-query": "^5.71.1",
     "@tanstack/react-query-devtools": "^5.71.5",
     "axios": "^1.7.9",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "dotenv": "^16.4.7",
     "framer-motion": "^12.9.2",
     "jwt-decode": "^4.0.0",
+=======
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "framer-motion": "^12.9.2",
+    "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
+>>>>>>> 86e228c (New design)
     "mui-one-time-password-input": "^5.0.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.16",
@@ -42,8 +64,12 @@
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.8.1",
     "styled-components": "^6.1.17",
+<<<<<<< HEAD
     "swiper": "^11.2.0",
     "zustand": "^5.0.3"
+=======
+    "swiper": "^11.2.0"
+>>>>>>> 86e228c (New design)
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

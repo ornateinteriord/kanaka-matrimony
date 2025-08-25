@@ -6,9 +6,15 @@ import {
   customStyles,
   getOnlineTransactionColumns,
 } from "../../../utils/DataTableColumnsProvider";
+<<<<<<< HEAD
 import {  TableLoadingComponent } from "../../../App";
 import { useOnlineTransactions } from "../../api/Admin";
 import { toast } from "react-toastify";
+=======
+import { useOnlineTransactions } from "../../api/Admin";
+import { toast } from "react-toastify";
+import { LoadingTextSpinner } from "../../../utils/common";
+>>>>>>> 86e228c (New design)
 
 const OnlineTransactionData = () => {
   const [search, setSearch] = useState("");
@@ -90,7 +96,11 @@ const OnlineTransactionData = () => {
         }
         customStyles={customStyles}
         progressPending={isLoading}
+<<<<<<< HEAD
         progressComponent={<TableLoadingComponent />}
+=======
+        progressComponent={<LoadingTextSpinner />}
+>>>>>>> 86e228c (New design)
         persistTableHead
         highlightOnHover
       />
