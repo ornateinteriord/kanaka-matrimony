@@ -1,87 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
-<<<<<<< HEAD
-  Stack,
-  Typography,
-  TextField,
-  Button,
-  IconButton,
-} from "@mui/material";
-import axios from "axios";
-import toast from "react-hot-toast";
-
-const Others = () => {
-  const [otherInfo, setOtherInfo] = useState("");
-  const [userId, setUserId] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = sessionStorage.getItem("userData");
-        const { _id: userId } = JSON.parse(userData);
-
-        const response = await axios.get(`http://localhost:5000/api/others/${userId}`);
-        if (  response.data.info) {
-          setOtherInfo(response.data.info);
-        }
-      } catch (error) {     
-        console.warn("No existing record found:", error);
-       
-      }
-    };      
-
-    fetchData();
-  }, []);
-
-
-   const handleReset = () => setOtherInfo("Not Specified");
-
-   const handleSubmit = async () => {
-     try {
-const userData = sessionStorage.getItem("userData");
-      const { _id: userId } = JSON.parse(userData);
-
-       const response = await axios.post("http://localhost:5000/api/others", { userId, info: otherInfo });
-       
-       if (response.status === 200) {
-         toast.success("User info updated successfully!");
-       } else {
-         toast.error(`Error: ${response.data.message}`);
-       }
-     } catch (error) {
-       console.error("Error submitting info:", error);
-     }
-   };
-
-  return (
-    <Box
-      sx={{
-        padding: "16px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "8px",
-        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-        fontFamily: "Outfit, sans-serif",
-        maxWidth: "600px",
-        margin: "auto",
-      }}
-    >
-      {/* Title */}
-      <Typography
-        variant="h6"
-        sx={{
-          fontWeight: "bold",
-          marginBottom: "16px",
-           color: "var(--primary-text-color)",
-          textAlign: "center",
-        }}
-      >
-        Other Information
-      </Typography>
-
-      {/* Text Area */}
-      <Stack spacing={2}>
-=======
   Typography,
   TextField,
   Button,
@@ -161,19 +80,13 @@ const Others = () => {
 
 
       <Box sx={{ mb: 3,mt:2 }}>
->>>>>>> 86e228c (New design)
         <TextField
           multiline
           minRows={5}
           maxRows={10}
-<<<<<<< HEAD
-          value={otherInfo}
-          onChange={(e) => setOtherInfo(e.target.value)}
-=======
           name="otherInfo"
           value={formData.otherInfo}
           onChange={handleChange}
->>>>>>> 86e228c (New design)
           placeholder="Enter other details here..."
           variant="outlined"
           fullWidth
@@ -185,43 +98,6 @@ const Others = () => {
             },
           }}
         />
-<<<<<<< HEAD
-      </Stack>
-
-      {/* Buttons */}
-      <Stack
-        direction="row"
-        spacing={2}
-        sx={{ marginTop: "16px", justifyContent: "center" }}
-      >
-        <Button
-          variant="contained"
-        
-          onClick={handleSubmit}
-          sx={{
-            
-              textTransform:'capitalize',
-             background: "var( --blue-btn-color)",
-             "&:hover": {
-              background: "var(--blue-btn-hover-color)",
-            },
-          }}
-        >
-          Submit
-        </Button>
-        <Button
-          variant="outlined"
-         
-          onClick={handleReset}
-          sx={{
-            borderColor: "#34495e",
-            color: "black",
-              textTransform:'capitalize',
-              "&:hover": {
-              background: "#fff",
-            },
-           
-=======
       </Box>
      
       <Box
@@ -244,14 +120,10 @@ const Others = () => {
             textTransform: "capitalize",
             "&:hover": { backgroundColor: "#fff" },
             width: isMobile ? "100%" : "130px"
->>>>>>> 86e228c (New design)
           }}
         >
           Reset
         </Button>
-<<<<<<< HEAD
-      </Stack>
-=======
         <Button
           onClick={handleSubmit}
           variant="contained"
@@ -269,13 +141,8 @@ const Others = () => {
       </Box>
       
       {isLoading && <LoadingComponent/>}
->>>>>>> 86e228c (New design)
     </Box>
   );
 };
 
-<<<<<<< HEAD
 export default Others;
-=======
-export default Others;
->>>>>>> 86e228c (New design)

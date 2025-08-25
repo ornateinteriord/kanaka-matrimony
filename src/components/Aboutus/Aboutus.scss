@@ -1,19 +1,10 @@
-<<<<<<< HEAD
-@use '../variables/Variables.scss';
-
-=======
->>>>>>> 86e228c (New design)
 .about-us-container {
   display: flex;
   flex-direction: column;
   gap: 50px;
   margin: 0 auto;
   padding: clamp(1.5rem, 5vw, 3.125rem); // Responsive padding
-<<<<<<< HEAD
-  max-width: 1200px;
-=======
   max-width: 1500px;
->>>>>>> 86e228c (New design)
   margin-top: 80px;
   font-family: "Outfit sans-serif";
 
@@ -41,49 +32,29 @@
 
       .highlight-text {
         font-size: clamp(1rem, 2vw, 1.375rem);
-<<<<<<< HEAD
-        color: #2a9d8f !important;
-        font-weight: bold;
-=======
         color: #5e0476 !important;
         font-weight: 500;
->>>>>>> 86e228c (New design)
         text-transform: uppercase;
       }
 
       .main-heading {
-<<<<<<< HEAD
-        font-size: clamp(1.75rem, 4vw, 2.25rem);
-        font-weight: 700;
-        margin: 10px 0;
-        color: var(--primary-text-color);
-=======
         font-size: 30px;
         font-weight: 500;
         margin: 10px 0;
         // color: #000;
->>>>>>> 86e228c (New design)
         line-height: 1.2;
       }
 
       .headingh3 {
-<<<<<<< HEAD
-        color: rgb(105, 44, 44) !important;
-        margin: 5px 0;
-=======
         color:#000 !important;
         margin: 5px 0;
         font-weight: 400;
->>>>>>> 86e228c (New design)
         font-size: clamp(1.125rem, 2vw, 1.25rem);
         text-align: inherit;
       }
 
       p {
-<<<<<<< HEAD
-=======
         text-align: left;
->>>>>>> 86e228c (New design)
         font-size: clamp(0.875rem, 2vw, 1rem);
         margin-bottom: 20px;
         color: #6c757d !important;
@@ -93,15 +64,9 @@
       .learn-more-btn {
         padding: 0.625rem 1.25rem;
         font-size: 0.875rem;
-<<<<<<< HEAD
-        font-weight: bold;
-        color: #fff;
-        background-color: var(--blue-btn-color);
-=======
         font-weight: 500;
         color: #fff;
         background-color: #5e0476;
->>>>>>> 86e228c (New design)
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -109,11 +74,7 @@
         display: inline-block;
 
         &:hover {
-<<<<<<< HEAD
-          background-color: var(--blue-btn-hover-color);
-=======
           background-color: #245a7e;
->>>>>>> 86e228c (New design)
         }
       }
     }
@@ -143,15 +104,9 @@
 
     .section-title {
       font-size: clamp(1.5rem, 3vw, 1.75rem);
-<<<<<<< HEAD
-      font-weight: 600;
-      margin-bottom: 30px;
-      color: var(--primary-text-color);
-=======
       font-weight: 500;
       margin-bottom: 30px;
       color: #5e0476;
->>>>>>> 86e228c (New design)
       @media (max-width: 900px){
         text-align: center;
       }
@@ -164,11 +119,7 @@
       gap: 20px;
 
       .service-card {
-<<<<<<< HEAD
-        background: var(--blue-btn-color);
-=======
         background: #f4f4f4;
->>>>>>> 86e228c (New design)
         padding: 20px;
         border-radius: 8px;
         text-align: center;
@@ -177,33 +128,20 @@
         min-height: 100%;
 
         h4 {
-<<<<<<< HEAD
-          font-size: clamp(1rem, 2vw, 1.125rem);
-          color: var(--primary-text-color);
-=======
           font-size: 19px;
           font-weight: 400;
           color: #264653;
->>>>>>> 86e228c (New design)
           margin-bottom: 10px;
         }
 
         p {
           font-size: clamp(0.8125rem, 1.5vw, 0.875rem);
-<<<<<<< HEAD
-          color: var(--primary-font-color);
-=======
           color: #6c757d;
->>>>>>> 86e228c (New design)
           line-height: 1.5;
         }
 
         &:hover {
-<<<<<<< HEAD
-          background: var(--blue-btn-hover-color);
-=======
           background: #e9ecef;
->>>>>>> 86e228c (New design)
           transform: translateY(-5px);
         }
       }

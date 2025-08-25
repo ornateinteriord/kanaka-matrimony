@@ -14,10 +14,6 @@ const useAuth = () => {
     };
 
     handleStorageChange();
-<<<<<<< HEAD
-
-=======
->>>>>>> 86e228c (New design)
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);

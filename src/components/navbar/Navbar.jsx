@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import  { useEffect, useState } from "react";
-=======
 import React, { useEffect, useState } from "react";
->>>>>>> 86e228c (New design)
 import "./Navbar.scss";
 import {
   Button,
@@ -23,10 +19,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-<<<<<<< HEAD
-import '../variables/Variables.scss'
-=======
->>>>>>> 86e228c (New design)
 import MenuIcon from "@mui/icons-material/Menu";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -36,10 +28,6 @@ import { useLoginMutation, useResetpassword } from "../api/Auth";
 import useAuth from "../hook/UseAuth";
 import TokenService from "../token/tokenService";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 86e228c (New design)
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
@@ -173,108 +161,6 @@ const Navbar = () => {
       <div className="navbar-container">
         <div className="navbar">
           {/* Mobile Menu Button */}
-<<<<<<< HEAD
-          
-
-          {/* Logo/Brand Name */}
-          <Typography
-            variant="h5"
-            component={Link}
-            to="/"
-            sx={{
-              width:{xs:"100%",sm:"20%",md:"0%"},
-              fontWeight: "bold",
-              fontSize: { xs: "1.5rem", sm: "1.5rem", md: "1.75rem" },
-              whiteSpace: "nowrap",
-              textDecoration: "none",
-              color: "#fff",
-             textAlign:'left',
-              [theme.breakpoints.up('md')]: {
-                margin: "0",
-                marginRight: "auto"
-              }
-            }}
-          >
-            Kanaka Matrimony
-          </Typography>
-
-          {/* Desktop Menu */}
-          <Box 
-            sx={{ 
-               
-              display: { xs: "none", md: "flex" },
-              flexGrow: 1,
-              justifyContent: "center",
-              marginLeft: "20px"
-            }}
-          >
-            {menuItems.map((item) => (
-              <Button
-                key={item.text}
-                component={Link}
-                to={item.path}
-                sx={{
-                  color: "#fff",
-                  fontWeight: "bold",
-                  fontSize: "1rem",
-                  textTransform: "capitalize",
-                  margin: "0 8px",
-                  "&:hover": {
-                  color:"aqua",
-                  },
-                }}
-              >
-                {item.text}
-              </Button>
-            ))}
-          </Box>
-
-          {/* Auth Buttons */}
-          <Box sx={{display:'flex'}}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            {isLoggedIn ? (
-              <Button
-                variant="contained"
-                size={isMobile ? "medium" : "large"}
-                onClick={handleLogout}
-                className="login-btn"
-                sx={{
-                  minWidth: "120px",
-                  color: "#fff",
-                  fontWeight: 700,
-                  height: { xs: "36px", md: "42px" },
-                  textTransform: "capitalize",
-                  display: { xs: "none",md: "inline-flex"  },
-                
-                }}
-              >
-                Logout
-              </Button>
-            ) : (
-              <>
-             <Button
-             className="login-btn"
-                  variant="contained"
-                  size={isMobile ? "medium" : "large"}
-                  onClick={handleOpen}
-                  sx={{
-                  
-                    minWidth: "120px",
-                    color: "#fff",
-                    fontWeight: 700,
-                    height: { xs: "36px", md: "42px" },
-                    textTransform: "capitalize",
-                    display: { xs: "none", md: "inline-flex" },
-                    
-                  }}
-                >
-                  Login
-                </Button>
-              </>
-            )}
-          </Box>
-=======
->>>>>>> 86e228c (New design)
           <IconButton
             className="menu-button"
             onClick={toggleMobileMenu}
@@ -285,8 +171,6 @@ const Navbar = () => {
           >
             {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
-<<<<<<< HEAD
-=======
 
           {/* Logo/Brand Name */}
           <Typography
@@ -415,28 +299,19 @@ const Navbar = () => {
                 </Button>
               </>
             )}
->>>>>>> 86e228c (New design)
           </Box>
         </div>
       </div>
 
       {/* Mobile Menu Drawer */}
       <Drawer
-<<<<<<< HEAD
-        anchor="right"
-=======
         anchor="left"
->>>>>>> 86e228c (New design)
         open={mobileMenuOpen}
         onClose={toggleMobileMenu}
         sx={{
           "& .MuiDrawer-paper": {
             width: "280px",
-<<<<<<< HEAD
-            background: 'var(--primary-color)',
-=======
             background: '#5e0476',
->>>>>>> 86e228c (New design)
             color: "#fff",
           },
         }}
@@ -455,15 +330,9 @@ const Navbar = () => {
             <Typography
               variant="h6"
               component="div"
-<<<<<<< HEAD
-              sx={{ fontWeight: "bold", fontSize: "1.3rem",}}
-            >
-              Kanaka Matrimony
-=======
               sx={{ fontWeight: "bold", fontSize: "1.3rem" }}
             >
               Sangam ❤️ Sathi
->>>>>>> 86e228c (New design)
             </Typography>
             <IconButton onClick={toggleMobileMenu} sx={{ color: "#fff" }}>
               <CloseIcon />
@@ -499,15 +368,9 @@ const Navbar = () => {
               </ListItem>
             ))}
           </List>
-<<<<<<< HEAD
-         
-          <Box sx={{ padding: "16px", marginTop: "auto" }}>
-            { isLoggedIn ? (
-=======
 
           <Box sx={{ padding: "16px", marginTop: "auto" }}>
             {isLoggedIn ? (
->>>>>>> 86e228c (New design)
               <Button
                 variant="contained"
                 fullWidth
@@ -515,16 +378,6 @@ const Navbar = () => {
                   handleLogout();
                   toggleMobileMenu();
                 }}
-<<<<<<< HEAD
-                 className="login-btn"
-                sx={{
-                  
-                  color: "#fff",
-                  fontWeight: 700,
-                  height: "42px",
-                  textTransform: "capitalize",
-                  
-=======
                 sx={{
                   backgroundColor: "#fff",
                   color: "#000",
@@ -534,7 +387,6 @@ const Navbar = () => {
                   "&:hover": {
                     backgroundColor: "#eee",
                   },
->>>>>>> 86e228c (New design)
                 }}
               >
                 Logout
@@ -548,15 +400,6 @@ const Navbar = () => {
                     handleOpen();
                     toggleMobileMenu();
                   }}
-<<<<<<< HEAD
-                   className="login-btn"
-                  sx={{
-                    color: "#fff",
-                    fontWeight: 700,
-                    height: "42px",
-                    textTransform: "capitalize",
-                
-=======
                   sx={{
                     backgroundColor: "#fff",
                     color: "#000",
@@ -566,7 +409,6 @@ const Navbar = () => {
                     "&:hover": {
                       backgroundColor: "#eee",
                     },
->>>>>>> 86e228c (New design)
                   }}
                 >
                   Login
@@ -586,28 +428,16 @@ const Navbar = () => {
         PaperProps={{
           sx: {
             borderRadius: "12px",
-<<<<<<< HEAD
-            padding: "10px",
-=======
             padding: {xs: "0px", sm: "10px"},
->>>>>>> 86e228c (New design)
           }
         }}
       >
         <DialogTitle
           sx={{
-<<<<<<< HEAD
-            color:'var( --primary-text-color)',
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: "1.5rem",
-            paddingBottom: "20px",
-=======
             textAlign: "center",
             fontWeight: "bold",
             fontSize: "1.5rem",
             paddingBottom: "0px",
->>>>>>> 86e228c (New design)
           }}
         >
           Login
@@ -656,11 +486,7 @@ const Navbar = () => {
             <Typography
               variant="body2"
               sx={{
-<<<<<<< HEAD
-                color: 'var( --primary-text-color)',
-=======
                 color: "#5e0476",
->>>>>>> 86e228c (New design)
                 cursor: "pointer",
                 textAlign: "center",
                 "&:hover": {
@@ -675,11 +501,7 @@ const Navbar = () => {
         </DialogContent>
         <DialogActions
           sx={{
-<<<<<<< HEAD
-            padding: "16px 24px",
-=======
             padding: "6px 24px",
->>>>>>> 86e228c (New design)
             flexDirection: "column",
             gap: "12px",
           }}
@@ -696,13 +518,6 @@ const Navbar = () => {
               fontWeight: "bold",
               textTransform: "capitalize",
               fontSize: "1rem",
-<<<<<<< HEAD
-              background:'var(--primary-color)',
-            }}
-          >
-            {isLoginPending ? (
-              <CircularProgress size={24} color="inherit" />
-=======
               backgroundColor: "#5e0476",
               "&:hover": {
                   backgroundColor: "#6c1b83ff",
@@ -711,7 +526,6 @@ const Navbar = () => {
           >
             {isLoginPending ? (
              <CircularProgress size={24} color="inherit" /> 
->>>>>>> 86e228c (New design)
             ) : (
               "Login"
             )}
@@ -720,21 +534,13 @@ const Navbar = () => {
             variant="body2"
             sx={{
               textAlign: "center",
-<<<<<<< HEAD
-              color: theme.palette.text.secondary,
-=======
               color:  "#5e0476",
->>>>>>> 86e228c (New design)
             }}
           >
             Don't have an account?{" "}
             <span
               style={{
-<<<<<<< HEAD
-                color: 'var( --primary-text-color)',
-=======
                 color:  "#5e0476",
->>>>>>> 86e228c (New design)
                 cursor: "pointer",
                 fontWeight: "bold",
               }}
@@ -758,27 +564,16 @@ const Navbar = () => {
         PaperProps={{
           sx: {
             borderRadius: "12px",
-<<<<<<< HEAD
-            padding: "20px",
-=======
              padding: {xs: "0px", sm: "10px"},
->>>>>>> 86e228c (New design)
           }
         }}
       >
         <DialogTitle
           sx={{
             textAlign: "center",
-<<<<<<< HEAD
-            fontWeight: "bold",
-            fontSize: "1.5rem",
-            paddingBottom: "8px",
-            color:'var( --primary-text-color)'
-=======
             fontWeight: 500,
             fontSize: "1.5rem",
             paddingBottom: "8px",
->>>>>>> 86e228c (New design)
           }}
         >
           {otpSent ? "Reset Password" : "Forgot Password"}
@@ -891,57 +686,6 @@ const Navbar = () => {
             )}
           </Box>
         </DialogContent>
-<<<<<<< HEAD
-        <DialogActions
-          sx={{
-            padding: "16px 24px",
-            flexDirection: "column",
-            gap: "12px",
-          }}
-        >
-          <Button
-            variant="contained"
-            fullWidth
-            onClick={otpSent ? handleResetPassword : handleSendOtp}
-            disabled={isResettingPassword}
-            sx={{
-              height: "44px",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              fontSize: "1rem",
-              background:"var(--primary-color)"
-            }}
-          >
-            {isResettingPassword ? (
-              <CircularProgress size={24} color="inherit" />
-            ) : otpSent ? (
-              "Reset Password"
-            ) : (
-              "Send OTP"
-            )}
-          </Button>
-          <Button
-            
-            fullWidth
-            onClick={handleCloseForgotPassword}
-            sx={{
-              height: "44px",
-              borderRadius: "8px",
-              fontWeight: "bold",
-              textTransform: "capitalize",
-              fontSize: "1rem",
-               background:"var( --blue-btn-color)",
-               color:"var( --primary-font-color)",
-               '&:hover': {
-      background: 'var(--blue-btn-hover-color)', 
-    },
-            }}
-          >
-            Cancel
-          </Button>
-        </DialogActions>
-=======
   <DialogActions
   sx={{
     padding: "6px 24px",
@@ -1000,7 +744,6 @@ const Navbar = () => {
   </Button>
 </DialogActions>
 
->>>>>>> 86e228c (New design)
       </Dialog>
     </div>
   );

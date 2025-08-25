@@ -59,22 +59,14 @@ const AboutPop = ({ userDetails }) => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
       <Stack spacing={2}>
-<<<<<<< HEAD
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-=======
         <Typography variant="h6" sx={{ fontWeight: "500px" }}>
->>>>>>> 86e228c (New design)
           User Information
         </Typography>
         <TableContainer sx={{ boxShadow: 3 }} component={Paper}>
           <Table>
             <TableBody>
               <TableRow>
-<<<<<<< HEAD
-                <TableCell sx={{ fontWeight: "bold", width: "150px" }}>
-=======
                 <TableCell sx={{ fontWeight: "500px", width: "150px" }}>
->>>>>>> 86e228c (New design)
                   Full Name
                 </TableCell>
                 <TableCell>{`${userDetails?.first_name || "N/A"} ${
@@ -82,35 +74,16 @@ const AboutPop = ({ userDetails }) => {
                 }`}</TableCell>
               </TableRow>
               <TableRow>
-<<<<<<< HEAD
-                <TableCell sx={{ fontWeight: "bold" }}>Date of Birth</TableCell>
-                <TableCell>{userDetails?.date_of_birth || "N/A"}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell sx={{ fontWeight: "bold" }}>
-=======
                 <TableCell sx={{ fontWeight: "500px" }}>Date of Birth</TableCell>
                 <TableCell>{userDetails?.date_of_birth || "N/A"}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell sx={{ fontWeight: "500px" }}>
->>>>>>> 86e228c (New design)
                   Marital Status
                 </TableCell>
                 <TableCell>{userDetails?.marital_status || "N/A"}</TableCell>
               </TableRow>
               <TableRow>
-<<<<<<< HEAD
-                <TableCell sx={{ fontWeight: "bold" }}>Language</TableCell>
-                <TableCell>{userDetails?.mother_tounge || "N/A"}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell sx={{ fontWeight: "bold" }}>Address</TableCell>
-                <TableCell>{userDetails?.address || "N/A"}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell sx={{ fontWeight: "bold" }}>Contact No</TableCell>
-=======
                 <TableCell sx={{ fontWeight: "500px" }}>Language</TableCell>
                 <TableCell>{userDetails?.mother_tounge || "N/A"}</TableCell>
               </TableRow>
@@ -120,17 +93,12 @@ const AboutPop = ({ userDetails }) => {
               </TableRow>
               <TableRow>
                 <TableCell sx={{ fontWeight: "500px" }}>Contact No</TableCell>
->>>>>>> 86e228c (New design)
                 <TableCell>
                   {userDetails?.mobile_no || <PremiumButton onClick={handleUpgrade} />}
                 </TableCell>
               </TableRow>
               <TableRow>
-<<<<<<< HEAD
-                <TableCell sx={{ fontWeight: "bold" }}>Email</TableCell>
-=======
                 <TableCell sx={{ fontWeight: "500px" }}>Email</TableCell>
->>>>>>> 86e228c (New design)
                 <TableCell>
                   {userDetails?.email_id || <PremiumButton onClick={handleUpgrade} />}
                 </TableCell>

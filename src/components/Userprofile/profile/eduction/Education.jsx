@@ -3,20 +3,6 @@ import {
   Box,
   Stack,
   Typography,
-<<<<<<< HEAD
-  TextField,
-  Button,
-  MenuItem,
-  CircularProgress,
-  InputAdornment,
-  IconButton
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import {
-  useGetMemberDetails,
-  useUpdateProfile
-} from "../../../api/User/useGetProfileDetails";
-=======
   Button,
   CircularProgress,
   useMediaQuery,
@@ -26,19 +12,10 @@ import {
   useGetMemberDetails,
   useUpdateProfile
 } from "../../../api/User";
->>>>>>> 86e228c (New design)
 import TokenService from "../../../token/tokenService";
 import toast from "react-hot-toast";
 import rawJsonData from "../eduction/jsondata/data.json";
 import { LoadingComponent } from "../../../../App";
-<<<<<<< HEAD
-import '../../../variables/Variables.scss'
-
-// Merge array of JSON objects into one object
-const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
-
-const Education = () => {
-=======
 import CustomAutocomplete from "../../../Autocomplete/CustomAutocomplete";
 
 const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
@@ -46,7 +23,6 @@ const jsonData = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 const Education = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
->>>>>>> 86e228c (New design)
   const registerNo = TokenService.getRegistrationNo();
 
   const [formData, setFormData] = useState({
@@ -56,18 +32,11 @@ const Education = () => {
     occupation_country: ""
   });
 
-<<<<<<< HEAD
-  const [showCustomDegree, setShowCustomDegree] = useState(false);
-  const [showCustomOccupation, setShowCustomOccupation] = useState(false);
-  const [showCustomIncome, setShowCustomIncome] = useState(false);
-  const [showCustomCountry, setShowCustomCountry] = useState(false);
-=======
   // Initialize suggestions state
   const [educationSuggestions, setEducationSuggestions] = useState(jsonData.qualificationValues || []);
   const [occupationSuggestions, setOccupationSuggestions] = useState(jsonData.occupationValues || []);
   const [incomeSuggestions, setIncomeSuggestions] = useState(jsonData.incomeValues || []);
   const [countrySuggestions, setCountrySuggestions] = useState(jsonData.countries || []);
->>>>>>> 86e228c (New design)
 
   const {
     data: userProfile,
@@ -97,36 +66,6 @@ const Education = () => {
     }));
   };
 
-<<<<<<< HEAD
-  const handleSelectChange = (field, value) => {
-    if (value === "Other") {
-      switch (field) {
-        case "educational_qualification":
-          setShowCustomDegree(true);
-          handleChange(field, "");
-          break;
-        case "occupation":
-          setShowCustomOccupation(true);
-          handleChange(field, "");
-          break;
-        case "income_per_month":
-          setShowCustomIncome(true);
-          handleChange(field, "");
-          break;
-        case "occupation_country":
-          setShowCustomCountry(true);
-          handleChange(field, "");
-          break;
-        default:
-          break;
-      }
-    } else {
-      handleChange(field, value);
-    }
-  };
-
-=======
->>>>>>> 86e228c (New design)
   const handleSave = () => {
     updateProfile(formData, {
       onSuccess: () => toast.success("Profile updated successfully!"),
@@ -135,182 +74,6 @@ const Education = () => {
   };
 
   const handleClear = () => {
-<<<<<<< HEAD
-    setFormData({
-      educational_qualification: "",
-      occupation: "",
-      income_per_month: "",
-      occupation_country: ""
-    });
-    setShowCustomDegree(false);
-    setShowCustomOccupation(false);
-    setShowCustomIncome(false);
-    setShowCustomCountry(false);
-  };
-
-  const textFieldStyle = {
-    width: {
-      xs: "310px",
-      sm: "500px",
-      md: "350px",
-      lg: "400px"
-    }
-  };
-
-  const renderCustomField = (label, field, value, setShowCustom) => (
-    <TextField
-      label={label}
-      value={value}
-      onChange={(e) => handleChange(field, e.target.value)}
-      sx={{ ...textFieldStyle, mb: 2 }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton
-              onClick={() => {
-                setShowCustom(false);
-                handleChange(field, "");
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </InputAdornment>
-        )
-      }}
-    />
-  );
-
-  return (
-    <Box
-      sx={{
-        backgroundColor: "#f9f9f9",
-        borderRadius: "8px",
-        width: { xs: "100%", sm: "90%", md: "85%", lg: "73%" },
-        p: { xs: 1, sm: 4 }
-      }}
-    >
-      <Stack spacing={3}>
-        <Typography variant="h5" gutterBottom sx={{ color: "var(--primary-text-color)",fontWeight:'bold' }}>
-          Education & Occupation
-        </Typography>
-        <form>
-          <Stack spacing={3}>
-            <Stack
-              direction={{ xs: "column", md: "column" }}
-              spacing={4}
-              alignItems="center"
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
-              {/* Column 1 */}
-              <Box>
-                {showCustomDegree
-                  ? renderCustomField(
-                      "Qualification",
-                      "educational_qualification",
-                      formData.educational_qualification,
-                      setShowCustomDegree
-                    )
-                  : (
-                    <TextField
-                      label="Qualification"
-                      value={formData.educational_qualification}
-                      onChange={(e) =>
-                        handleSelectChange("educational_qualification", e.target.value)
-                      }
-                      select
-                      sx={{ ...textFieldStyle, mb: 2 }}
-                    >
-                      {(jsonData.qualificationValues || []).map((option, index) => (
-                        <MenuItem key={index} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                      <MenuItem value="Other">Other</MenuItem>
-                    </TextField>
-                  )}
-
-                {showCustomOccupation
-                  ? renderCustomField(
-                      "Occupation",
-                      "occupation",
-                      formData.occupation,
-                      setShowCustomOccupation
-                    )
-                  : (
-                    <TextField
-                      label="Occupation"
-                      value={formData.occupation}
-                      onChange={(e) =>
-                        handleSelectChange("occupation", e.target.value)
-                      }
-                      select
-                      sx={textFieldStyle}
-                    >
-                      {(jsonData.occupationValues || []).map((option, index) => (
-                        <MenuItem key={index} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                      <MenuItem value="Other">Other</MenuItem>
-                    </TextField>
-                  )}
-              </Box>
-
-              {/* Column 2 */}
-              <Box>
-                {showCustomIncome
-                  ? renderCustomField(
-                      "Income Per Month",
-                      "income_per_month",
-                      formData.income_per_month,
-                      setShowCustomIncome
-                    )
-                  : (
-                    <TextField
-                      label="Income Per Month"
-                      value={formData.income_per_month}
-                      onChange={(e) =>
-                        handleSelectChange("income_per_month", e.target.value)
-                      }
-                      select
-                      sx={{ ...textFieldStyle, mb: 2 }}
-                    >
-                      {(jsonData.incomeValues || []).map((option, index) => (
-                        <MenuItem key={index} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                      <MenuItem value="Other">Other</MenuItem>
-                    </TextField>
-                  )}
-
-                {showCustomCountry
-                  ? renderCustomField(
-                      "Occupation Country",
-                      "occupation_country",
-                      formData.occupation_country,
-                      setShowCustomCountry
-                    )
-                  : (
-                    <TextField
-                      label="Occupation Country"
-                      value={formData.occupation_country}
-                      onChange={(e) =>
-                        handleSelectChange("occupation_country", e.target.value)
-                      }
-                      select
-                      sx={textFieldStyle}
-                    >
-                      {(jsonData.countries || []).map((option, index) => (
-                        <MenuItem key={index} value={option}>
-                          {option}
-                        </MenuItem>
-                      ))}
-                      <MenuItem value="Other">Other</MenuItem>
-                    </TextField>
-                  )}
-=======
     if (userProfile) {
       setFormData({
         ...userProfile,
@@ -384,7 +147,6 @@ const Education = () => {
                   FullWidth
                   mb={3}
                 />
->>>>>>> 86e228c (New design)
               </Box>
             </Stack>
 
@@ -393,15 +155,10 @@ const Education = () => {
               sx={{
                 display: "flex",
                 gap: "10px",
-<<<<<<< HEAD
-                flexDirection: { xs: "row", sm: "row" },
-                alignItems: { xs: "stretch", sm: "center" }
-=======
                 flexDirection:"row" ,
                 alignItems: "center",
                 justifyContent: "end",
                 width: '100%'
->>>>>>> 86e228c (New design)
               }}
             >
               <Button
@@ -409,15 +166,6 @@ const Education = () => {
                 variant="outlined"
                 sx={{
                   color: "black",
-<<<<<<< HEAD
-                  backgroundColor: "#fff",
-                  textTransform: "capitalize",
-                  "&:hover": { backgroundColor: "#fff" },
-                  width: { xs: "100%", sm: "auto" }
-                }}
-              >
-                Clear
-=======
                   border:'1px solid #5e0476',
                   backgroundColor: "#fff",
                   textTransform: "capitalize",
@@ -426,24 +174,16 @@ const Education = () => {
                 }}
               >
                 Reset
->>>>>>> 86e228c (New design)
               </Button>
               <Button
                 onClick={handleSave}
                 variant="contained"
                 disabled={isUpdating}
                 sx={{
-<<<<<<< HEAD
-                  background: "var( --blue-btn-color)",
-                  textTransform: "capitalize",
-                  "&:hover": { background: "var(--blue-btn-hover-color)" },
-                  width: { xs: "100%", sm: "auto" }
-=======
                   backgroundColor: "#5e0476",
                   textTransform: "capitalize",
                   "&:hover": { backgroundColor: "#5e0476" },
                   width: isMobile ? '100%' : '130px'
->>>>>>> 86e228c (New design)
                 }}
               >
                 {isUpdating ? <CircularProgress size={24} /> : "Save"}
@@ -457,8 +197,4 @@ const Education = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Education;
-=======
-export default Education;
->>>>>>> 86e228c (New design)

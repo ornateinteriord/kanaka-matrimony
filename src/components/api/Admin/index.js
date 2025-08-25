@@ -5,16 +5,6 @@ import { get, post, put } from "../authHooks";
 import { toast } from "react-toastify";
 
 export const getAllUserProfiles = () => {
-<<<<<<< HEAD
-  return useQuery({
-    queryKey: ["profiles"],
-    queryFn: async () => {
-      const response = await get("/api/admin/all-user-details");
-      if (response.success) {
-        return response.users;
-      } else {
-        throw new Error(response.message);
-=======
    return useMutation({
     mutationFn: async ({ page, pageSize }) => {
       const response = await post("/api/admin/all-user-details", {
@@ -26,7 +16,6 @@ export const getAllUserProfiles = () => {
       
       } else {
         throw new Error(response?.message || "Failed to fetch users");
->>>>>>> 86e228c (New design)
       }
     },
   });
@@ -35,18 +24,11 @@ export const getAllUserProfiles = () => {
 export const UpgradeUserStatus = () => {
   const queryClient = useQueryClient();
   return useMutation({
-<<<<<<< HEAD
-    mutationFn: async ({ regno, status, image_verification }) => {
-      const response = await put(`/api/admin/upgrade-user/${regno}`, {
-        status,
-        image_verification,
-=======
     mutationFn: async ({ regno, status, image_verification,isProfileUpdate }) => {
       const response = await put(`/api/admin/upgrade-user/${regno}`, {
         status,
         image_verification,
         isProfileUpdate
->>>>>>> 86e228c (New design)
       });
       return response;
     },
@@ -102,8 +84,6 @@ export const getAllAssistanceTransactions = () => {
     },
   });
 };
-<<<<<<< HEAD
-=======
 export const getAllUserCounts = () => {
   return useQuery({
     queryKey: ["user-counts"],
@@ -149,7 +129,6 @@ export const getAllAssistanceSuccess = () => {
     },
   });
 };
->>>>>>> 86e228c (New design)
 export const useOnlineTransactions = () => {
   return useQuery({
     queryKey: ["online-transactions"],

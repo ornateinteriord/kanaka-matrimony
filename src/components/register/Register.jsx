@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import  { useEffect, useState } from 'react';
-=======
 import { useEffect, useState } from "react";
->>>>>>> 86e228c (New design)
 import {
   Box,
   Paper,
@@ -16,18 +12,6 @@ import {
   Divider,
   Avatar,
   useMediaQuery,
-<<<<<<< HEAD
-  useTheme
-} from '@mui/material';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
-import rawJsonData from "../Userprofile/profile/eduction/jsondata/data.json";
-import Navbar from '../navbar/Navbar';
-import Footer from "../footer/Footer";
-import { toast } from 'react-toastify'; 
-import { useSignupMutation } from '../api/Auth';
-import { useLocation } from 'react-router-dom';
-
-=======
   useTheme,
 } from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
@@ -43,44 +27,10 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import { LoadingComponent } from "../../App";
 import CustomAutocomplete from "../Autocomplete/CustomAutocomplete";
->>>>>>> 86e228c (New design)
 
 const datas = rawJsonData.reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
 const Register = () => {
-<<<<<<< HEAD
-    const location = useLocation();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const signupmutation = useSignupMutation();
-  const { mutate } = signupmutation;
-   
-  const searchParams = new URLSearchParams(location.search);
-const planType = searchParams.get('type');
-
-const getUserRole = () => {
-  switch(planType) {
-    case 'PremiumUser': return 'PremiumUser';
-    case 'SilverUser': return 'SilverUser';
-    default: return 'FreeUser';
-  }
-};
-
-useEffect(() => {
-  setFormData(prev => ({
-    ...prev,
-    user_role: getUserRole() 
-  }));
-}, [planType]);
-
-const [formData, setFormData] = useState({
-  user_role: getUserRole(),
-});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-=======
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -204,19 +154,10 @@ const [formData, setFormData] = useState({
 
   const handleClear = () => {
     setFormData(initialFormState);
->>>>>>> 86e228c (New design)
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-  
-    if (formData.password !== formData.confirmPassword) {
-      toast.error('Passwords do not match');
-      return;
-    }
-
-=======
 
     if (!/^[0-9]{10}$/.test(formData.mobile_no)) {
       toast.error("Please enter a valid 10-digit mobile number");
@@ -227,82 +168,23 @@ const [formData, setFormData] = useState({
       toast.error("Passwords do not match");
       return;
     }
->>>>>>> 86e228c (New design)
     try {
       mutate(formData, {
         onSuccess: () => {
           toast.success(formData.message);
         },
       });
-<<<<<<< HEAD
-    } catch (error) {
-    }
-=======
     } catch (error) {}
   };
 
   const isValidAge = (value) => {
     if (value === "") return true; // Allow empty field
     return /^\d+$/.test(value); // Check if it's only digits
->>>>>>> 86e228c (New design)
   };
 
   return (
     <>
       <Navbar />
-<<<<<<< HEAD
-      <Box sx={{ 
-        backgroundColor: '#f5f7fa', 
-        minHeight: '100vh', 
-        py: 4, 
-        px: { xs: 1, sm: 2 }, 
-        mt: '10px', 
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center'
-      }}>
-        <Paper
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{ 
-            p: { xs: 2, sm: 4, md: 6 }, 
-            borderRadius: 2, 
-            width: '100%', 
-            // maxWidth: '1400px'
-          }}
-        >
-          <Box sx={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            mb: 2, 
-            mt:1.5,          
-             gap: 2,
-            flexDirection: 'row'
-          }}>
-            <Avatar sx={{ bgcolor: 'var(--primary-text-color)' }}>
-              <HowToRegIcon />
-            </Avatar>
-            <Typography variant={isMobile ? "h5" : "h4"} component="h1" sx={{ fontWeight: 600, textAlign: 'center',color:'var(--primary-text-color)' }}>
-              REGISTER HERE!
-            </Typography>
-          </Box>
-
-          <Divider sx={{ height: '1px', mb:isMobile? 1 : 4 }} />
-
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: { xs: 'column', md: 'row' }, 
-            gap: 4 
-          }}>
-            {/* LEFT: Personal + Social */}
-            <Box sx={{ flex: 1 }}>
-              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
-                PERSONAL DETAILS
-              </Typography>
-
-              <FormControl fullWidth sx={{ mb: 3 }}>
-=======
       {isPending && <LoadingComponent />}
       <Box
         sx={{
@@ -396,7 +278,6 @@ const [formData, setFormData] = useState({
               </Typography>
 
               <FormControl fullWidth sx={{ mb: 3 }} required>
->>>>>>> 86e228c (New design)
                 <InputLabel>Marital Status</InputLabel>
                 <Select
                   label="Marital Status"
@@ -404,24 +285,15 @@ const [formData, setFormData] = useState({
                   value={formData.marital_status}
                   onChange={handleChange}
                 >
-<<<<<<< HEAD
-                  {datas.marritalStatus.map((item, idx) => (
-                    <MenuItem key={idx} value={item}>{item}</MenuItem>
-=======
                   {datas.marritalStatus?.map((item, idx) => (
                     <MenuItem key={idx} value={item}>
                       {item}
                     </MenuItem>
->>>>>>> 86e228c (New design)
                   ))}
                 </Select>
               </FormControl>
 
-<<<<<<< HEAD
-              <FormControl fullWidth sx={{ mb: 3 }}>
-=======
               <FormControl fullWidth sx={{ mb: 3 }} required>
->>>>>>> 86e228c (New design)
                 <InputLabel>Create Profile For</InputLabel>
                 <Select
                   label="Create Profile For"
@@ -437,11 +309,7 @@ const [formData, setFormData] = useState({
                 </Select>
               </FormControl>
 
-<<<<<<< HEAD
-              <FormControl fullWidth sx={{ mb: 3 }}>
-=======
               <FormControl fullWidth sx={{ mb: 3 }} required>
->>>>>>> 86e228c (New design)
                 <InputLabel>Gender</InputLabel>
                 <Select
                   label="Gender"
@@ -449,25 +317,6 @@ const [formData, setFormData] = useState({
                   value={formData.gender}
                   onChange={handleChange}
                 >
-<<<<<<< HEAD
-                  <MenuItem value="Male">Male</MenuItem>
-                  <MenuItem value="Female">Female</MenuItem>
-                  <MenuItem value="Other">Other</MenuItem>
-                </Select>
-              </FormControl>
-
-              <TextField
-                fullWidth
-                label="Date of Birth"
-                name="date_of_birth"
-                value={formData.date_of_birth}
-                onChange={handleChange}
-                type="date"
-                InputLabelProps={{ shrink: true }}
-                required
-                sx={{ mb: 3 }}
-              />
-=======
                   <MenuItem value="BrideGroom">Male</MenuItem>
                   <MenuItem value="Bride">Female</MenuItem>
                 </Select>
@@ -502,40 +351,15 @@ const [formData, setFormData] = useState({
                   }}
                 />
               </LocalizationProvider>
->>>>>>> 86e228c (New design)
 
               <TextField
                 fullWidth
                 label="Age"
-<<<<<<< HEAD
-                type="number"
-=======
                 type="text" // Changed from "number" to "text"
->>>>>>> 86e228c (New design)
                 sx={{ mb: 3 }}
                 name="age"
                 value={formData.age}
                 onChange={handleChange}
-<<<<<<< HEAD
-              />
-
-              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
-                SOCIAL & CAREER DETAILS
-              </Typography>
-
-              <Box sx={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: 2,
-                '& .MuiFormControl-root': {
-                  flex: isMobile ? '1 1 100%' : '1 1 48%',
-                  minWidth: '120px'
-                }
-              }}>
-                <FormControl sx={{ mb: 2 }}>
-                  <InputLabel>Educational Qualification</InputLabel>
-                  <Select
-=======
                 InputLabelProps={{ shrink: !!formData.age }}
                 error={!isValidAge(formData.age)} // Show error state if not valid
                 helperText={
@@ -559,46 +383,20 @@ const [formData, setFormData] = useState({
                 <Box sx={{ flex: "1 1 48%", minWidth: "200px" }}>
                   <CustomAutocomplete
                     options={datas.qualificationValues ?? []}
->>>>>>> 86e228c (New design)
                     label="Educational Qualification"
                     name="educational_qualification"
                     value={formData.educational_qualification}
                     onChange={handleChange}
-<<<<<<< HEAD
-                  >
-                    {datas.qualificationValues.map((item, idx) => (
-                      <MenuItem key={idx} value={item}>{item}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-
-                <FormControl sx={{ mb: 2 }}>
-                  <InputLabel>Occupation</InputLabel>
-                  <Select
-=======
                     sx={{ width: "100%", mb: 2 }}
                   />
                 </Box>
                 <Box sx={{ flex: "1 1 48%", minWidth: "200px" }}>
                   <CustomAutocomplete
                     options={datas.occupationValues ?? []}
->>>>>>> 86e228c (New design)
                     label="Occupation"
                     name="occupation"
                     value={formData.occupation}
                     onChange={handleChange}
-<<<<<<< HEAD
-                  >
-                    {datas.occupationValues.map((item, idx) => (
-                      <MenuItem key={idx} value={item}>{item}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-
-                <FormControl sx={{ mb: 2 }}>
-                  <InputLabel>Income Per Annum</InputLabel>
-                  <Select
-=======
                     sx={{ width: "100%", mb: 2 }}
                   />
                 </Box>
@@ -606,46 +404,20 @@ const [formData, setFormData] = useState({
                 <Box sx={{ flex: "1 1 48%", minWidth: "200px" }}>
                   <CustomAutocomplete
                     options={datas.incomeValues ?? []}
->>>>>>> 86e228c (New design)
                     label="Income Per Annum"
                     name="income_per_month"
                     value={formData.income_per_month}
                     onChange={handleChange}
-<<<<<<< HEAD
-                  >
-                    {datas.incomeValues.map((item, idx) => (
-                      <MenuItem key={idx} value={item}>{item}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-
-                <FormControl sx={{ mb: 2 }}>
-                  <InputLabel>Country</InputLabel>
-                  <Select
-=======
                     sx={{ width: "100%", mb: 2 }}
                   />
                 </Box>
                 <Box sx={{ flex: "1 1 48%", minWidth: "200px" }}>
                   <CustomAutocomplete
                     options={datas.countries ?? []}
->>>>>>> 86e228c (New design)
                     label="Country"
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-<<<<<<< HEAD
-                  >
-                    {datas.countries.map((item, idx) => (
-                      <MenuItem key={idx} value={item}>{item}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-
-                <FormControl sx={{ mb: 3 }}>
-                  <InputLabel>Mother Tongue</InputLabel>
-                  <Select
-=======
                     sx={{ width: "100%", mb: 2 }}
                   />
                 </Box>
@@ -653,25 +425,10 @@ const [formData, setFormData] = useState({
                 <Box sx={{ flex: "1 1 48%", minWidth: "200px" }}>
                   <CustomAutocomplete
                     options={datas.languageValues ?? []}
->>>>>>> 86e228c (New design)
                     label="Mother Tongue"
                     name="mother_tongue"
                     value={formData.mother_tongue}
                     onChange={handleChange}
-<<<<<<< HEAD
-                  >
-                    {datas.languageValues.map((item, idx) => (
-                      <MenuItem key={idx} value={item}>{item}</MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Box>
-            </Box>
-
-            {/* RIGHT: Family + Login */}
-            <Box sx={{ flex: 1 }}>
-              <Typography variant="h6" sx={{ mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
-=======
                     sx={{ width: "100%", mb: 2 }}
                   />
                 </Box>
@@ -683,7 +440,6 @@ const [formData, setFormData] = useState({
                 variant="h6"
                 sx={{ mb: 3, color: "#5e0476", fontWeight: 600 }}
               >
->>>>>>> 86e228c (New design)
                 FAMILY DETAILS
               </Typography>
 
@@ -709,11 +465,7 @@ const [formData, setFormData] = useState({
                 value={formData.parent_name}
                 onChange={handleChange}
               />
-<<<<<<< HEAD
-              
-=======
 
->>>>>>> 86e228c (New design)
               <TextField
                 fullWidth
                 label="Religion"
@@ -723,21 +475,6 @@ const [formData, setFormData] = useState({
                 sx={{ mb: 3 }}
               />
 
-<<<<<<< HEAD
-              <FormControl fullWidth sx={{ mb: 3 }}>
-                <InputLabel>Caste</InputLabel>
-                <Select
-                  label="Caste"
-                  name="caste"
-                  value={formData.caste}
-                  onChange={handleChange}
-                >
-                  {datas.casteValues.map((item, idx) => (
-                    <MenuItem key={idx} value={item}>{item}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-=======
               <CustomAutocomplete
                 options={datas.casteValues ?? []}
                 label="Caste"
@@ -746,7 +483,6 @@ const [formData, setFormData] = useState({
                 onChange={handleChange}
                 sx={{ mb: 3 }}
               />
->>>>>>> 86e228c (New design)
 
               <TextField
                 fullWidth
@@ -759,62 +495,6 @@ const [formData, setFormData] = useState({
                 onChange={handleChange}
               />
 
-<<<<<<< HEAD
-              <FormControl fullWidth sx={{ mb: 3 }}>
-                <InputLabel>Occupation Country</InputLabel>
-                <Select
-                  label="Country"
-                  name="occupation_country"
-                  value={formData.occupation_country}
-                  onChange={handleChange}
-                >
-                  {datas.countries.map((item, idx) => (
-                    <MenuItem key={idx} value={item}>{item}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-
-              <FormControl fullWidth sx={{ mb: 3 }}>
-                <InputLabel>Select State</InputLabel>
-                <Select
-                  label="State"
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                >
-                  {datas.states.map((item, idx) => (
-                    <MenuItem key={idx} value={item}>{item}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-
-              <FormControl fullWidth sx={{ mb: 3 }}>
-                <InputLabel>Select City</InputLabel>
-                <Select
-                  label="City"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                >
-                  {datas.cities.map((item, idx) => (
-                    <MenuItem key={idx} value={item}>{item}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-          </Box>
-
-          {/* LOGIN DETAILS */}
-          <Typography variant="h6" sx={{ mt: 1, mb: 3, color: 'var(--primary-text-color)', fontWeight: 600 }}>
-            LOGIN DETAILS
-          </Typography>
-
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: { xs: 'column', sm: 'row' }, 
-            gap: 2 
-          }}>
-=======
               <CustomAutocomplete
                 options={datas.countries ?? []}
                 label="Occupation Country"
@@ -858,7 +538,6 @@ const [formData, setFormData] = useState({
               gap: 2,
             }}
           >
->>>>>>> 86e228c (New design)
             <Box sx={{ flex: 1 }}>
               <TextField
                 fullWidth
@@ -867,10 +546,7 @@ const [formData, setFormData] = useState({
                 sx={{ mb: 3 }}
                 value={formData.first_name}
                 onChange={handleChange}
-<<<<<<< HEAD
-=======
                 required
->>>>>>> 86e228c (New design)
               />
               <TextField
                 fullWidth
@@ -879,10 +555,7 @@ const [formData, setFormData] = useState({
                 name="last_name"
                 value={formData.last_name}
                 onChange={handleChange}
-<<<<<<< HEAD
-=======
                 required
->>>>>>> 86e228c (New design)
               />
             </Box>
             <Box sx={{ flex: 1 }}>
@@ -894,25 +567,16 @@ const [formData, setFormData] = useState({
                 sx={{ mb: 3 }}
                 value={formData.username}
                 onChange={handleChange}
-<<<<<<< HEAD
-=======
                 required
->>>>>>> 86e228c (New design)
               />
               <TextField
                 fullWidth
                 label="Mobile Number"
-<<<<<<< HEAD
-                type="tel"
-=======
                 type="text" // Changed from "number" to "text" for better control
->>>>>>> 86e228c (New design)
                 name="mobile_no"
                 sx={{ mb: 3 }}
                 value={formData.mobile_no}
                 onChange={handleChange}
-<<<<<<< HEAD
-=======
                 required
                 inputProps={{
                   maxLength: 10, // Limit to 10 digits for Indian numbers
@@ -926,19 +590,10 @@ const [formData, setFormData] = useState({
                     ? "Please enter a valid 10-digit mobile number"
                     : ""
                 }
->>>>>>> 86e228c (New design)
               />
             </Box>
           </Box>
 
-<<<<<<< HEAD
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: { xs: 'column', sm: 'row' }, 
-            gap: 2, 
-            mb: 4 
-          }}>
-=======
           <Box
             sx={{
               display: "flex",
@@ -947,7 +602,6 @@ const [formData, setFormData] = useState({
               mb: 4,
             }}
           >
->>>>>>> 86e228c (New design)
             <TextField
               fullWidth
               label="Password"
@@ -965,21 +619,6 @@ const [formData, setFormData] = useState({
               onChange={handleChange}
             />
           </Box>
-<<<<<<< HEAD
-          
-          <Box sx={{ 
-            width: '100%', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center' 
-          }}>
-
-            <input 
-    type="hidden" 
-    name="user_role" 
-    value={formData.user_role} 
-  />
-=======
 
           <Box
             sx={{
@@ -1012,25 +651,10 @@ const [formData, setFormData] = useState({
               Clear
             </Button>
 
->>>>>>> 86e228c (New design)
             <Button
               type="submit"
               variant="contained"
               size="large"
-<<<<<<< HEAD
-              sx={{
-                background: 'var(--primary-color)',
-                '&:hover': { backgroundColor: 'darkorange' },
-                fontWeight: 600,
-                width: { xs: '100%', sm: '50%', md: '30%' },
-                textTransform: 'capitalize'
-              }}
-            >
-              Submit Registration
-            </Button>
-          </Box>
-        </Paper>
-=======
               disabled={isPending}
               sx={{
                 backgroundColor: "#5e0476",
@@ -1047,15 +671,10 @@ const [formData, setFormData] = useState({
             </Button>
           </Box>
         </Box>
->>>>>>> 86e228c (New design)
       </Box>
       <Footer />
     </>
   );
 };
 
-<<<<<<< HEAD
 export default Register;
-=======
-export default Register;
->>>>>>> 86e228c (New design)

@@ -6,17 +6,6 @@ import {
   TextField,
   Button,
   CircularProgress,
-<<<<<<< HEAD
-} from "@mui/material";
-import { useGetMemberDetails, useUpdateProfile } from "../../../api/User/useGetProfileDetails";
-import TokenService from "../../../token/tokenService";
-import { LoadingComponent } from "../../../../App";
-import { toast } from "react-toastify";
-import '../../../variables/Variables.scss'
-
-const LifeStyle = () => {
-  const registerNo = TokenService.getRegistrationNo();
-=======
   useMediaQuery,
   useTheme
 } from "@mui/material";
@@ -30,7 +19,6 @@ const LifeStyle = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const registerNo = TokenService.getRegistrationNo();
   
->>>>>>> 86e228c (New design)
   const [formData, setFormData] = useState({
     drink: "",
     smoke: "",
@@ -48,19 +36,6 @@ const LifeStyle = () => {
     error 
   } = useGetMemberDetails(registerNo);
 
-<<<<<<< HEAD
-  // Update profile mutation
-  const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
-
-  useEffect(() => {
-      if (userProfile) {
-        setFormData({
-          ...userProfile,
-        });
-      }
-    }, [userProfile]);
-  
-=======
   const { mutate: updateProfile, isPending: isUpdating } = useUpdateProfile();
 
   useEffect(() => {
@@ -70,7 +45,6 @@ const LifeStyle = () => {
       });
     }
   }, [userProfile]);
->>>>>>> 86e228c (New design)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,60 +56,12 @@ const LifeStyle = () => {
 
   const handleSave = () => {
     updateProfile(formData, {
-<<<<<<< HEAD
-=======
       onSuccess: () => toast.success("Profile updated successfully!"),
       onError: () => toast.error("Failed to update profile.")
->>>>>>> 86e228c (New design)
     });
   };
 
   const handleClear = () => {
-<<<<<<< HEAD
-    setFormData({
-      drink: "",
-      smoke: "",
-      diet: "",
-      sunsign: "",
-      bloodgroup: "",
-      body_type: "",
-      skin_type: ""
-    });
-  };
-
-  useEffect(() => {
-     if (isError) {
-       toast.error(error.message);
-     }
-   }, [isError, error]);
-
-   const textFieldStyle = {
-    width: {
-      xs: "310px",
-      sm: "100%",
-      md: "350px",
-      lg: "400px"
-    }
-  };
-
-  return (
-    <Box sx={{ fontFamily: "Outfit, sans-serif", padding: 1, width: "92%" }}>
-      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-        <Typography variant="h5" sx={{fontSize:{ xs:'23px',},color: "var(--primary-text-color)"}}  fontWeight={700}>
-          Life Style & Appearance
-        </Typography>
-      </Box>
-
-      <Box  sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',
-            md: 'repeat(2, 1fr)',
-            lg: 'repeat(2, 1fr)'
-          },
-          gap: 2
-        }}>
-=======
      if (userProfile) {
       setFormData({
         ...userProfile,
@@ -167,7 +93,6 @@ const LifeStyle = () => {
         gap: isMobile ? 3 : 4,
         mt:2
       }}>
->>>>>>> 86e228c (New design)
         {/* Drink */}
         <TextField
           select
@@ -176,10 +101,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.drink}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Yes">Yes</MenuItem>
           <MenuItem value="No">No</MenuItem>
@@ -194,10 +115,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.smoke}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Yes">Yes</MenuItem>
           <MenuItem value="No">No</MenuItem>
@@ -212,10 +129,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.diet}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Veg">Veg</MenuItem>
           <MenuItem value="Non-Veg">Non-Veg</MenuItem>
@@ -230,10 +143,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.sunsign}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Aries">Aries</MenuItem>
           <MenuItem value="Taurus">Taurus</MenuItem>
@@ -249,10 +158,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.bloodgroup}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="A+">A+</MenuItem>
           <MenuItem value="B+">B+</MenuItem>
@@ -268,10 +173,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.body_type}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Slim">Slim</MenuItem>
           <MenuItem value="Athletic">Athletic</MenuItem>
@@ -286,10 +187,6 @@ const LifeStyle = () => {
           fullWidth
           value={formData.skin_type}
           onChange={handleChange}
-<<<<<<< HEAD
-          sx={{...textFieldStyle}}
-=======
->>>>>>> 86e228c (New design)
         >
           <MenuItem value="Fair">Fair</MenuItem>
           <MenuItem value="Wheatish">Wheatish</MenuItem>
@@ -298,44 +195,6 @@ const LifeStyle = () => {
       </Box>
      
       <Box
-<<<<<<< HEAD
-      mt={1}
-                    sx={{
-                      display: "flex",
-                      gap: "10px",
-                      flexDirection: { xs: "row", sm: "row" },
-                      alignItems: { xs: "center", sm: "center" },
-                      justifySelf: {sm:'end',md:'end'}
-                    }}
-                  >
-                    <Button
-                      onClick={handleClear}
-                      variant="outlined"
-                      sx={{
-                        color: "black",
-                        backgroundColor: "#fff",
-                        textTransform: "capitalize",
-                        "&:hover": { backgroundColor: "#fff" },
-                        width: { xs: "100%", sm: "130px" }
-                      }}
-                    >
-                      Clear
-                    </Button>
-                    <Button
-                      onClick={handleSave}
-                      variant="contained"
-                      disabled={isUpdating}
-                      sx={{
-                       background: "var( --blue-btn-color)",
-                        textTransform: "capitalize",
-                        "&:hover": { background: "var(--blue-btn-hover-color)" },
-                        width: { xs: "100%", sm: "130px" }
-                      }}
-                    >
-                      {isUpdating ? <CircularProgress size={24} /> : "Save"}
-                    </Button>
-                  </Box>
-=======
         mt={4}
         sx={{
           display: "flex",
@@ -375,7 +234,6 @@ const LifeStyle = () => {
         </Button>
       </Box>
       
->>>>>>> 86e228c (New design)
       {isLoading && <LoadingComponent/>}
     </Box>
   );

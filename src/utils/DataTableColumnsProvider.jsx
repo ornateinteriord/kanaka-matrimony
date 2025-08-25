@@ -2,10 +2,7 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 import { ModeComment } from "@mui/icons-material";
 import { getRelativeTime } from "./common/date";
-<<<<<<< HEAD
-=======
 import { ViewImagesComponent } from "../components/Admin/imageVarify/ImageVerificationdata";
->>>>>>> 86e228c (New design)
 
 
 export const customStyles = {
@@ -106,11 +103,7 @@ export const getImageVerificationColumns = (upgradeUserMutation,handleStatusUpda
     },
     {
       name: "Email ID",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -137,17 +130,6 @@ export const getImageVerificationColumns = (upgradeUserMutation,handleStatusUpda
       cell: (row) => (
         <Button
           variant="contained"
-<<<<<<< HEAD
-          color={row.image_verification === "active" ? "warning" : "success"}
-          size="small"
-          onClick={() => handleStatusUpdate(row.registration_no, row.image_verification)}
-          disabled={upgradeUserMutation.isLoading }
-        >
-          {row.image_verification === "active" ? "pending" : "active"}
-        </Button>
-      ),
-    },
-=======
           sx={{backgroundColor:row.image_verification ==="active" ?"orange":"green","&:hover":{backgroundColor:row.image_verification ==="active" ?"orange":"green"}}}
           size="small"
           onClick={() => handleStatusUpdate(row.registration_no, row.image_verification)}
@@ -176,7 +158,6 @@ export const getImageVerificationColumns = (upgradeUserMutation,handleStatusUpda
    
   ),
 }
->>>>>>> 86e228c (New design)
   ];
 
 export const getRenewalsColumns = () => [
@@ -192,11 +173,7 @@ export const getRenewalsColumns = () => [
     },
     {
       name: "Email Id",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -234,11 +211,7 @@ export const getResetPasswordColumns = (handleOpenDialog) =>  [
     },
     {
       name: "Username",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -375,11 +348,7 @@ export const getUserTableColumns = (formatUserRole) =>  [
     },
     {
       name: "Username",
-<<<<<<< HEAD
-      selector: row => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -389,20 +358,6 @@ export const getUserTableColumns = (formatUserRole) =>  [
     },
     {
       name: "Membership",
-<<<<<<< HEAD
-      cell: row => (
-        <Typography
-          sx={{
-            color: row.user_role === 'PremiumUser' ? '#FFD700' : 
-                  row.user_role === 'SilverUser' ? '#C0C0C0' : 
-                  row.user_role === 'FreeUser' ? '#4CAF50' :
-                  row.user_role === 'Assistance' ? '#3498db' : '#333',
-          }}
-        >
-          {formatUserRole(row.user_role)}
-        </Typography>
-      ),
-=======
       cell: row => {
         const role = row?.user_role || row?.type_of_user;
         return (
@@ -418,7 +373,6 @@ export const getUserTableColumns = (formatUserRole) =>  [
         </Typography>
       )
       },
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -556,11 +510,7 @@ export const getUserDataColumns = (upgradeUserMutation, handleUpgrade) => [
     },
     {
       name: "Email Id",
-<<<<<<< HEAD
-      selector: row => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -587,16 +537,6 @@ export const getUserDataColumns = (upgradeUserMutation, handleUpgrade) => [
       cell: row => (
         <Button
           variant="contained"
-<<<<<<< HEAD
-          color="success"
-          size="small"
-          sx={{ textTransform: "capitalize" }}
-          onClick={() => handleUpgrade(row.registration_no, row.status)}
-          disabled={upgradeUserMutation.isLoading && 
-            upgradeUserMutation.variables?.regno === row.registration_no}
-        >
-          {upgradeUserMutation.isLoading && 
-=======
           size="small"
           disabled={upgradeUserMutation.isPending && upgradeUserMutation.variables?.regno === row.registration_no}
           sx={{ textTransform: "capitalize",   backgroundColor: row.status === "active" ? "#f44336" : "#4caf50","&:hover": {
@@ -605,7 +545,6 @@ export const getUserDataColumns = (upgradeUserMutation, handleUpgrade) => [
           onClick={() => handleUpgrade(row.registration_no, row.status)}
         >
           {upgradeUserMutation.isPending && 
->>>>>>> 86e228c (New design)
             upgradeUserMutation.variables?.regno === row.registration_no
             ? "Processing..."
             : row.status === "active"
@@ -629,11 +568,7 @@ export const getUserDataColumns = (upgradeUserMutation, handleUpgrade) => [
     },
     {
       name: "Email",
-<<<<<<< HEAD
-      selector: row => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -667,11 +602,7 @@ export const getUserDataColumns = (upgradeUserMutation, handleUpgrade) => [
     },
     {
       name: "Email",
-<<<<<<< HEAD
-      selector: row => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -744,11 +675,7 @@ export const getOnlineTransactionColumns = (showActive) => [
     },
     {
       name: "UserName",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -796,20 +723,12 @@ export const getOnlineTransactionColumns = (showActive) => [
     },
     {
       name: "Username",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
       name: "Email",
-<<<<<<< HEAD
-      selector: (row) => row.email,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {
@@ -905,11 +824,7 @@ export const getOnlineTransactionColumns = (showActive) => [
     },
     {
       name: "UserName",
-<<<<<<< HEAD
-      selector: (row) => row.username,
-=======
       selector: row => row?.username || row?.email_id,
->>>>>>> 86e228c (New design)
       sortable: true,
     },
     {

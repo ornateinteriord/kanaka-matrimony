@@ -8,23 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './components/roterProtector/RouterProtector';
 import Register from './components/register/Register';
 import MembershipPlan from './components/membershipplan/MembershipPlan';
-<<<<<<< HEAD
-
-// Create a query client with default options
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      refetchOnWindowFocus: false,
-      retry: 1,
-      cacheTime: 1000 * 60 * 30, // 30 minutes
-    },
-    mutations: {
-      retry: 1,
-    },
-  },
-});
-=======
 import PromotersDashboard from './components/PromotersDash/PromotersDashboard';
 import AdminProfileDialog from './components/Adminprofile/AdminProfile';
 
@@ -46,7 +29,6 @@ import NotFoundPage from './components/notFound/NotFoundPage';
 
 // Create a query client with default options
 const queryClient = new QueryClient();
->>>>>>> 86e228c (New design)
 
 // Lazy loading components
 const HeroSlider = lazy(() => import('./components/hero/HeroSlider'));
@@ -121,33 +103,7 @@ export const LoadingComponent = () => {
   );
 };
 
-<<<<<<< HEAD
-export const TableLoadingComponent = () => {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height: '200px', // Adjust height as needed
-        backgroundColor: 'transparent',
-      }}
-    >
-      <CircularProgress 
-        size={64}  
-        thickness={3.6} 
-        sx={{
-          color: "1a4f72",
-          animationDuration: '800ms', 
-        }} 
-      />
-    </Box>
-  );
-};
-=======
 
->>>>>>> 86e228c (New design)
 
 const App = () => {
   return (
@@ -159,10 +115,7 @@ const App = () => {
   
       }>
         <Router>
-<<<<<<< HEAD
-=======
            <ScrollToTop />
->>>>>>> 86e228c (New design)
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<><HeroSlider /><Connect /><Members /></>} />
@@ -198,8 +151,6 @@ const App = () => {
               <Route path="notification" element={<NotificationData />} />
             </Route>
             </Route>
-<<<<<<< HEAD
-=======
            
              {/* <Route element={<ProtectedRoute allowedRoles={["Admin"]} />}> */}
             <Route element={<ProtectedRoute allowedRoles={["promoter"]} />}>
@@ -215,7 +166,6 @@ const App = () => {
               <Route path="team-users" element={<TeamUsers />} />
               </Route>
             </Route>
->>>>>>> 86e228c (New design)
 
             {/* User Routes */}
             <Route element={<ProtectedRoute allowedRoles={["FreeUser","PremiumUser","SilverUser"]} />}>
@@ -228,29 +178,15 @@ const App = () => {
               <Route path="search" element={<Search />} />
             </Route>
             </Route>
-<<<<<<< HEAD
-
-            {/* 404 Route */}
-            <Route path="*" element={<div>404 Not Found</div>} />
-=======
             
             {/* 404 Route */}
             <Route path="activation-pending" element={<ActivationPending />} />
            <Route path="*" element={<NotFoundPage />} />
->>>>>>> 86e228c (New design)
           </Routes>
         </Router>
       
         <ToastContainer position="top-right" autoClose={5000} />
       </Suspense>
-<<<<<<< HEAD
-      
-      {/* React Query Devtools - Only in development */}
-      {/* {process.env.NODE_ENV === 'development' && (
-        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      )} */}
-=======
->>>>>>> 86e228c (New design)
     </QueryClientProvider>
 
     {/* <ProfileViewer /> */}

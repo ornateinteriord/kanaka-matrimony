@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-@use '../variables/Variables.scss';
-
-.footer {
-  background: var(--primary-color);
-=======
 .footer {
   background: #5e0476;
->>>>>>> 86e228c (New design)
   color: #fff;
   padding: 40px 0 20px;
   font-family: "Outfit", sans-serif;
@@ -29,20 +22,14 @@
   }
 
   &-heading {
-<<<<<<< HEAD
-=======
     font-weight: 400;
->>>>>>> 86e228c (New design)
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #fff;
   }
 
   &-subheading {
-<<<<<<< HEAD
-=======
     font-weight: 250;
->>>>>>> 86e228c (New design)
     font-size: 1.2rem;
     margin-bottom: 15px;
     color: #fff;
@@ -87,11 +74,7 @@
   }
 
   &-button {
-<<<<<<< HEAD
-    background-color: var(--blue-btn-color);
-=======
     background-color: #27ae60;
->>>>>>> 86e228c (New design)
     color: #fff;
     padding: 12px 25px;
     border: none;
@@ -103,11 +86,7 @@
     width: 100%;
 
     &:hover {
-<<<<<<< HEAD
-      background-color: var(--blue-btn-hover-color);
-=======
       background-color: #1e8449;
->>>>>>> 86e228c (New design)
     }
   }
 

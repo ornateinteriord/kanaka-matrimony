@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-
-import { List, ListItem, Box, Button, Typography } from "@mui/material";
-import { getMenuItems } from "../../utils/menudata/MenuData"; 
-import '../variables/Variables.scss'
-
-const SidebarMenu = ({
-  selectedItem,
-  setSelectedItem,
-=======
 import React from "react";
 import { List, ListItem, Box, Button, Typography, Chip } from "@mui/material";
 import {
@@ -23,7 +13,6 @@ import { Dashboard } from "@mui/icons-material";
 
 const SidebarMenu = ({
   selectedItem,
->>>>>>> 86e228c (New design)
   handleDashboardClick,
   handleProfileClick,
   handleMatchesClick,
@@ -33,17 +22,6 @@ const SidebarMenu = ({
   handleOpenLogoutDialog,
   userProfile,
 }) => {
-<<<<<<< HEAD
-  const menuItems = getMenuItems({
-    handleDashboardClick,
-    handleProfileClick,
-    handleMatchesClick,
-    handleInterestClick,
-    handleViewAllClick,
-    handleSearchClick,
-    handleOpenLogoutDialog,
-  });
-=======
   const menuItems = [
     {
       text: "Dashboard",
@@ -81,7 +59,6 @@ const SidebarMenu = ({
       onClick: handleOpenLogoutDialog,
     },
   ];
->>>>>>> 86e228c (New design)
 
   return (
     <Box sx={{ overflow: "auto" }}>
@@ -92,14 +69,6 @@ const SidebarMenu = ({
               variant="h5"
               marginLeft={2}
               textTransform={"capitalize"}
-<<<<<<< HEAD
-            >
-              {userProfile?.first_name}
-              <Typography sx={{color:"#fff"}}>
-                Id: {userProfile?.registration_no} 
-              </Typography>
-            </Typography>
-=======
               sx={{fontSize:"2rem"}}
             >
               {userProfile?.first_name}
@@ -121,7 +90,6 @@ const SidebarMenu = ({
                     fontWeight: "bold",
                   }}
                 />
->>>>>>> 86e228c (New design)
           </Box>
         </ListItem>
 
@@ -129,25 +97,12 @@ const SidebarMenu = ({
           <ListItem
             key={index}
             disablePadding
-<<<<<<< HEAD
-            onClick={() => {
-              item.onClick();
-              setSelectedItem(item.text);
-            }}
-            sx={{
-              backgroundColor:
-                selectedItem === item.text ? "var(--blue-btn-color)" : "transparent",
-              "&:hover": {
-                backgroundColor:
-                  selectedItem === item.text ? "var(--blue-btn-hover-color)" : "transparent",
-=======
             onClick={item.onClick}
             sx={{
               backgroundColor:
                 selectedItem === item.text ? "#b47ac4" : "transparent",
               "&:hover": {
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
->>>>>>> 86e228c (New design)
               },
               borderRadius: "2px",
               mx: 0,
@@ -178,8 +133,4 @@ const SidebarMenu = ({
   );
 };
 
-<<<<<<< HEAD
 export default SidebarMenu;
-=======
-export default SidebarMenu;
->>>>>>> 86e228c (New design)

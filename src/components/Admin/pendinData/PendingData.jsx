@@ -2,20 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
-<<<<<<< HEAD
-  Select,
-  MenuItem,
-  TextField,
-  InputAdornment,
-  Paper,
-  Stack,
-} from "@mui/material";
-import { FaSearch } from "react-icons/fa";
-import { getAllUserProfiles } from "../../api/Admin";
-import {  TableLoadingComponent } from "../../../App";
-import { toast } from "react-toastify";
-import DataTable from "react-data-table-component";
-=======
   InputAdornment,
   Paper,
   TextField,
@@ -24,19 +10,10 @@ import { FaSearch } from "react-icons/fa";
 import { getAllAssistancePending } from "../../api/Admin";
 import { toast } from "react-toastify";
 import PaginationDataTable from "../../common/PaginationDataTable";
->>>>>>> 86e228c (New design)
 import {
   customStyles,
   getAssistancePendingColumns,
 } from "../../../utils/DataTableColumnsProvider";
-<<<<<<< HEAD
-
-const PendingData = () => {
-  const { data: users = [], isLoading, isError, error } = getAllUserProfiles();
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-=======
 import { LoadingTextSpinner } from "../../../utils/common";
 
 const PendingData = () => {
@@ -62,36 +39,11 @@ const PendingData = () => {
   }, [paginationModel.page, paginationModel.pageSize, fetchUsers]);
 
   useEffect(() => {
->>>>>>> 86e228c (New design)
     if (isError) {
       toast.error(error.message);
     }
   }, [isError, error]);
 
-<<<<<<< HEAD
-  const filteredRecords = users.filter((record) => {
-    const isAdmin = record?.user_role?.toLowerCase() === "admin";
-    const isPending = record?.status?.toLowerCase() === "pending"; // Check if status is "pending"
-
-    return (
-      !isAdmin &&
-      isPending && // Only include pending users
-      [
-        record.registration_no?.toString().toLowerCase(),
-        record.first_name?.toLowerCase(),
-        record.username?.toLowerCase(),
-        record.mobile_no?.toString().toLowerCase(),
-        record.caste?.toString().toLowerCase(),
-        record.type_of_user?.toString().toLowerCase(),
-      ].some((field) => field?.includes(search.toLowerCase()))
-    );
-  });
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-=======
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
@@ -123,7 +75,6 @@ const PendingData = () => {
     );
   });
 
->>>>>>> 86e228c (New design)
   return (
     <Box p={5} marginTop={6}>
       <Typography
@@ -153,30 +104,6 @@ const PendingData = () => {
         />
       </Box>
 
-<<<<<<< HEAD
-      <Paper>
-        <DataTable
-          columns={getAssistancePendingColumns()}
-          data={filteredRecords}
-          customStyles={customStyles}
-          pagination
-          paginationPerPage={6}
-          paginationRowsPerPageOptions={[6, 10, 15, 20]}
-          paginationComponentOptions={{
-            rowsPerPageText: "Rows per page:",
-            rangeSeparatorText: "of",
-            noRowsPerPage: false,
-          }}
-          noDataComponent={
-            <Typography padding={3}>No data available</Typography>
-          }
-          progressPending={isLoading}
-          progressComponent={<TableLoadingComponent />}
-           persistTableHead
-          highlightOnHover
-        />
-      </Paper>
-=======
       <PaginationDataTable
         columns={getAssistancePendingColumns()}
         data={filteredRows}
@@ -191,13 +118,8 @@ const PendingData = () => {
         persistTableHead
         highlightOnHover
       />
->>>>>>> 86e228c (New design)
     </Box>
   );
 };
 
-<<<<<<< HEAD
 export default PendingData;
-=======
-export default PendingData;
->>>>>>> 86e228c (New design)
