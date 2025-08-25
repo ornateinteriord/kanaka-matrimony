@@ -206,7 +206,7 @@ const About = () => {
             backgroundColor: "#39af5e",
             color: "#fff",
             "&:hover": {
-              backgroundColor: "#6d2980ff"
+              backgroundColor: "#216a38"
             } 
           }}
           startIcon={isUpdating ? <CircularProgress size={20} /> : null}

@@ -132,7 +132,7 @@ const Others = () => {
           sx={{
             backgroundColor: "#39af5e",
             textTransform: "capitalize",
-            "&:hover": { backgroundColor: "#2c3e50" },
+            "&:hover": { backgroundColor: "#216a38" },
             width: isMobile ? "100%" : "130px"
           }}
         >

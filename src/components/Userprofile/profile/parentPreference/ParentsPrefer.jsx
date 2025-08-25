@@ -171,6 +171,7 @@ const ParentsPrefer = () => {
           sx={{
             color: "black",
             backgroundColor: "#fff",
+            borderColor: "#39af5e",
             textTransform: "capitalize",
             "&:hover": { backgroundColor: "#fff" },
             width: { xs: "100%", sm: "130px" }
@@ -183,9 +184,9 @@ const ParentsPrefer = () => {
           variant="contained"
           disabled={isUpdating}
           sx={{
-            backgroundColor: "#34495e",
+            backgroundColor: "#39af5e",
             textTransform: "capitalize",
-            "&:hover": { backgroundColor: "#2c3e50" },
+            "&:hover": { backgroundColor: "#216a38" },
             width: { xs: "100%", sm: "130px" }
           }}
         >
