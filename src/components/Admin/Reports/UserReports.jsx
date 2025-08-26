@@ -25,7 +25,7 @@ const UserReports = () => {
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const users = data?.content || []
-  const [paginationModel,setPaginationModel] = useState({page:0,pageSize:50})
+  const [paginationModel,setPaginationModel] = useState({page:0,pageSize:10})
 
   useEffect(() => {
     if (isError) {

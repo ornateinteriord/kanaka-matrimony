@@ -16,7 +16,7 @@ const RenewalsData = () => {
   const { data, isPending: isLoading, isError, error, mutate: fetchUsers } = getAllUserProfiles();
   const users = data?.content || [];
   const [search, setSearch] = useState("");
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 50 });
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
 
   useEffect(() => {
     if (isError) {

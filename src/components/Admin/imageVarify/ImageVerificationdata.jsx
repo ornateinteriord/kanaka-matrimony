@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
 
 
 const ImageVerificationData = () => {
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 50 });
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
   const { data, isPending: isLoading, isError, error, mutate: fetchUsers } = getAllUserProfiles();
   const users = data?.content || [];
   const [localUsers, setLocalUsers] = useState(users);

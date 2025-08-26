@@ -31,7 +31,7 @@ const ResetPassword = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 50 });
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
   
   // API calls
   const { 
