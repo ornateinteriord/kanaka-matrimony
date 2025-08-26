@@ -17,7 +17,7 @@ import { LoadingTextSpinner } from "../../../utils/common";
 
 
 const SuccessData = () => {
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 50 });
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
   const { data, isPending: isLoading, isError, error, mutate: fetchUsers } = getAllAssistanceSuccess();
   const users = data?.content || [];
   const [search, setSearch] = useState("");

@@ -27,7 +27,7 @@ const UserData = () => {
   const [search, setSearch] = useState("");
   const [paginationModel, setPaginationModel] = useState({
     page: 0,
-    pageSize: 50,
+    pageSize: 10,
   });
   const isMobile = useMediaQuery("(max-width:600px)");
 

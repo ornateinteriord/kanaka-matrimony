@@ -19,7 +19,7 @@ import { LoadingTextSpinner } from "../../../utils/common";
 const PendingData = () => {
   const [paginationModel, setPaginationModel] = useState({ 
     page: 0, 
-    pageSize: 50 
+    pageSize: 10 
   });
   const { 
     data, 

@@ -25,7 +25,7 @@ const UserTable = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   
   // State management
-  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 50 });
+  const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedUserType, setSelectedUserType] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("status");
