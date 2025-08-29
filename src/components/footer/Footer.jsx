@@ -10,7 +10,7 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-section">
-            <h2 className="footer-heading">Sangam Sathi</h2>
+            <h2 className="footer-heading">  Kanaka Matrimony</h2>
             <p className="footer-text">
               A Superior Matrimony Service. Register and find your special
               someone matches within your community.
