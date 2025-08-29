@@ -11,7 +11,7 @@ const AboutUs = () => {
         <section className="about-us-intro">
           <div className="about-us-text">
             <h4 className="highlight-text">About Us</h4>
-            <h2 className="main-heading">Sangam Sathi</h2>
+            <h2 className="main-heading">  Kanaka  Matrimony</h2>
           <h3 className="headingh3">
   Established in March 26<sup>th</sup> 2012
 </h3>
