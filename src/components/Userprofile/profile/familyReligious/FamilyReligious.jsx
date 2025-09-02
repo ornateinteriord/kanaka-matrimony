@@ -166,6 +166,7 @@ const FamilyReligious = () => {
           disabled={isUpdating}
           fullWidth={true}
           sx={{ 
+             border:'1px solid #39af5e',
             color:"black",
             maxWidth: { xs: '160px', sm: 180 },
             textTransform: 'capitalize',
