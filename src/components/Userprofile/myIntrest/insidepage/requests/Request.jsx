@@ -17,6 +17,7 @@ import TokenService from "../../../../token/tokenService";
 import toast from "react-hot-toast";
 import { LoadingTextSpinner } from "../../../../../utils/common";
 import UserCard from "../../../../common/UserCard";
+import ProfileDialog from "../../../ProfileDialog/ProfileDialog";
 
 const Requests = ({ refetchCounts }) => {
   const [currentPage, setCurrentPage] = useState(1);
