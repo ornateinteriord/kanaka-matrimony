@@ -25,6 +25,11 @@ const Requests = ({ refetchCounts }) => {
   const [selectedSender, setSelectedSender] = useState(null);
   const [isRejecting, setIsRejecting] = useState(false);
 
+  // Add new state for profile dialog
+  const [openDialog, setOpenDialog] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [currentTab, setCurrentTab] = useState(0);
+
   const itemsPerPage = 4;
   const recipient = TokenService.getRegistrationNo();
 
@@ -96,6 +101,12 @@ const Requests = ({ refetchCounts }) => {
     setSelectedSender(null);
   };
 
+  // Add handleOpenDialog function
+  const handleOpenDialog = (user) => {
+    setSelectedUser(user);
+    setOpenDialog(true);
+  };
+
   const interests = receivedInterests?.content || [];
 
   return (
@@ -111,7 +122,7 @@ const Requests = ({ refetchCounts }) => {
         }}
       >
         {isFetching ? (
-           <Box
+          <Box
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -128,6 +139,7 @@ const Requests = ({ refetchCounts }) => {
             <UserCard
               key={interest._id}
               profile={interest.sender}
+              onViewMore={handleOpenDialog} // Add this prop
               onResponse={(senderRefNo, isAccepted) =>
                 isAccepted
                   ? updateInterest(
@@ -160,6 +172,19 @@ const Requests = ({ refetchCounts }) => {
           ))
         )}
       </Box>
+
+      {/* Add ProfileDialog component */}
+      {selectedUser && (
+        <ProfileDialog
+          openDialog={openDialog}
+          setOpenDialog={setOpenDialog}
+          selectedUser={selectedUser}
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          isLoading={false}
+          isRequestTab={true}
+        />
+      )}
 
       {totalPages > 1 && interests.length > 0 && (
         <Box sx={{ display: "flex", justifyContent: "end", marginTop: 4 }}>

@@ -34,6 +34,7 @@ const ProfileDialog = ({
   currentTab,
   setCurrentTab,
   isLoading,
+  isRequestTab = false,
 }) => {
   const tabLabels = [
     "About",
@@ -157,9 +158,9 @@ const ProfileDialog = ({
           text: "Express Interest",
           disabled: false,
             customStyle: {
-            backgroundColor: "#39af5e",
+            backgroundColor: "#4caf50",
             "&:hover": {
-              backgroundColor: "#216a38",
+              backgroundColor: "#7a1c9a",
             },
           },
         };
@@ -309,7 +310,7 @@ const ProfileDialog = ({
   sx={{
     mb: 2,
     "& .MuiTabs-indicator": {
-      backgroundColor: "#39af5e", 
+      backgroundColor: "#4caf50", 
       height: 3,
     },
     "& .MuiTab-root": {
@@ -320,12 +321,12 @@ const ProfileDialog = ({
       fontWeight: 500,
       color: "text.secondary",
       "&.Mui-selected": {
-        color: "#39af5e",
+        color: "#4caf50",
         fontWeight: 600,
       },
       "&:hover": {
-        backgroundColor: "#abdcbaff", 
-        color: "#39af5e",
+        backgroundColor: "rgba(94, 4, 118, 0.08)", 
+        color: "#4caf50",
       },
     },
   }}
@@ -399,7 +400,7 @@ const ProfileDialog = ({
                 },
               }}
             >
-              {loggedInUserId !== selectedUser?.registration_no && (
+              {loggedInUserId !== selectedUser?.registration_no && !isRequestTab && (
                 <Button
                   variant="contained"
                   color={buttonState.color}
