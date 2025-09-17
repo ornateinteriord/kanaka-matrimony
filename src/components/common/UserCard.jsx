@@ -17,17 +17,19 @@ const UserCard = ({
   connection = null,
   onViewMore = () => {},
   onCancelRequest = () => {},
+  onRemoveConnection = () => {},
   interestId = null,
   showCancelButton = false,
   onResponse = () => {},
   showResponseButtons = false,
+   showRemoveButton = false,
 }) => {
   const age = profile?.age || calculateAge(profile?.date_of_birth);
 
   return (
     <Card
       sx={{
-        width: { xs: 300, sm: 280, md: 260, lg: 280 },
+       width: { xs: 280, sm: 280, md: 260, lg: 280 },
         borderRadius: 4,
         boxShadow: 3,
         overflow: "hidden",
@@ -89,16 +91,16 @@ const UserCard = ({
           }}
         />
       )}
-
       <Box
         sx={{
           width: { xs: 100, sm: 120 },
           height: { xs: 100, sm: 120 },
           borderRadius: "50%",
+          border: "3px solid #39af5e",
           boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
           mb: 2,
-          padding: "3px",
-          background: "linear-gradient(45deg,  #39af5e)",
+          padding: "2px",
+          background: "linear-gradient(45deg, #39af5e, #E0F7FA)",
         }}
       >
         <Avatar
@@ -167,21 +169,29 @@ const UserCard = ({
           <ProfileInfo label="Caste" value={profile?.caste || "N/A"} />
         </Box>
 
-        <Box display="flex" justifyContent="center"  gap={1}  width="100%" mt="auto">
-          {showResponseButtons ? (
-            <>
+       <Box
+          display="flex"
+          justifyContent="center"
+          gap={1}
+          width="100%"
+          mt="auto"
+          flexWrap="wrap"
+        >
+          {showResponseButtons && (
+            <Box sx={{ display: 'flex', gap: 1, width: '100%', mb: 1 }}>
               <Button
                 fullWidth
                 variant="outlined"
                 sx={{
                   background: "#fff",
+                  ":hover":{
+                    background: "transparent"
+                  },
                   color: "red",
                   fontWeight: 500,
                   borderColor: "red",
                   textTransform: "capitalize",
-                  "&:hover":{
-                    backgroundColor:'unset'
-                  }
+                  flex: 1
                 }}
                 onClick={() => onResponse(profile?.registration_no, false)}
               >
@@ -191,57 +201,86 @@ const UserCard = ({
                 fullWidth
                 variant="contained"
                 sx={{
-                  backgroundColor:'#39af5e',
-                   "&:hover":{
-                    backgroundColor:'#216a38'
-                  },
-                  color: "#fff",
+                  backgroundColor: "transparent",
+                  color: "#000",
                   textTransform: "capitalize",
+                  border:'1px solid #39af5e',
+                  flex: 1,
+                  "&:hover": {
+                    backgroundColor: "#39af5e",
+                  }
                 }}
                 onClick={() => onResponse(profile?.registration_no, true)}
               >
                 Accept
               </Button>
-            </>
-          ) : (
-            <>
-              <Button
-                fullWidth
-                variant="contained"
-                onClick={() => onViewMore(profile)}
-                sx={{
-                  flex: 1,
-                  borderRadius: 2,
-                  py: 1,
-                  textTransform: "none",
-                  fontWeight: 500,
-                  fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                  backgroundColor:'#39af5e',
-                  "&:hover": { backgroundColor: "#216a38" },
-                }}
-              >
-                View More
-              </Button>
-              {showCancelButton && (
-                <Button
-                  fullWidth
-                  variant="outlined"
-                  color="primary"
-                  onClick={() => onCancelRequest(interestId)}
-                  sx={{
-                    flex: 1,
-                    borderRadius: 2,
-                    py: 1,
-                    textTransform: "none",
-                    fontWeight: 500,
-                    fontSize: { xs: "0.8rem", sm: "0.7rem" },
-                    "&:hover": { backgroundColor: "transparent" },
-                  }}
-                >
-                  Cancel Request
-                </Button>
-              )}
-            </>
+            </Box>
+          )}
+
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={() => onViewMore(profile)}
+            sx={{
+              backgroundColor: "#4caf50",
+              "&:hover": {
+                    backgroundColor: "#45a049"
+                  },
+              minWidth: "120px",
+              borderRadius: 2,
+              py: 1,
+              textTransform: "none",
+              fontWeight: 500,
+              fontSize: { xs: "0.8rem", sm: "0.9rem" },
+            }}
+          >
+            View More
+          </Button>
+
+          {showRemoveButton && (
+            <Button
+              fullWidth
+              variant="outlined"
+              color="primary"
+              onClick={() => onRemoveConnection(interestId)}
+              sx={{
+                flex: 1,
+                borderRadius: 2,
+                py: 1,
+                textTransform: "none",
+                fontWeight: 500,
+                fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                backgroundColor: "#d32f2f",
+                color : '#fff',
+                "&:hover": {
+                  backgroundColor: "#d32f2f",
+                  color : '#fff',
+                  borderColor : '#fff'
+                },
+              }}
+            >
+              Remove Connection
+            </Button>
+          )}
+
+          {showCancelButton && (
+            <Button
+              fullWidth
+              variant="outlined"
+              color="primary"
+              onClick={() => onCancelRequest(interestId)}
+              sx={{
+                flex: 1,
+                borderRadius: 2,
+                py: 1,
+                textTransform: "none",
+                fontWeight: 500,
+                fontSize: { xs: "0.8rem", sm: "0.7rem" },
+                "&:hover": { backgroundColor: "transparent" },
+              }}
+            >
+              Cancel Request
+            </Button>
           )}
         </Box>
       </CardContent>

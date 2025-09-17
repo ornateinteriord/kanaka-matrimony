@@ -39,7 +39,7 @@ const MyInterest = () => {
   const renderContents = () => {
     switch (tabValue) {
       case 0:
-        return <Accepted />;
+        return <Accepted refetchCounts={refetchCounts} />;
       case 1:
         return <Requests refetchCounts={refetchCounts} />;
       case 2:
@@ -60,7 +60,7 @@ const MyInterest = () => {
         variant="h5"
         sx={{
           fontSize: { xs: "21px", sm: "25px" },
-          color: "#39af5e",
+          color: "#4caf50 ",
           mt: { xs: 1 },
           mb: { xs: 1, md: 2 },
         }}
@@ -82,14 +82,14 @@ const MyInterest = () => {
             color: "#444",
             "&:hover": {
               backgroundColor: "transparent",
-              color: "#39af5e",
+              color: "#4caf50 ",
             },
           },
           "& .Mui-selected": {
-            color: "#39af5e !important",
+            color: "#4caf50  !important",
           },
           "& .MuiTabs-indicator": {
-            backgroundColor: "#39af5e",
+            backgroundColor: "#4caf50 ",
           },
         }}
       >
