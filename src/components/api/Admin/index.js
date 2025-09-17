@@ -5,6 +5,7 @@ import { get, post, put } from "../authHooks";
 import { toast } from "react-toastify";
 
 
+
 export const useUpgradeUserType = () => {
    return useMutation({
     mutationFn: async ({ userType, amountPaid, paidType, referenceNumber, registration_no }) => {
@@ -19,6 +20,7 @@ export const useUpgradeUserType = () => {
     },
   });
 };
+
 
 export const getAllUserImageVerification = () => {
    return useMutation({
